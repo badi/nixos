@@ -5,105 +5,33 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./irmo/hardware-configuration.nix
-      ./hardware/yubico/yubikey.nix
-    ];
+  imports = [
+    ./irmo/hardware-configuration.nix
+    ./hardware/yubico/yubikey.nix
+
+    ./audio.nix
+    ./boot.nix
+    ./environment.nix
+    ./fonts.nix
+    ./i18n.nix
+    ./nix.nix
+    ./networking.nix
+    ./programs.nix
+    ./services.nix
+    ./time.nix
+    ./users.nix
+    ./zram.nix
+  ];
 
   # hardware.bluetooth.enable = false;
-  hardware.pulseaudio.enable = true;
-  zramSwap.enable = true;
-  zramSwap.memoryPercent = 20;
 
   # Use the gummiboot efi boot loader.
   boot.loader.gummiboot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.cleanTmpDir = true;
-  boot.zfs.forceImportAll = true;
-  networking.hostId = "b555bd11";
 
+    networking.hostId = "b555bd11";
   networking.hostName = "irmo";
-  networking.interfaceMonitor.enable = true;
-  networking.wireless.enable = false;
-  networking.networkmanager.enable = true;
-  networking.tcpcrypt.enable = true;
-  networking.firewall = {
-    enable = true;
-    allowPing = true;
-  };
 
-  i18n = {
-    consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "us";
-    defaultLocale = "en_US.UTF-8";
-  };
-
-  fonts = {
-    enableFontDir = true;
-    enableCoreFonts = true;
-    enableGhostscriptFonts = true;
-    fonts = with pkgs; [
-      corefonts
-      inconsolata
-      liberation_ttf
-      dejavu_fonts
-      bakoma_ttf
-      gentium
-      ubuntu_font_family
-      terminus_font
-    ];
-  };
-
-  nix = {
-    useChroot = true;
-    trustedBinaryCaches = [
-      # https://hydra.cryp.to
-      https://cache.nixos.org
-    ];
-    binaryCaches = [
-      # https://hydra.cryp.to
-      https://cache.nixos.org
-    ];
-    binaryCachePublicKeys = [ "hydra.cryp.to-1:8g6Hxvnp/O//5Q1bjjMTd5RO8ztTsG8DKPOAg9ANr2g=" ];
-    extraOptions = ''
-      binary-caches-parallel-connections = 50
-    '';
-  };
-  
-  nixpkgs.config.allowUnfree = true;
-  powerManagement.enable = true;
-  programs.light.enable = true;
-  programs.kbdlight.enable = true;
-  programs.bash.enableCompletion = true;
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-  };
-    
-
-  time.timeZone = "US/Eastern";
-
-  environment.variables = {
-    HOST = config.networking.hostName;
-    HOSTNAME = config.networking.hostName;
-  };
-
-  environment.systemPackages = with pkgs; [
-    file lsof psmisc which hwdata iotop lshw
-    wget curl
-    vim emacs24-nox
-    gitAndTools.gitFull
-    xscreensaver
-  ];
-
-  services.locate.enable = true;
-  services.openssh.enable = true;
-  services.printing.enable = true;
-  services.upower.enable = true;
-
-  services.xserver.enable = true;
-  services.xserver.layout = "us";
   services.xserver.xkbVariant = "mac";
   # services.xserver.multitouch.enable = true;
   # services.xserver.multitouch.tapButtons = true;
@@ -127,14 +55,6 @@
     bluedevil gwenview kate kcalc kcompletion kconfig
     ksysguard okular print-manager powerdevil kcmutils
   ];
-
-  users.extraGroups.yubikey = {};
-  users.extraUsers.badi = {
-    isNormalUser = true;
-    createHome = true;
-    extraGroups = [ "wheel" "networkmanager" "yubikey" ];
-    uid = 1000;
-  };
 
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "16.03";

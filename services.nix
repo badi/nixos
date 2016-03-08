@@ -1,0 +1,12 @@
+{ ... }:
+{
+
+  services.locate.enable = true;
+  services.openssh.enable = true;
+  services.printing.enable = true;
+  services.upower.enable = true;
+
+  services.xserver.enable = true;
+  services.xserver.layout = "us";
+
+}
