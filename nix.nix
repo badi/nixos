@@ -14,6 +14,10 @@
     extraOptions = ''
       binary-caches-parallel-connections = 50
     '';
+    gc = {
+      automatic = true;
+      dates = "monthly";
+    };
   };
 
 }
