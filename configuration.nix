@@ -49,6 +49,10 @@
   services.xserver.videoDrivers = [ "intel" ];
   services.xserver.vaapiDrivers = [ pkgs.vaapiIntel ];
 
+  services.xserver.windowManager.xmonad = {
+    enable = true;
+    enableContribAndExtras = true;
+  };
   services.xserver.displayManager.kdm.enable = true;
   services.xserver.desktopManager.kde5.enable = true;
   kde.extraPackages = with pkgs.kde5; [
