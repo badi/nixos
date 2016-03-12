@@ -53,7 +53,7 @@
     enable = true;
     enableContribAndExtras = true;
   };
-  services.xserver.displayManager.kdm.enable = true;
+  services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.kde5.enable = true;
   kde.extraPackages = with pkgs.kde5; [
     bluedevil gwenview kate kcalc kcompletion kconfig
