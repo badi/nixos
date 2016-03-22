@@ -29,7 +29,7 @@
   boot.loader.gummiboot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-    networking.hostId = "b555bd11";
+  networking.hostId = "b555bd11";
   networking.hostName = "irmo";
 
   services.xserver.xkbVariant = "mac";
