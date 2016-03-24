@@ -1,6 +1,7 @@
 { ... }:
 {
 
+  services.avahi.enable = true;
   services.locate.enable = true;
   services.openssh.enable = true;
   services.printing.enable = true;
