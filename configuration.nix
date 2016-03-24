@@ -54,11 +54,6 @@
     enableContribAndExtras = true;
   };
   services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.kde5.enable = true;
-  kde.extraPackages = with pkgs.kde5; [
-    bluedevil gwenview kate kcalc kcompletion kconfig
-    ksysguard okular print-manager powerdevil kcmutils
-  ];
 
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "16.03";
