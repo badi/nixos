@@ -1,7 +1,6 @@
 { ... }:
 
 {
-  networking.interfaceMonitor.enable = true;
   networking.wireless.enable = false;
   networking.networkmanager.enable = true;
   networking.tcpcrypt.enable = true;
