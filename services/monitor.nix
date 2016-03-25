@@ -28,7 +28,11 @@
     </Plugin>
 
     LoadPlugin disk
-    LoadPlugin ethstat
+
+    <Plugin ethstat>
+      Interface "enp2s0f0"
+      Interface "wlp3s0"
+    </Plugin>
 
     <Plugin memory>
       ValuesPercentage true
