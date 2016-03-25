@@ -17,7 +17,6 @@
       ReportByCpu false
     </Plugin>
 
-    LoadPlugin cgroups
     LoadPlugin ContextSwitch
     LoadPlugin CPUFreq
 
