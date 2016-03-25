@@ -3,7 +3,11 @@
 
   services.avahi.enable = true;
   services.locate.enable = true;
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    passwordAuthentication = false;
+    permitRootLogin = "no";
+  };
   services.printing.enable = true;
   services.smartd.enable = true;
   services.upower.enable = true;
