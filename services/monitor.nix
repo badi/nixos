@@ -65,6 +65,9 @@
   services.grafana.enable = true;
   services.influxdb.enable = true;
   services.influxdb.extraConfig = {
+    meta.bind-address = "localhost:8088";
+    admin.bind-address = "localhost:8083";
+    udb.bind-address = "localhost";
     collectd = {
       enabled = true;
       bind-address = "localhost:8096";
