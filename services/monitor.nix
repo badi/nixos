@@ -51,6 +51,8 @@
       Server "localhost" "8096"
     </Plugin>
 
+    LoadPlugin Uptime
+
   '';
 
   # <Plugin sensors>
