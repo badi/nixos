@@ -21,6 +21,9 @@
     ./time.nix
     ./users.nix
     ./zram.nix
+
+    ./services/monitor.nix
+
   ];
 
   # hardware.bluetooth.enable = false;
