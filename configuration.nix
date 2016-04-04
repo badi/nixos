@@ -23,7 +23,7 @@
     ./users.nix
     ./zram.nix
 
-    ./services/monitor.nix
+    ./monitoring.nix
 
     ./main.nix
 
