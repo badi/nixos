@@ -1,5 +1,11 @@
 { ... }:
 {
+  services.openssh = {
+    enable = true;
+    passwordAuthentication = false;
+    permitRootLogin = "no";
+  };
+
   security.pam = {
     enableOTPW = true;
     enableSSHAgentAuth = true;
