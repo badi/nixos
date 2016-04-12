@@ -28,7 +28,8 @@
     tracker.enable = false;
   };
 
-  services.accounts-daemon.enable = true;  services.devmon.enable = true;
+  services.accounts-daemon.enable = true;
+  services.devmon.enable = true;
   services.geoclue2.enable = true;
   services.telepathy.enable = true;
   services.udisks2.enable = true;
