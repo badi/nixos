@@ -19,6 +19,7 @@
     ./programs.nix
     ./security.nix
     ./services.nix
+    ./system.nix
     ./time.nix
     ./users.nix
     ./zram.nix
