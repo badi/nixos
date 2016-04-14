@@ -228,49 +228,6 @@
                   "value": "nice"
                 }
               ]
-            },
-            {
-              "alias": "softirq",
-              "dsType": "influxdb",
-              "groupBy": [
-                {
-                  "params": [
-                    "auto"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "null"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "cpu_value",
-              "query": "SELECT max(\"value\") FROM \"cpu_value\" WHERE \"type_instance\" = 'softirq' AND $timeFilter GROUP BY time($interval) fill(null)",
-              "refId": "E",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "value"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "max"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "type_instance",
-                  "operator": "=",
-                  "value": "softirq"
-                }
-              ]
             }
           ],
           "timeFrom": null,
@@ -870,6 +827,6 @@
   },
   "refresh": "10s",
   "schemaVersion": 8,
-  "version": 2,
+  "version": 3,
   "links": []
 }
