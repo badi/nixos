@@ -63,7 +63,7 @@
               "groupBy": [
                 {
                   "params": [
-                    "auto"
+                    "10s"
                   ],
                   "type": "time"
                 },
@@ -75,7 +75,7 @@
                 }
               ],
               "measurement": "cpu_value",
-              "query": "SELECT max(\"value\") FROM \"cpu_value\" WHERE \"type_instance\" = 'user' AND $timeFilter GROUP BY time($interval) fill(null)",
+              "query": "SELECT max(\"value\") FROM \"cpu_value\" WHERE \"type_instance\" = 'user' AND $timeFilter GROUP BY time(10s) fill(null)",
               "refId": "A",
               "resultFormat": "time_series",
               "select": [
@@ -106,7 +106,7 @@
               "groupBy": [
                 {
                   "params": [
-                    "auto"
+                    "10s"
                   ],
                   "type": "time"
                 },
@@ -118,7 +118,7 @@
                 }
               ],
               "measurement": "cpu_value",
-              "query": "SELECT max(\"value\") FROM \"cpu_value\" WHERE \"type_instance\" = 'system' AND $timeFilter GROUP BY time($interval) fill(null)",
+              "query": "SELECT max(\"value\") FROM \"cpu_value\" WHERE \"type_instance\" = 'system' AND $timeFilter GROUP BY time(10s) fill(null)",
               "refId": "B",
               "resultFormat": "time_series",
               "select": [
@@ -149,7 +149,7 @@
               "groupBy": [
                 {
                   "params": [
-                    "auto"
+                    "10s"
                   ],
                   "type": "time"
                 },
@@ -161,7 +161,7 @@
                 }
               ],
               "measurement": "cpu_value",
-              "query": "SELECT max(\"value\") FROM \"cpu_value\" WHERE \"type_instance\" = 'wait' AND $timeFilter GROUP BY time($interval) fill(null)",
+              "query": "SELECT max(\"value\") FROM \"cpu_value\" WHERE \"type_instance\" = 'wait' AND $timeFilter GROUP BY time(10s) fill(null)",
               "refId": "C",
               "resultFormat": "time_series",
               "select": [
@@ -192,7 +192,7 @@
               "groupBy": [
                 {
                   "params": [
-                    "auto"
+                    "10s"
                   ],
                   "type": "time"
                 },
@@ -204,7 +204,7 @@
                 }
               ],
               "measurement": "cpu_value",
-              "query": "SELECT max(\"value\") FROM \"cpu_value\" WHERE \"type_instance\" = 'nice' AND $timeFilter GROUP BY time($interval) fill(null)",
+              "query": "SELECT max(\"value\") FROM \"cpu_value\" WHERE \"type_instance\" = 'nice' AND $timeFilter GROUP BY time(10s) fill(null)",
               "refId": "D",
               "resultFormat": "time_series",
               "select": [
@@ -295,7 +295,7 @@
               "groupBy": [
                 {
                   "params": [
-                    "1s"
+                    "10s"
                   ],
                   "type": "time"
                 },
@@ -307,7 +307,7 @@
                 }
               ],
               "measurement": "memory_value",
-              "query": "SELECT distinct(\"value\") FROM \"memory_value\" WHERE \"type\" = 'percent' AND \"type_instance\" = 'used' AND $timeFilter GROUP BY time(1s) fill(null)",
+              "query": "SELECT distinct(\"value\") FROM \"memory_value\" WHERE \"type\" = 'percent' AND \"type_instance\" = 'used' AND $timeFilter GROUP BY time(10s) fill(null)",
               "refId": "A",
               "resultFormat": "time_series",
               "select": [
@@ -344,7 +344,7 @@
               "groupBy": [
                 {
                   "params": [
-                    "1s"
+                    "10s"
                   ],
                   "type": "time"
                 },
@@ -357,7 +357,7 @@
               ],
               "hide": false,
               "measurement": "swap_value",
-              "query": "SELECT mean(\"value\") FROM \"swap_value\" WHERE \"type\" = 'percent' AND \"type_instance\" = 'used' AND \"instance\" = 'dev_sda4' AND $timeFilter GROUP BY time(1s) fill(null)",
+              "query": "SELECT mean(\"value\") FROM \"swap_value\" WHERE \"type\" = 'percent' AND \"type_instance\" = 'used' AND \"instance\" = 'dev_sda4' AND $timeFilter GROUP BY time(10s) fill(null)",
               "refId": "B",
               "resultFormat": "time_series",
               "select": [
@@ -459,7 +459,7 @@
               "groupBy": [
                 {
                   "params": [
-                    "$interval"
+                    "10s"
                   ],
                   "type": "time"
                 },
@@ -477,7 +477,7 @@
                 }
               ],
               "measurement": "df_value",
-              "query": "SELECT min(\"value\") FROM \"df_value\" WHERE \"type_instance\" = 'used' AND \"instance\" = 'home' AND $timeFilter GROUP BY time($interval), \"instance\" fill(null)",
+              "query": "SELECT min(\"value\") FROM \"df_value\" WHERE \"type_instance\" = 'used' AND \"instance\" = 'home' AND $timeFilter GROUP BY time(10s), \"instance\" fill(null)",
               "refId": "A",
               "resultFormat": "time_series",
               "select": [
@@ -514,7 +514,7 @@
               "groupBy": [
                 {
                   "params": [
-                    "$interval"
+                    "10s"
                   ],
                   "type": "time"
                 },
@@ -532,7 +532,7 @@
                 }
               ],
               "measurement": "df_value",
-              "query": "SELECT min(\"value\") FROM \"df_value\" WHERE \"type_instance\" = 'used' AND \"instance\" = 'root' AND $timeFilter GROUP BY time($interval), \"instance\" fill(null)",
+              "query": "SELECT min(\"value\") FROM \"df_value\" WHERE \"type_instance\" = 'used' AND \"instance\" = 'root' AND $timeFilter GROUP BY time(10s), \"instance\" fill(null)",
               "refId": "B",
               "resultFormat": "time_series",
               "select": [
@@ -635,7 +635,7 @@
               "groupBy": [
                 {
                   "params": [
-                    "$interval"
+                    "10s"
                   ],
                   "type": "time"
                 },
@@ -647,7 +647,7 @@
                 }
               ],
               "measurement": "cpufreq_value",
-              "query": "SELECT sum(\"value\") FROM \"cpufreq_value\" WHERE $timeFilter GROUP BY time($interval) fill(null)",
+              "query": "SELECT sum(\"value\") FROM \"cpufreq_value\" WHERE $timeFilter GROUP BY time(10s) fill(null)",
               "refId": "A",
               "resultFormat": "time_series",
               "select": [
@@ -827,6 +827,6 @@
   },
   "refresh": "10s",
   "schemaVersion": 8,
-  "version": 3,
+  "version": 5,
   "links": []
 }
