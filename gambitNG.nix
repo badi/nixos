@@ -1,16 +1,9 @@
 { config, pkgs, ... }:
 
-
-let
-
-  desktopManager = import ./desktopManager.nix {inherit pkgs config;};
-  monitoring     = import ./monitoring.nix {inherit pkgs config;};
-
-in import ./basicSystem.nix { inherit pkgs config desktopManager monitoring; }
-
-//
-
-{
+   import ./basicSystem.nix    {inherit pkgs config;}
+// import ./desktopManager.nix {inherit pkgs config;}
+// import ./monitoring.nix     {inherit pkgs config;}
+// {
 
   imports = [ ./gambit/hardware-configuration.nix ];
 

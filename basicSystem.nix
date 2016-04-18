@@ -2,9 +2,6 @@
   pkgs,
   config,
 
-  monitoring ? {},
-  desktopManager ? {},
-
   cleanTmpDir ? true,
   isLaptop ? false,
   timeZone ? "US/Eastern",
@@ -131,6 +128,4 @@ in
 
 }
 
-// monitoring
-// desktopManager
 // optionalAttrs withYubikey { users.extraGroups.yubikey = {}; }
