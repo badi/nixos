@@ -14,6 +14,4 @@
   networking.hostId = "6c7cbbf3";
   networking.hostName = "gambit";
 
-  # services.xserver.videoDrivers = [ "nvidia" ];
-  # hardware.opengl.driSupport32Bit = true;
 }
