@@ -38,7 +38,7 @@ in
   programs.zsh.enableCompletion = true;
 
   environment.systemPackages = with pkgs;
-       [ file htop hwdata iotop lsof lshw nethogs psmisc which ]
+       [ file htop hwdata iotop lsof lshw nethogs pciutils psmisc which ]
     ++ [ wget curl httpie ]
     ++ [ vim emacs24-nox ]
     ++ optional withX11 xscreensaver;
