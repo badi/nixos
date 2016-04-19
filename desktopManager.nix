@@ -19,6 +19,8 @@
     gnome3.gnome-backgrounds
     gnome3.gnome_control_center
     gnome3.gnome_keyring
+    gnome3.gnome_session
+    gnome3.gnome_settings_daemon
     gnome3.gnome_themes_standard
   ];
 
