@@ -3,6 +3,10 @@
    import ./basicSystem.nix    {inherit pkgs config;}
 // import ./desktopManager.nix {inherit pkgs config;}
 // import ./monitoring.nix     {inherit pkgs config;}
+// import ./virt-host.nix      {inherit pkgs;
+                                kernelModules = ["tun" "kvm-intel" "virtio"];
+                                libvirtUsers  = ["badi"];
+                               }
 // {
 
   imports = [ ./gambit/hardware-configuration.nix ];
