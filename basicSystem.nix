@@ -90,7 +90,6 @@ in
   security.pam.enableU2F = true;
   security.pam.mount.enable = true;
   security.polkit.enable = true;
-  security.rngd.enable = true;
 
 
   services.atd.enable = true;
