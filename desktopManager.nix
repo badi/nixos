@@ -14,6 +14,7 @@
   environment.systemPackages = with pkgs; [
     gtk2
     gtk3
+    pavucontrol
     clearlooks-phenix
     theme-vertex
     gnome3.gnome-backgrounds
