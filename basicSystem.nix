@@ -65,4 +65,7 @@
   powerManagement.enable = true;
   system.autoUpgrade.enable = true;
 
+  system.stateVersion = "16.03";
+  time.timeZone = "US/Eastern";
+
 }

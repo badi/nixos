@@ -22,7 +22,4 @@
   networking.hostId = "6c7cbbf3";
   networking.hostName = "gambit";
 
-  system.stateVersion = "16.03";
-  time.timeZone = "US/Eastern";
-
 }

@@ -36,7 +36,4 @@
   services.xserver.videoDrivers = [ "intel" ];
   services.xserver.vaapiDrivers = [ pkgs.vaapiIntel ];
 
-  system.stateVersion = "16.03";
-  time.timeZone = "US/Eastern";
-
 }
