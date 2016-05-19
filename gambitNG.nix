@@ -13,10 +13,6 @@
     ./virthost.nix
   ];
 
-  users.extraGroups.yubikey.members = [ "badi" ];
-  users.extraGroups.networkmanager.members = [ "badi" ];
-  users.extraGroups.libvirtd.members = [ "badi" ];
-
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
   boot.loader.grub.device = "/dev/disk/by-id/ata-Crucial_CT1024MX200SSD1_15030E747E7E";

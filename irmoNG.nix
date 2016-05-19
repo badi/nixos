@@ -13,10 +13,6 @@
     ./monitoring.nix
   ];
 
-  users.extraGroups.yubikey.members = [ "badi" ];
-  users.extraGroups.networkmanager.members = [ "badi" ];
-  users.extraGroups.libvirtd.members = [ "badi" ];
-
   boot.loader.gummiboot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
