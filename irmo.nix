@@ -7,26 +7,7 @@
 {
   imports = [
     ./irmo/hardware-configuration.nix
-    ./hardware/yubico/yubikey.nix
-
-    ./audio.nix
-    ./boot.nix
-    ./environment.nix
-    ./fonts.nix
-    ./i18n.nix
-    ./nix.nix
-    ./networking.nix
-    ./programs.nix
-    ./services.nix
-    ./time.nix
-    ./users.nix
-    ./zram.nix
-
-    ./services/monitor.nix
-
   ];
-
-  # hardware.bluetooth.enable = false;
 
   # Use the gummiboot efi boot loader.
   boot.loader.gummiboot.enable = true;
@@ -51,14 +32,5 @@
   };
   services.xserver.videoDrivers = [ "intel" ];
   services.xserver.vaapiDrivers = [ pkgs.vaapiIntel ];
-
-  services.xserver.windowManager.xmonad = {
-    enable = true;
-    enableContribAndExtras = true;
-  };
-  services.xserver.displayManager.sddm.enable = true;
-
-  # The NixOS release to be compatible with for stateful data such as databases.
-  system.stateVersion = "16.03";
 
 }
