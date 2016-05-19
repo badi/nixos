@@ -2,7 +2,7 @@
 {
 
   services.atd.enable = true;
-  services.avahi.enable = true;
+  services.avahi.enable = false;
   services.locate.enable = true;
   services.ntp.enable = true;
   services.printing.enable = true;

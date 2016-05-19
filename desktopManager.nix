@@ -1,5 +1,9 @@
 { pkgs, config, ... }:
 {
+
+  hardware.opengl.enable = true;
+  hardware.opengl.driSupport = true;
+
   services.xserver.desktopManager.gnome3.sessionPath = with pkgs; [ clearlooks-phenix theme-vertex ];
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.windowManager.xmonad = {
@@ -10,11 +14,14 @@
   environment.systemPackages = with pkgs; [
     gtk2
     gtk3
+    pavucontrol
     clearlooks-phenix
     theme-vertex
     gnome3.gnome-backgrounds
     gnome3.gnome_control_center
     gnome3.gnome_keyring
+    gnome3.gnome_session
+    gnome3.gnome_settings_daemon
     gnome3.gnome_themes_standard
   ];
 
