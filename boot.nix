@@ -1,4 +1,0 @@
-{ ... }:
-{
-  boot.cleanTmpDir = true;
-}
