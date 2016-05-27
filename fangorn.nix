@@ -10,6 +10,7 @@
     ./users.nix
     ./yubikey.nix
     ./monitoring.nix
+    ./virthost.nix
   ];
 
   boot.loader.grub.enable = true;
