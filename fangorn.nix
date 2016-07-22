@@ -20,7 +20,7 @@
   networking.hostId = "f125f099";
   networking.hostName = "fangorn"; # Define your hostname.
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [ "intel" "nvidia" "vesa" ];
   hardware.opengl.driSupport32Bit = true;
 
   environment.systemPackages = with pkgs; [
