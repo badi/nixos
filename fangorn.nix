@@ -11,6 +11,7 @@
     ./yubikey.nix
     ./monitoring.nix
     ./virthost.nix
+    ./pia.nix
   ];
 
   boot.loader.grub.enable = true;
