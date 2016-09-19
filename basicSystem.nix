@@ -27,7 +27,6 @@
   nix.useChroot = true;
   nix.trustedBinaryCaches = [ https://cache.nixos.org ];
   nix.binaryCaches = [ https://cache.nixos.org ];
-  nix.binaryCachePublicKeys = [ "hydra.cryp.to-1:8g6Hxvnp/O//5Q1bjjMTd5RO8ztTsG8DKPOAg9ANr2g=" ];
   nix.extraOptions = "binary-caches-parallel-connections = 50";
   nix.gc.automatic = true;
   nix.gc.dates = "monthly";
