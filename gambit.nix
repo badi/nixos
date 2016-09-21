@@ -11,6 +11,7 @@
     ./yubikey.nix
     ./monitoring.nix
     ./virthost.nix
+    ./emacs.nix
   ];
 
   boot.loader.grub.enable = true;
