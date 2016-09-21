@@ -12,6 +12,8 @@
     ./monitoring.nix
     ./virthost.nix
     ./pia.nix
+    ./popfile.nix
+    ./emacs.nix
   ];
 
   boot.loader.grub.enable = true;
