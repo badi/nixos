@@ -14,6 +14,7 @@
     ./pia.nix
     ./popfile.nix
     ./emacs.nix
+    ./syncthing.nix
   ];
 
   boot.loader.grub.enable = true;
