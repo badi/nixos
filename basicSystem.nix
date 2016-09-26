@@ -24,7 +24,7 @@
 
   ################################################################################
   # nix configuration
-  nix.useChroot = true;
+  nix.useSandbox = true;
   nix.trustedBinaryCaches = [ https://cache.nixos.org ];
   nix.binaryCaches = [ https://cache.nixos.org ];
   nix.extraOptions = "binary-caches-parallel-connections = 50";
