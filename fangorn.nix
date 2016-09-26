@@ -13,7 +13,6 @@
     ./virthost.nix
     ./pia.nix
     ./popfile.nix
-    ./emacs.nix
     ./syncthing.nix
   ];
 

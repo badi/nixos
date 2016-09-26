@@ -11,7 +11,6 @@
     ./yubikey.nix
     ./monitoring.nix
     ./virthost.nix
-    ./emacs.nix
     ./syncthing.nix
   ];
 
