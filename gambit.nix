@@ -9,7 +9,6 @@
     ./desktopManager.nix
     ./users.nix
     ./yubikey.nix
-    ./monitoring.nix
     ./virthost.nix
     ./syncthing.nix
   ];
