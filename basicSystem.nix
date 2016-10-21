@@ -11,7 +11,7 @@
   programs.zsh.enableCompletion = true;
 
   environment.systemPackages = with pkgs;
-       [ file htop hwdata iotop lsof lshw lsscsi nethogs pciutils psmisc which smartmontools xsettingsd ]
+       [ file htop hwdata iotop lsof lshw lsscsi nethogs pciutils psmisc which smartmontools xsettingsd usbutils ]
     ++ [ wget curl ]
     ++ [ vim emacs24-nox ]
     ++ [ gitAndTools.gitFull ]
