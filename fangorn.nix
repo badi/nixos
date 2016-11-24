@@ -9,7 +9,7 @@
     ./desktopManager.nix
     ./users.nix
     ./yubikey.nix
-    ./monitoring.nix
+    # ./monitoring.nix
     ./virthost.nix
     ./pia.nix
     ./popfile.nix
@@ -22,6 +22,7 @@
 
   networking.hostId = "f125f099";
   networking.hostName = "fangorn"; # Define your hostname.
+  networking.firewall.allowedTCPPorts = [ 3000 ];
 
   services.xserver.videoDrivers = [ "intel" "nvidia" "vesa" ];
   hardware.opengl.driSupport32Bit = true;
