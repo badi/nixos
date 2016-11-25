@@ -10,7 +10,7 @@
     ./laptop.nix
     ./users.nix
     ./yubikey.nix
-    ./monitoring.nix
+#    ./monitoring.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
