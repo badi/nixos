@@ -1,4 +1,37 @@
 { pkgs, config, ... }:
+
+let
+
+  all-the-icons-fn =
+    {stdenv, fetchFromGitHub}:
+
+    stdenv.mkDerivation {
+      name = "all-the-icons";
+
+      src = fetchFromGitHub {
+        owner = "domtronn";
+        repo = "all-the-icons.el";
+        rev = "b2d923e51d23e84198e21b025c656bf862eaced6";
+        sha256 = "0j5230nas9h6rn4wfsaf5pgd3yxxk615j68y2j01pjrrkxvrwqig";
+      };
+
+      dontBuild = true;
+      phases = [ "installPhase" ];
+      installPhase = ''
+
+        fontDir=$out/share/fonts/truetype
+        mkdir -p $fontDir
+        cp $src/fonts/*.ttf $fontDir
+      '';
+
+      meta = {
+        platforms = stdenv.lib.platforms.unix;
+      };
+    };
+
+  all-the-icons = pkgs.callPackage all-the-icons-fn {};
+
+in
 {
 
   hardware.opengl.enable = true;
@@ -9,6 +42,24 @@
   services.xserver.windowManager.xmonad = {
     enable = true;
     enableContribAndExtras = true;
+  };
+
+  fonts = {
+    enableFontDir = true;
+    enableCoreFonts = true;
+    enableGhostscriptFonts = true;
+    fonts = with pkgs; [
+      bakoma_ttf
+      corefonts
+      dejavu_fonts
+      gentium
+      inconsolata
+      liberation_ttf
+      terminus_font
+      ubuntu_font_family
+      unifont
+      all-the-icons
+    ];
   };
 
   environment.systemPackages = with pkgs; [
