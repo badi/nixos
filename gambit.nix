@@ -6,6 +6,7 @@
     ./gambit/hardware-configuration.nix
     ./basicSystem.nix
     ./workstation.nix
+    ./bluetooth.nix
     ./desktopManager.nix
     ./users.nix
     ./yubikey.nix

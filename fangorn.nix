@@ -7,6 +7,7 @@
     ./basicSystem.nix
     ./workstation.nix
     ./desktopManager.nix
+    ./bluetooth.nix
     ./users.nix
     ./yubikey.nix
     # ./monitoring.nix
