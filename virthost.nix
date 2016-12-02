@@ -2,7 +2,10 @@
 
 {
 
-  boot.initrd.availableKernelModules = ["tun" "kvm-intel" "virtio" "vboxdrv" "vboxnetflt"];
+  # https://github.com/domenkozar/snabb-openstack-testing
+  boot.kernelModules = [ "kvm-intel nested=1" "pci-stub" ];
+  boot.kernelParams  = [ "intel_iommu=on" "hugepages=4096" ];
+
   virtualisation.docker.enable       = true;
   virtualisation.libvirtd.enable     = true;
   virtualisation.libvirtd.enableKVM  = true;
