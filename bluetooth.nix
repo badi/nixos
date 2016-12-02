@@ -7,6 +7,8 @@
   nixpkgs.config.packageOverrides = pkgs: { bluez = pkgs.bluez5; };
   services.dbus.packages = [ pkgs.bluez  ];
 
+  environment.systemPackages = [ pkgs.blueman ];
+
   security.polkit.extraConfig = ''
     /* Allow users in wheel group to use blueman feature requiring root without authentication */
     polkit.addRule(function(action, subject) {
