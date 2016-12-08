@@ -12,6 +12,7 @@
 
   environment.systemPackages = with pkgs;
        [ file htop hwdata iotop lsof lshw lsscsi nethogs pciutils psmisc which smartmontools xsettingsd usbutils bind inetutils ]
+    ++ [ nix-serve nix-prefetch-git nix-prefetch-hg nix-prefetch-svn nix-prefetch-zip nix-prefetch-scripts ]
     ++ [ wget curl ]
     ++ [ vim emacs24-nox ]
     ++ [ gitAndTools.gitFull ]
