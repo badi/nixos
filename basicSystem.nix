@@ -30,7 +30,7 @@
   nix.binaryCaches = [ https://cache.nixos.org ];
   nix.extraOptions = "binary-caches-parallel-connections = 50";
   nix.gc.automatic = true;
-  nix.gc.dates = "monthly";
+  nix.gc.dates = "weekly";
 
   ################################################################################
   # networking
