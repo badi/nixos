@@ -32,12 +32,12 @@
     smbclient cifs_utils
   ];
 
-  services.autossh.sessions = [
-    { name = "eru";
-      user = "badi";
-      monitoringPort = 20000;
-      extraArguments = "-N -R 2222:localhost:22 -i /home/badi/.ssh/id_ed25519.nopass badi@badinet.org";
-    }
-  ];
+  # services.autossh.sessions = [
+  #   { name = "eru";
+  #     user = "badi";
+  #     monitoringPort = 20000;
+  #     extraArguments = "-N -R 2222:localhost:22 -i /home/badi/.ssh/id_ed25519.nopass badi@badinet.org";
+  #   }
+  # ];
 
 }
