@@ -10,10 +10,11 @@
     ./laptop.nix
     ./users.nix
     ./yubikey.nix
-    ./monitoring.nix
+    ./syncthing.nix
+#    ./monitoring.nix
   ];
 
-  boot.loader.gummiboot.enable = true;
+  boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostId = "b555bd11";
@@ -34,6 +35,6 @@
     palmDetect = true;
   };
   services.xserver.videoDrivers = [ "intel" ];
-  services.xserver.vaapiDrivers = [ pkgs.vaapiIntel ];
+  hardware.opengl.extraPackages = [ pkgs.vaapiIntel ];
 
 }
