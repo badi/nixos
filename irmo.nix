@@ -10,6 +10,7 @@
     ./laptop.nix
     ./users.nix
     ./yubikey.nix
+    ./syncthing.nix
 #    ./monitoring.nix
   ];
 
