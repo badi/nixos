@@ -1,9 +1,6 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
-  services.udev.extraRules = with builtins;
-    let rules = "https://raw.githubusercontent.com/Yubico/libu2f-host/master/70-u2f.rules";
-    in readFile (fetchurl rules);
-
+  services.udev.packages = with pkgs; [ libu2f-host ];
   users.extraGroups.yubikey = {};
 }
