@@ -74,6 +74,8 @@ in
     gnome3.gnome_session
     gnome3.gnome_settings_daemon
     gnome3.gnome_themes_standard
+    mesa
+    mesa_drivers
   ];
 
   services.gnome3 = {
