@@ -2,7 +2,6 @@
 
 ```
 $ git clone --recursive https://github.com/badi/nixos
-$ nixos-rebuild switch
 ```
 
 Ensure contents of `/etc/nixos/configuration.nix` is like:
@@ -12,3 +11,7 @@ Ensure contents of `/etc/nixos/configuration.nix` is like:
 ```
 
 where `<ENTRYPOINT>` is the machine name eg `fangorn`, `irmo`, `gambit` etc.
+
+```
+$ nixos-rebuild switch
+```
