@@ -2,8 +2,13 @@
 
 ```
 $ git clone --recursive https://github.com/badi/nixos
-$ cd nixos && ln -s $(hostname).nix main.nix
-$ sudo mv /etc/nixos{,.bak}
-$ sudo ln -s $PWD /etc/nixos
 $ nixos-rebuild switch
 ```
+
+Ensure contents of `/etc/nixos/configuration.nix` is like:
+
+```nix
+{ imports = [ /home/badi/nixos/<ENTRYPOINT>.nix ]; }
+```
+
+where `<ENTRYPOINT>` is the machine name eg `fangorn`, `irmo`, `gambit` etc.
