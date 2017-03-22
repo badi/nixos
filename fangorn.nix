@@ -25,7 +25,7 @@
   networking.hostName = "fangorn"; # Define your hostname.
   networking.firewall.allowedTCPPorts = [ 3000 ];
 
-  services.xserver.videoDrivers = [ "intel" "nvidia" "vesa" ];
+  services.xserver.videoDrivers = [ "nouveau" ];
   hardware.opengl.driSupport32Bit = true;
 
   environment.systemPackages = with pkgs; [
