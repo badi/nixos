@@ -40,5 +40,4 @@
   #   }
   # ];
 
-  nixpkgs.config.virtualbox.enableExtensionPack = false;
 }
