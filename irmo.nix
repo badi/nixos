@@ -11,6 +11,7 @@
     ./users.nix
     ./yubikey.nix
     ./syncthing.nix
+    # ./virthost.nix
 #    ./monitoring.nix
   ];
 
