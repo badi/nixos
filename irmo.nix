@@ -10,6 +10,7 @@
     ./laptop.nix
     ./users.nix
     ./yubikey.nix
+    ./pia.nix
     ./syncthing.nix
     # ./virthost.nix
 #    ./monitoring.nix
