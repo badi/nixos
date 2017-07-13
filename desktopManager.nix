@@ -38,7 +38,7 @@ in
   hardware.opengl.driSupport = true;
 
   # services.xserver.desktopManager.gnome3.sessionPath = with pkgs; [ clearlooks-phenix theme-vertex ];
-  services.xserver.desktopManager.kde5.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.windowManager.xmonad = {
     enable = true;
