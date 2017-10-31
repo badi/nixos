@@ -56,6 +56,7 @@
   networking.firewall.enable = true;
   networking.firewall.allowPing = true;
 
+  # TODO security.hideProcessInformation = true;
   security.pam.enableOTPW = true;
   security.pam.enableSSHAgentAuth = true;
   security.pam.enableU2F = true;
