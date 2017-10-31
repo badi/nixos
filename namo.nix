@@ -5,7 +5,7 @@
     ./namo/boot.nix
     ./namo/samba.nix
 
-    ./lib/vpn.nix
+    ./common/vpn.nix
   ];
 
   hardware.cpu.intel.updateMicrocode = true;

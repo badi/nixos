@@ -16,7 +16,7 @@
     ./yubikey.nix
     # ./monitoring.nix
     ./virthost.nix
-    ./lib/vpn.nix
+    ./common/vpn.nix
     ./popfile.nix
     ./syncthing.nix
     # ./systemPackages.nix
