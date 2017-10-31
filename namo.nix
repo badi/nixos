@@ -2,6 +2,8 @@
 
 {
   imports = [
+    ./common/nix-config.nix
+
     ./namo/boot.nix
     ./namo/samba.nix
 
