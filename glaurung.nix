@@ -8,7 +8,8 @@
   imports =
     [ # Include the results of the hardware scan.
       ./glaurung/hardware-configuration.nix
-      # ./compton.nix
+
+      ./common/syncthing.nix
     ];
 
   # Use the GRUB 2 boot loader.
