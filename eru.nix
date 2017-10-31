@@ -7,7 +7,7 @@
   ec2.hvm = true;
 
   networking.hostName = "eru";
-  networking.tcpcrypt.enable = true;
+  networking.tcpcrypt.enable = false;
   networking.firewall.enable = true;
   networking.firewall.allowPing = true;
 
