@@ -69,7 +69,7 @@ in
     gtk3
     pavucontrol
     clearlooks-phenix
-    theme-vertex
+    # theme-vertex
     # gnome3.gnome-backgrounds
     # gnome3.gnome_control_center
     # gnome3.gnome_keyring
