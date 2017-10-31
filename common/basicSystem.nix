@@ -1,9 +1,12 @@
 { pkgs, config, ... }:
 {
 
+  imports = [
+    ./nix-config.nix
+  ];
+
   ################################################################################
   # environment
-  nixpkgs.config.allowUnfree = true;
   boot.cleanTmpDir = true;
 
   programs.bash.enableCompletion = true;
@@ -22,16 +25,6 @@
     HOST     = config.networking.hostName;
     HOSTNAME = config.networking.hostName;
   };
-
-  ################################################################################
-  # nix configuration
-  nix.useSandbox = true;
-  nix.trustedBinaryCaches = [ https://cache.nixos.org ];
-  nix.binaryCaches = [ https://cache.nixos.org ];
-  nix.extraOptions = "binary-caches-parallel-connections = 50";
-  nix.gc.automatic = true;
-  nix.gc.dates = "weekly";
-  nix.gc.options = "--delete-older-than 14d";
 
   ################################################################################
   # networking

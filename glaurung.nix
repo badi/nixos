@@ -10,6 +10,7 @@
       ./glaurung/hardware-configuration.nix
 
       ./common/firefox-nightly.nix
+      ./common/nix-config.nix
       ./common/nvidia.nix
       ./common/syncthing.nix
     ];
@@ -38,11 +39,6 @@
 
   nix.useSandbox = true;
   # nix.extraOptions = "binary-caches-parallel-connections = 50";
-  nix.gc.automatic = true;
-  nix.gc.dates = "monthly";
-  nix.gc.options = "--delete-older-than 60d";
-  nix.optimise.automatic = true;
-  nixpkgs.config.allowUnfree = true;
   nixpkgs.config.firefox.ffmpegSupport = true;
 
   environment.systemPackages = with pkgs; [
