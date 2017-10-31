@@ -8,18 +8,17 @@
 
   imports = [
     ./fangorn/hardware-configuration.nix
-    ./basicSystem.nix
-    ./workstation.nix
-    ./desktopManager.nix
-    ./bluetooth.nix
-    ./users.nix
-    ./yubikey.nix
-    # ./monitoring.nix
-    ./virthost.nix
+
+    ./common/basicSystem.nix
+    ./common/workstation.nix
+    ./common/desktopManager.nix
+    ./common/bluetooth.nix
+    ./common/users.nix
+    ./common/yubikey.nix
+    ./common/virthost.nix
     ./common/vpn.nix
-    ./popfile.nix
-    ./syncthing.nix
-    # ./systemPackages.nix
+    ./common/popfile.nix
+    ./common/syncthing.nix
   ];
 
   services.openvpn.servers.nordvpn.autoStart = false;
