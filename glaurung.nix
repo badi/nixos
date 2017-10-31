@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./glaurung/hardware-configuration.nix
 
+      ./common/firefox-nightly.nix
       ./common/nvidia.nix
       ./common/syncthing.nix
     ];
@@ -44,26 +45,11 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.firefox.ffmpegSupport = true;
 
-  nixpkgs.overlays =
-    let
-      nixpkgs-mozilla = pkgs.fetchgit {
-        url = "git://github.com/mozilla/nixpkgs-mozilla.git";
-	sha256 = "1lim10a674621zayz90nhwiynlakxry8fyz1x209g9bdm38zy3av";
-      };
-      # nixpkgs-mozilla = "/home/badi/nixpkgs-mozilla";
-      firefox-overlay = import "${nixpkgs-mozilla}/firefox-overlay.nix";
-    in [
-      (self: super: {
-       inherit ((firefox-overlay self super).latest) firefox-nightly-bin;
-      })
-    ];
-
   environment.systemPackages = with pkgs; [
     wget
     emacs25-nox
     git
     kodi
-    firefox-nightly-bin
     google-chrome
     spotify
     skype

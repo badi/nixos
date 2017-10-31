@@ -13,6 +13,7 @@
     ./common/workstation.nix
     ./common/desktopManager.nix
     ./common/bluetooth.nix
+    ./common/firefox-nightly.nix
     ./common/nvidia.nix
     ./common/users.nix
     ./common/yubikey.nix
@@ -44,23 +45,8 @@
   };
 
 
-  nixpkgs.overlays =
-    let
-      nixpkgs-mozilla = pkgs.fetchgit {
-        url = "git://github.com/mozilla/nixpkgs-mozilla.git";
-        sha256 = "1lim10a674621zayz90nhwiynlakxry8fyz1x209g9bdm38zy3av";
-      };
-      # nixpkgs-mozilla = "/home/badi/nixpkgs-mozilla";
-      firefox-overlay = import "${nixpkgs-mozilla}/firefox-overlay.nix";
-    in [
-      (self: super: {
-       inherit ((firefox-overlay self super).latest) firefox-nightly-bin;
-      })
-    ];
-
   environment.systemPackages = with pkgs; [
     smbclient cifs_utils
-    firefox-nightly-bin
     digikam gwenview okular
     keepassx-community
   ];
