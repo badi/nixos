@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./glaurung/hardware-configuration.nix
 
+      ./common/nvidia.nix
       ./common/syncthing.nix
     ];
 
@@ -94,14 +95,6 @@
 
   services.xserver.enable = true;
   services.xserver.layout = "us";
-  services.xserver.videoDrivers = [ "nvidia" ];
-
-  # https://wiki.archlinux.org/index.php/NVIDIA/Troubleshooting#Avoid_screen_tearing
-  services.xserver.screenSection = ''
-    Option "metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
-    Option "TipleBuffer" "on"
-    Option "AllowIndirectGLXProtocol" "off"
-  '';
 
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.displayManager.sddm.autoLogin.enable = true;
