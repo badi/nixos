@@ -6,7 +6,7 @@
     useInotify = true;
     user = "badi";
     dataDir = "/home/badi/.syncthing";
+    openDefaultPorts = true;
   };
-  networking.firewall.allowedTCPPorts = [ 22000 ];
-  networking.firewall.allowedUDPPorts = [ 21027 ];
+
 }
