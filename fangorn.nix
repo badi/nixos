@@ -13,6 +13,7 @@
     ./common/workstation.nix
     ./common/desktopManager.nix
     ./common/bluetooth.nix
+    ./common/nvidia.nix
     ./common/users.nix
     ./common/yubikey.nix
     ./common/virthost.nix
@@ -42,8 +43,6 @@
               ];
   };
 
-  services.xserver.videoDrivers = [ "nouveau" ];
-  hardware.opengl.driSupport32Bit = true;
 
   nixpkgs.overlays =
     let
