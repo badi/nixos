@@ -46,6 +46,7 @@ in
   };
 
   fonts = {
+    enableDefaultFonts = true;
     enableFontDir = true;
     enableCoreFonts = true;
     enableGhostscriptFonts = true;
