@@ -52,7 +52,7 @@
 
   ################################################################################
   # security
-  networking.tcpcrypt.enable = true;
+  networking.tcpcrypt.enable = false;
   networking.firewall.enable = true;
   networking.firewall.allowPing = true;
 
