@@ -16,11 +16,13 @@
     ./yubikey.nix
     # ./monitoring.nix
     ./virthost.nix
-    # ./pia.nix
+    ./lib/vpn.nix
     ./popfile.nix
     ./syncthing.nix
     # ./systemPackages.nix
   ];
+
+  services.openvpn.servers.nordvpn.autoStart = false;
 
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
