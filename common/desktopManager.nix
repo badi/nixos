@@ -64,21 +64,21 @@ in
     ];
   };
 
-  environment.systemPackages = with pkgs; [
-    gtk2
-    gtk3
-    pavucontrol
-    clearlooks-phenix
-    # theme-vertex
-    # gnome3.gnome-backgrounds
-    # gnome3.gnome_control_center
-    # gnome3.gnome_keyring
-    # gnome3.gnome_session
-    # gnome3.gnome_settings_daemon
-    # gnome3.gnome_themes_standard
-    mesa
-    mesa_drivers
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   gtk2
+  #   gtk3
+  #   pavucontrol
+  #   clearlooks-phenix
+  #   # theme-vertex
+  #   # gnome3.gnome-backgrounds
+  #   # gnome3.gnome_control_center
+  #   # gnome3.gnome_keyring
+  #   # gnome3.gnome_session
+  #   # gnome3.gnome_settings_daemon
+  #   # gnome3.gnome_themes_standard
+  #   mesa
+  #   mesa_drivers
+  # ];
 
   # services.gnome3 = {
   #   at-spi2-core.enable = true;
