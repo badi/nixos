@@ -38,10 +38,7 @@
   networking.firewall.allowPing = true;
 
   # TODO security.hideProcessInformation = true;
-  security.pam.enableOTPW = true;
   security.pam.enableSSHAgentAuth = true;
-  security.pam.enableU2F = true;
-  security.pam.mount.enable = true;
   security.polkit.enable = true;
   services.openssh.passwordAuthentication = false;
   services.openssh.permitRootLogin = "no";
