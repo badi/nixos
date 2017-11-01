@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./glaurung/hardware-configuration.nix
 
+      ./common/basicSystem.nix
       ./common/firefox-nightly.nix
       ./common/nix-config.nix
       ./common/nvidia.nix
@@ -25,9 +26,7 @@
   boot.loader.grub.device = "/dev/disk/by-id/ata-Crucial_CT525MX300SSD1_170115431CBA";
 
   networking.hostName = "glaurung"; # Define your hostname.
-  networking.firewall.enable = true;
-  networking.firewall.allowPing = true;
-  networking.firewall.allowedTCPPorts = [ 8080 ];
+
 
   i18n = {
     consoleFont = "Lat2-Terminus16";
@@ -35,7 +34,6 @@
     defaultLocale = "en_US.UTF-8";
   };
 
-  time.timeZone = "US/Eastern";
 
   nix.useSandbox = true;
   # nix.extraOptions = "binary-caches-parallel-connections = 50";
@@ -62,10 +60,6 @@
 
   services.unified-remote.enable = true;
   services.unified-remote.openFirewall = true;
-
-  services.openssh.enable = true;
-  services.openssh.permitRootLogin = "no";
-  services.openssh.passwordAuthentication = false;
 
   services.ntp.enable = true;
 
