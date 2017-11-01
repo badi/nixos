@@ -14,13 +14,37 @@
   programs.zsh.enable = true;
   programs.zsh.enableCompletion = true;
 
-  environment.systemPackages = with pkgs;
-       [ file htop hwdata iotop lsof lshw lsscsi nethogs pciutils psmisc which smartmontools xsettingsd usbutils bind inetutils ]
-    ++ [ nix-serve nix-prefetch-git nix-prefetch-hg nix-prefetch-svn nix-prefetch-scripts ]
-    ++ [ wget curl ]
-    ++ [ vim emacs25-nox ]
-    ++ [ gitAndTools.gitFull ]
-    ++ [ mkpasswd ];
+  environment.systemPackages = with pkgs; [
+
+    bind
+    curl
+    emacs25-nox
+    file
+    gitAndTools.gitFull
+    htop
+    hwdata
+    inetutils
+    iotop
+    lshw
+    lsof
+    lsscsi
+    mkpasswd
+    nethogs
+    nix-prefetch-git
+    nix-prefetch-hg
+    nix-prefetch-scripts
+    nix-prefetch-svn
+    nix-serve
+    pciutils
+    psmisc
+    smartmontools
+    usbutils
+    vim
+    wget
+    which
+    xsettingsd
+
+  ];
 
   environment.variables = {
     HOST     = config.networking.hostName;
