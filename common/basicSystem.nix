@@ -31,18 +31,6 @@
   networking.wireless.enable = false;
   networking.networkmanager.enable = true;
 
-  # environment.etc."dbus-1/system.d/bluetooth.conf".text =
-  #   let
-  #     inherit (builtins) writeTextFile;
-  #     inherit (pkgs.lib) mkMerge singleton;
-  #     bluetooth_conf = writeTextFile ''
-  #     '';
-  #     bluetooth_conf2 = readFile "${pkgs.bluez5}/etc/dbus-1/system.d/bluetooth.conf";
-  #   in "${pkgs.bluez5}/etc/dbus-1/system.d/bluetooth.conf";
-
-  # nixpkgs.config.packageOverrides = pkgs: { bluez = pkgs.bluez5; };
-  # services.dbus.packages = [ pkgs.bluez5 ];
-
   ################################################################################
   # security
   networking.tcpcrypt.enable = false;
