@@ -74,7 +74,6 @@
   ################################################################################
   # system
   powerManagement.enable = true;
-  system.autoUpgrade.enable = true;
 
   time.timeZone = "US/Eastern";
 
