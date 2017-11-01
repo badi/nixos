@@ -11,6 +11,7 @@
 
       ./common/basicSystem.nix
       ./common/firefox-nightly.nix
+      ./common/kodi.nix
       ./common/nix-config.nix
       ./common/nvidia.nix
       ./common/syncthing.nix
@@ -43,7 +44,6 @@
     wget
     emacs25-nox
     git
-    kodi
     google-chrome
     spotify
     skype
