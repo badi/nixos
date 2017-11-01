@@ -48,7 +48,6 @@
 
 
   environment.systemPackages = with pkgs; [
-    smbclient cifs_utils
     digikam gwenview okular
     keepassx-community
   ];
