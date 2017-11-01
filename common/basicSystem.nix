@@ -3,6 +3,7 @@
 
   imports = [
     ./nix-config.nix
+    ./openssh.nix
   ];
 
   ################################################################################
@@ -40,8 +41,6 @@
   # TODO security.hideProcessInformation = true;
   security.pam.enableSSHAgentAuth = true;
   security.polkit.enable = true;
-  services.openssh.passwordAuthentication = false;
-  services.openssh.permitRootLogin = "no";
 
   ################################################################################
   # services
@@ -50,7 +49,6 @@
   services.locate.enable = false;
   services.ntp.enable = true;
   services.smartd.enable = true;
-  services.openssh.enable = true;
 
   ################################################################################
   # system
