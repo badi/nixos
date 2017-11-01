@@ -68,9 +68,6 @@
 
   ################################################################################
   # services
-  services.atd.enable = false;
-  services.avahi.enable = false;
-  services.locate.enable = false;
   services.ntp.enable = true;
   services.smartd.enable = true;
 
