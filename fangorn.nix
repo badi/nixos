@@ -146,4 +146,7 @@
     domain = "fangorn";
   };
 
+
+  system.stateVersion = "16.03";
+
 }
