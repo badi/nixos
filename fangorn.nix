@@ -50,6 +50,14 @@
   environment.systemPackages = with pkgs; [
     digikam gwenview okular
     keepassx-community
+
+    google-chrome
+    evince
+    gimp
+    inkscape
+    spotify
+    screen
+    tmux
   ];
 
 
