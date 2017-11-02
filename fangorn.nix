@@ -13,7 +13,7 @@
     ./common/workstation.nix
     ./common/desktopManager.nix
     ./common/auto-upgrade.nix
-    ./common/bluetooth.nix
+    # ./common/bluetooth.nix
     ./common/firefox-nightly.nix
     ./common/nvidia.nix
     ./common/users.nix
