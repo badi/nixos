@@ -50,7 +50,11 @@
     tmux
     nix-repl
     nmap
+    pv
+    silver-searcher
     telnet
+    gwenview
+    kate
   ];
 
   hardware.pulseaudio.enable = true;
