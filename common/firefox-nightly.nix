@@ -3,7 +3,7 @@
 let
   nixpkgs-mozilla = pkgs.fetchgit {
     url = "git://github.com/mozilla/nixpkgs-mozilla.git";
-	  sha256 = "1lim10a674621zayz90nhwiynlakxry8fyz1x209g9bdm38zy3av";
+	  sha256 = "0g1ig96a5qzppbf75qwll8jvc7af596ribhymzs4pbws5zh7mp6p";
   };
 
   firefox-overlay = import "${nixpkgs-mozilla}/firefox-overlay.nix";
