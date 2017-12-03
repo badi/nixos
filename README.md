@@ -1,10 +1,9 @@
 # Installation
 
-```
-$ git clone --recursive https://github.com/badi/nixos
-```
+1. Clone this repository
 
-Ensure contents of `/etc/nixos/configuration.nix` is like:
+
+1. Ensure contents of `/etc/nixos/configuration.nix` is like:
 
 ```nix
 { imports = [ /home/badi/nixos/<ENTRYPOINT>.nix ]; }
@@ -12,6 +11,4 @@ Ensure contents of `/etc/nixos/configuration.nix` is like:
 
 where `<ENTRYPOINT>` is the machine name eg `fangorn`, `irmo`, `gambit` etc.
 
-```
-$ nixos-rebuild switch
-```
+1. `nixos-rebuild switch`
