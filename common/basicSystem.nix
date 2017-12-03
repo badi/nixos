@@ -52,10 +52,6 @@
   };
 
   ################################################################################
-  # networking
-  networking.wireless.enable = false;
-
-  ################################################################################
   # security
   networking.tcpcrypt.enable = false;
   networking.firewall.enable = true;
