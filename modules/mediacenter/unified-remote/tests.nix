@@ -1,9 +1,11 @@
-import ./make-test.nix {
+import <nixpkgs/nixos/tests/make-test.nix> {
+
   name = "unified-remote";
 
   nodes = {
     server = { pkgs, ... }:
     {
+      imports = [ ./../default.nix ];
       networking.firewall.enable = true;
       nixpkgs.config.allowUnfree = true;
       services.unified-remote.enable = true;
@@ -11,6 +13,7 @@ import ./make-test.nix {
     };
     client = { pkgs, ... }:
     {
+      imports = [ ./../default.nix ];
     };
   };
 
