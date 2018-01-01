@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./glaurung/hardware-configuration.nix
 
+      ./common/auto-upgrade.nix
       ./common/basicSystem.nix
       ./common/firefox-nightly.nix
       ./common/kodi.nix
