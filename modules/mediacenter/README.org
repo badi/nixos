@@ -1,0 +1,23 @@
+* About
+
+This provides a collection of NixOS modules and packages to simplify
+setting up and maintaining a NixOS media center.
+
+* Usage
+
+1. Add this repository to the =imports= directive of NixOS's =configuration.nix=
+2. Enable the options
+
+** Example
+
+#+BEGIN_SRC nix
+  imports = [
+    (builtins.fetchTarball https://gitlab.com/badi.sh/nixos-mediacenter/repository/v1.0.0/archive.tar.gz)
+  ];
+
+  services.unified-remote.enable = true;
+  services.unified-remote.openFirewall = true;
+#+END_SRC
+
+
+A live example can be found [[https://gitlab.com/badi.sh/nixos/blob/master/glaurung.nix][here]].
