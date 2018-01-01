@@ -58,6 +58,8 @@
     telnet
     gwenview
     kate
+    vlc_qt5
+    kmplayer
   ];
 
   hardware.pulseaudio.enable = true;
