@@ -4,6 +4,13 @@
 #   packageChoices.withChrome = true;
 # in
 
+let
+  ethernet = {
+    name = "net0";
+    mac = "4c:cc:6a:28:33:18";
+  };
+in
+
 {
 
   imports = [
@@ -23,6 +30,11 @@
     ./common/popfile.nix
     ./common/syncthing.nix
   ];
+
+  services.udev.extraRules = ''
+    SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="${ethernet.mac}", NAME="${ethernet.name}"
+  '';
+
 
   services.openvpn.servers.nordvpn.autoStart = false;
 
