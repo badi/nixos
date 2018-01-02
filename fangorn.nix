@@ -61,9 +61,6 @@
   ];
 
 
-  # services.unified-remote.enable = true;
-  # services.unified-remote.openFirewall = true;
-
   services.synergy.server.enable = true;
   services.synergy.server.configFile = "/home/badi/.synergy.conf";
 
