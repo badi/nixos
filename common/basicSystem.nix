@@ -34,6 +34,7 @@
     nix-serve
     pciutils
     psmisc
+    pv
     smartmontools
     usbutils
     vim
