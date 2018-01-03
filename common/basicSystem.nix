@@ -30,10 +30,7 @@
     lsscsi
     mkpasswd
     nethogs
-    nix-prefetch-git
-    nix-prefetch-hg
     nix-prefetch-scripts
-    nix-prefetch-svn
     nix-serve
     pciutils
     psmisc
