@@ -5,7 +5,7 @@
   };
 
   fea = {...}: {
-    deployment.targetHost = "10.0.0.105";
+    deployment.targetHost = "10.0.0.106";
     imports = [ ./fea ];
   };
 }
