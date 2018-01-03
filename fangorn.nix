@@ -5,6 +5,7 @@
 # in
 
 let
+  # https://wiki.archlinux.org/index.php/Network_configuration#Change_device_name
   ethernet = {
     name = "net0";
     mac = "4c:cc:6a:28:33:18";
@@ -15,6 +16,8 @@ in
 
   imports = [
     ./fangorn/hardware-configuration.nix
+    ./common/nix-config.nix
+    # ./fangorn/packages.nix
 
     ./common/basicSystem.nix
     ./common/workstation.nix
@@ -63,6 +66,8 @@ in
     digikam gwenview okular
     keepassx-community
 
+    wpsoffice
+    okular
     google-chrome
     evince
     gimp
