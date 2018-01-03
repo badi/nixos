@@ -40,12 +40,12 @@ in
 
   services.udev.extraRules = udev-rewrite-iface-name;
 
-  # boot.kernel.sysctl = {
-  #   "net.ipv4.conf.all.forwarding" = 1;
-  #   "net.ipv4.conf.default.forwarding" = 1;
-  #   "net.ipv6.conf.all.forwarding" = true;
-  #   "net.ipv6.conf.${wan-iface}.accept_ra" = 2;
-  # };
+  boot.kernel.sysctl = {
+    "net.ipv4.conf.all.forwarding" = 1;
+    "net.ipv4.conf.default.forwarding" = 1;
+    "net.ipv6.conf.all.forwarding" = true;
+    "net.ipv6.conf.${wan-iface.name}.accept_ra" = 2;
+  };
 
   # networking.firewall.extraCommands = let
 
