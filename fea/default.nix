@@ -8,12 +8,12 @@ let
   wan-iface =
     { name = "wan0"; mac = "00:0e:c4:d2:36:1d"; };
   lan-ifaces = [
-    { name = "lan0"; ip4 = "10.0.0.1"; mac = "00:0e:c4:d2:36:1e"; }
-    { name = "lan1"; ip4 = "10.0.0.2"; mac = "00:0e:c4:d2:36:1f"; }
-    { name = "lan2"; ip4 = "10.0.0.3"; mac = "00:0e:c4:d2:36:20"; }
+    { name = "lan0"; ip4 = "10.0.1.1"; mac = "00:0e:c4:d2:36:1e"; }
+    { name = "lan1"; ip4 = "10.0.1.2"; mac = "00:0e:c4:d2:36:1f"; }
+    { name = "lan2"; ip4 = "10.0.1.3"; mac = "00:0e:c4:d2:36:20"; }
   ];
   router-ip = "10.0.0.1";
-  lan-cidr = "10.0.0.0/24";
+  lan-cidr = "10.0.0.0/23";     # 10.0.0.0 -> 10.0.1.255
   dhcp-broadcast-address = "10.0.0.255";
   dhcp-dns-servers = [ "8.8.8.8" ];
   domain-name = "badi.sh";
@@ -67,10 +67,10 @@ in
 
   # in [];
 
-  # networking.interfaces = let
-  #   mk-iface = {face, address}: { name = face; value = { ip4 = [{inherit address; prefixLength = 24;}]; }; };
-  #   faces = map (x: { face = x.name; address = x.ip4; }) lan-ifaces;
-  #   in builtins.listToAttrs (map mk-iface faces);
+  networking.interfaces = let
+    mk-iface = {face, address}: { name = face; value = { ip4 = [{inherit address; prefixLength = 24;}]; }; };
+    faces = map (x: { face = x.name; address = x.ip4; }) lan-ifaces;
+    in builtins.listToAttrs (map mk-iface faces);
 
   # networking.nat = {
   #   enable = true;
