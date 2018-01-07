@@ -75,12 +75,12 @@ in
     faces = map (x: { face = x.name; address = x.ip4; }) lan-ifaces;
     in builtins.listToAttrs (map mk-iface faces);
 
-  # networking.nat = {
-  #   enable = true;
-  #   externalInterface  = wan-iface;
-  #   internalInterfaces = lib.catAttrs "name" lan-ifaces;
-  #   internalIPs = [ lan-cidr ];
-  # };
+  networking.nat = {
+    enable = true;
+    externalInterface  = wan-iface.name;
+    internalInterfaces = lib.catAttrs "name" lan-ifaces;
+    internalIPs = [ lan-cidr ];
+  };
 
   # # for IPv6
   # services.radvd = {
