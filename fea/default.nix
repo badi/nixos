@@ -82,23 +82,23 @@ in
     internalIPs = [ lan-cidr ];
   };
 
-  # # for IPv6
-  # services.radvd = {
-  #   enable = true;
-  #     config = let
-  #       mk-config-for = iface: ''
-  #         interface ${iface}
-  #         {
-  #           AdvSendAdvert on;
-  #           prefix ::/64
-  #           {
-  #             AdvOnLink on;
-  #             AdvAutonomous on;
-  #           };
-  #         };
-  #       '';
-  #   in lib.concatMapStrings mk-config-for (lib.catAttrs "name" lan-ifaces);
-  # };
+  # for IPv6
+  services.radvd = {
+    enable = true;
+      config = let
+        mk-config-for = iface: ''
+          interface ${iface}
+          {
+            AdvSendAdvert on;
+            prefix ::/64
+            {
+              AdvOnLink on;
+              AdvAutonomous on;
+            };
+          };
+        '';
+    in lib.concatMapStrings mk-config-for (lib.catAttrs "name" lan-ifaces);
+  };
 
   services.dhcpd4 = {
     enable = true;
