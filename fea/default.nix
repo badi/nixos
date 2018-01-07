@@ -8,16 +8,16 @@ let
   wan-iface =
     { name = "wan0"; mac = "00:0e:c4:d2:36:1d"; };
   lan-ifaces = [
-    { name = "lan0"; ip4 = "10.0.1.1"; mac = "00:0e:c4:d2:36:1e"; }
-    # { name = "lan1"; ip4 = "10.0.2.1"; mac = "00:0e:c4:d2:36:1f"; }
-    # { name = "lan2"; ip4 = "10.0.3.1"; mac = "00:0e:c4:d2:36:20"; }
+    rec { name = "lan0"; octet = "10.1.0"; ip4 = "${octet}.1"; mac = "00:0e:c4:d2:36:1e"; }
+    rec { name = "lan1"; octet = "10.2.0"; ip4 = "${octet}.1"; mac = "00:0e:c4:d2:36:1f"; }
+    rec { name = "lan2"; octet = "10.3.0"; ip4 = "${octet}.1"; mac = "00:0e:c4:d2:36:20"; }
   ];
   router-ip = "10.0.0.1";
 
-  # http://www.aboutmyip.com/AboutMyXApp/SubnetCalculator.jsp?ipAddress=10.0.0.0&cidr=22
-  lan-cidr = "10.0.0.0/22";     # 10.0.0.0 -> 10.0.3.254
+  # http://www.aboutmyip.com/AboutMyXApp/SubnetCalculator.jsp?ipAddress=10.1.0.0&cidr=22
+  lan-cidr = "10.1.0.0/22";     # 10.1.0.1 -> 10.1.3.254
   subnet-mask = "255.255.252.0";
-  dhcp-broadcast-address = "10.0.3.255";
+  dhcp-broadcast-address = "10.1.3.255";
   dhcp-dns-servers = [ "8.8.8.8" ];
   domain-name = "badi.sh";
 
@@ -104,14 +104,22 @@ in
     enable = true;
     interfaces = lib.catAttrs "name" lan-ifaces;
     extraConfig = ''
-      # option subnet-mask ${subnet-mask};
-      # option broadcast-address ${dhcp-broadcast-address};
-      # option routers ${lib.concatStringsSep "," (lib.catAttrs "ip4" lan-ifaces)},${router-ip};
+      option subnet-mask ${subnet-mask};
+      option broadcast-address ${dhcp-broadcast-address};
+      option routers ${lib.concatStringsSep "," (lib.catAttrs "ip4" lan-ifaces)},${router-ip};
       option domain-name-servers ${lib.concatStringsSep "," dhcp-dns-servers};
       option domain-name "${domain-name}";
 
-      subnet 10.0.1.0 netmask 255.255.255.0 {
-        range 10.0.1.10 10.0.1.254;
+      subnet 10.1.0.0 netmask 255.255.252.0 {
+        range 10.1.0.10 10.1.0.254;
+      }
+
+      subnet 10.2.0.0 netmask 255.255.252.0 {
+        range 10.2.0.10 10.2.0.254;
+      }
+
+      subnet 10.3.0.0 netmask 255.255.252.0 {
+        range 10.3.0.10 10.3.0.254;
       }
     '';
   };
