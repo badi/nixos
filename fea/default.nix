@@ -103,25 +103,23 @@ in
   services.dhcpd4 = {
     enable = true;
     interfaces = lib.catAttrs "name" lan-ifaces;
-    extraConfig = ''
-      option subnet-mask ${subnet-mask};
-      option broadcast-address ${dhcp-broadcast-address};
-      option routers ${lib.concatStringsSep "," (lib.catAttrs "ip4" lan-ifaces)},${router-ip};
-      option domain-name-servers ${lib.concatStringsSep "," dhcp-dns-servers};
-      option domain-name "${domain-name}";
+    extraConfig =
+      let mk-subnet = lan: ''
+        subnet ${lan.octet}.0 netmask ${subnet-mask} {
+          range ${lan.octet}.10 ${lan.octet}.254;
+        }
+      '';
+      in lib.concatStrings ([
+        ''
+          option subnet-mask ${subnet-mask};
+          option broadcast-address ${dhcp-broadcast-address};
+          option routers ${lib.concatStringsSep "," (lib.catAttrs "ip4" lan-ifaces)},${router-ip};
+          option domain-name-servers ${lib.concatStringsSep "," dhcp-dns-servers};
+          option domain-name "${domain-name}";
 
-      subnet 10.1.0.0 netmask 255.255.252.0 {
-        range 10.1.0.10 10.1.0.254;
-      }
-
-      subnet 10.2.0.0 netmask 255.255.252.0 {
-        range 10.2.0.10 10.2.0.254;
-      }
-
-      subnet 10.3.0.0 netmask 255.255.252.0 {
-        range 10.3.0.10 10.3.0.254;
-      }
-    '';
+        ''
+        ]
+        ++ map mk-subnet lan-ifaces);
   };
 
   # services.avahi = {
