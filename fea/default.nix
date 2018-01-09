@@ -28,7 +28,7 @@ let
     (mk-lan-iface 2 { subnet-from = "10.1.2"; mac = "00:0e:c4:d2:36:20"; })
   ];
 
-  dhcp-dns-servers = [ "8.8.8.8" ];
+  dhcp-dns-servers = [ "8.8.8.8" "8.8.4.4" ];
   domain-name = "badi.sh";
 
   mk-udev-rewrite-iface-name = eth: ''
