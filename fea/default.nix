@@ -7,17 +7,27 @@ let
 
   wan-iface =
     { name = "wan0"; mac = "00:0e:c4:d2:36:1d"; };
-  lan-ifaces = [
-    rec { name = "lan0"; octet = "10.1.0"; ip4 = "${octet}.1"; mac = "00:0e:c4:d2:36:1e"; }
-    rec { name = "lan1"; octet = "10.2.0"; ip4 = "${octet}.1"; mac = "00:0e:c4:d2:36:1f"; }
-    rec { name = "lan2"; octet = "10.3.0"; ip4 = "${octet}.1"; mac = "00:0e:c4:d2:36:20"; }
-  ];
-  router-ip = "10.0.0.1";
 
-  # http://www.aboutmyip.com/AboutMyXApp/SubnetCalculator.jsp?ipAddress=10.1.0.0&cidr=22
-  lan-cidr = "10.1.0.0/22";     # 10.1.0.1 -> 10.1.3.254
-  subnet-mask = "255.255.252.0";
-  dhcp-broadcast-address = "10.1.3.255";
+  # mk-lan-iface :: int -> {} -> {}
+  mk-lan-iface = i: {subnet-from, mac, name ? "lan", router-octet ? "1", prefix-length ? 24, first-host ? 10 }:
+    assert prefix-length == 24;
+    { name = "name${builtins.toString i}";
+      ip4 = "${subnet-from}.${router-octet}";
+      cidr = "${subnet-from}.0/${builtins.toString prefix-length}";
+      netmask = "255.255.255.0";
+      broadcast = "${subnet-from}.255";
+      host-min = "${subnet-from}.1";
+      host-max = "${subnet-from}.254";
+      first-host = "${subnet-from}.${builtins.toString first-host}";
+      inherit subnet-from prefix-length mac;
+    };
+
+  lan-ifaces = [
+    (mk-lan-iface 0 { subnet-from = "10.1.0"; mac = "00:0e:c4:d2:36:1e"; })
+    (mk-lan-iface 1 { subnet-from = "10.1.1"; mac = "00:0e:c4:d2:36:1f"; })
+    (mk-lan-iface 2 { subnet-from = "10.1.2"; mac = "00:0e:c4:d2:36:20"; })
+  ];
+
   dhcp-dns-servers = [ "8.8.8.8" ];
   domain-name = "badi.sh";
 
@@ -79,7 +89,7 @@ in
     enable = true;
     externalInterface  = wan-iface.name;
     internalInterfaces = lib.catAttrs "name" lan-ifaces;
-    internalIPs = [ lan-cidr ];
+    internalIPs = lib.catAttrs "cidr" lan-ifaces;
   };
 
   # for IPv6
@@ -105,18 +115,16 @@ in
     interfaces = lib.catAttrs "name" lan-ifaces;
     extraConfig =
       let mk-subnet = lan: ''
-        subnet ${lan.octet}.0 netmask ${subnet-mask} {
-          range ${lan.octet}.10 ${lan.octet}.254;
+
+        subnet ${lan.subnet-from}.0 netmask ${lan.netmask} {
+          range ${lan.first-host} ${lan.host-max};
+          option broadcast-address ${lan.broadcast};
+          option routers ${lan.host-min};
         }
       '';
       in lib.concatStrings ([
         ''
-          option subnet-mask ${subnet-mask};
-          option broadcast-address ${dhcp-broadcast-address};
-          option routers ${lib.concatStringsSep "," (lib.catAttrs "ip4" lan-ifaces)},${router-ip};
           option domain-name-servers ${lib.concatStringsSep "," dhcp-dns-servers};
-          option domain-name "${domain-name}";
-
         ''
         ]
         ++ map mk-subnet lan-ifaces);
