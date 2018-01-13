@@ -183,7 +183,6 @@ in
           # option domain-name-servers ${lib.concatStringsSep "," dhcp-dns-servers};
   };
 
-  environment.systemPackages = with pkgs; [ bind inetutils ];
   services.bind =
     let
       cfg = config.services.bind;
