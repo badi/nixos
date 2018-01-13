@@ -271,6 +271,6 @@ in
       "${pkgs.bind.out}/sbin/named -u ${bindUser} ${optionalString cfg.ipv4Only "-4"} -c /var/lib/named/named.conf -f"
     );
 
-  # services.fail2ban.enable = true;
+  services.fail2ban.enable = true;
 
 }
