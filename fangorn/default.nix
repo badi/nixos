@@ -15,23 +15,23 @@ in
 {
 
   imports = [
-    ./fangorn/hardware-configuration.nix
-    ./common/nix-config.nix
-    # ./fangorn/packages.nix
+    ./hardware-configuration.nix
+    ../common/nix-config.nix
+    # ./packages.nix
 
-    ./common/basicSystem.nix
-    ./common/workstation.nix
-    ./common/desktopManager.nix
-    ./common/auto-upgrade.nix
-    # ./common/bluetooth.nix
-    ./common/firefox-nightly.nix
-    ./common/nvidia.nix
-    ./common/users.nix
-    ./common/yubikey.nix
-    ./common/virthost.nix
-    ./common/vpn.nix
-    ./common/popfile.nix
-    ./common/syncthing.nix
+    ../common/basicSystem.nix
+    ../common/workstation.nix
+    ../common/desktopManager.nix
+    ../common/auto-upgrade.nix
+    # ../common/bluetooth.nix
+    ../common/firefox-nightly.nix
+    ../common/nvidia.nix
+    ../common/users.nix
+    ../common/yubikey.nix
+    ../common/virthost.nix
+    ../common/vpn.nix
+    ../common/popfile.nix
+    ../common/syncthing.nix
   ];
 
   services.udev.extraRules = ''
