@@ -7,15 +7,15 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./glaurung/hardware-configuration.nix
+      ./hardware-configuration.nix
 
-      ./common/auto-upgrade.nix
-      ./common/basicSystem.nix
-      ./common/firefox-overlay.nix
-      ./common/kodi.nix
-      ./common/nix-config.nix
-      ./common/nvidia.nix
-      ./common/syncthing.nix
+      ../common/auto-upgrade.nix
+      ../common/basicSystem.nix
+      ../common/firefox-overlay.nix
+      ../common/kodi.nix
+      ../common/nix-config.nix
+      ../common/nvidia.nix
+      ../common/syncthing.nix
 
       (builtins.fetchTarball https://gitlab.com/badi.sh/nixos-mediacenter/repository/master/archive.tar.gz)
     ];
