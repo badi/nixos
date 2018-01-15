@@ -6,47 +6,57 @@
 let
 
   inherit (pkgs) writeText;
-  inherit (lib) concatStringsSep optionalString;
+  inherit (lib) attrNames concatStringsSep catAttrs mapAttrs mapAttrsToList optionalString;
   inherit (builtins) toString;
 
-  wan-iface = { name = "wan0"; mac = "00:0e:c4:d2:36:1d"; };
+  wan-iface-name = "wan0";
+  wan-iface = { "${wan-iface-name}" = { mac = "00:0e:c4:d2:36:1d"; }; };
 
   ip4 = a: b: c: d: {inherit a b c d;};
   ip4ToString = ip: concatStringsSep "." (map toString [ip.a ip.b ip.c ip.d]);
 
-  mk-lan-iface = { name, ip4, prefix ? 24, mac, subnet}: { inherit name ip4 mac subnet prefix;};
+  mk-lan-iface = { ip4, prefix ? 24, mac, subnet}: { inherit ip4 mac subnet prefix;};
   mk-subnet = {
                 min, max, subnet
               , netmask ? ip4 255 255 255 0
               , broadcast ? subnet // { d = 255; }
               , prefix ? 24
+              , static-hosts ? {}
               }:
-              { inherit min max subnet netmask broadcast prefix;
+              { inherit min max subnet netmask broadcast prefix static-hosts;
                 cidr = "${ip4ToString subnet}/${toString prefix}"; };
 
-  lan-ifaces = [
-    (mk-lan-iface { name = "lan0"; ip4 = ip4 10 0 1 1; mac = "00:0e:c4:d2:36:1e";
-                    subnet = mk-subnet {
-                               min = ip4 10 0 1 10;
-                               max = ip4 10 0 1 254;
-                               subnet = ip4 10 0 1 0;
-                             };
-                  })
-    (mk-lan-iface { name = "lan1"; ip4 = ip4 10 0 2 1; mac = "00:0e:c4:d2:36:1f";
-                    subnet = mk-subnet {
-                               min = ip4 10 0 2 10;
-                               max = ip4 10 0 2 254;
-                               subnet = ip4 10 0 2 0;
-                             };
-                  })
-    (mk-lan-iface { name = "lan2"; ip4 = ip4 10 0 3 1; mac = "00:0e:c4:d2:36:20";
-                    subnet = mk-subnet {
-                               min = ip4 10 0 3 10;
-                               max = ip4 10 0 3 254;
-                               subnet = ip4 10 0 3 0;
-                             };
-                  })
-  ];
+  lan-ifaces = {
+    lan0 = mk-lan-iface
+      { ip4 = ip4 10 0 1 1;
+        mac = "00:0e:c4:d2:36:1e";
+        subnet = mk-subnet { min = ip4 10 0 1 10;
+                             max = ip4 10 0 1 254;
+                             subnet = ip4 10 0 1 0;
+                           };
+      };
+    lan1 = mk-lan-iface
+      { ip4 = ip4 10 0 2 1;
+        mac = "00:0e:c4:d2:36:1f";
+        subnet = mk-subnet { min = ip4 10 0 2 10;
+                             max = ip4 10 0 2 254;
+                             subnet = ip4 10 0 2 0;
+                           };
+      };
+    lan2 = mk-lan-iface 
+      { ip4 = ip4 10 0 3 1; 
+        mac = "00:0e:c4:d2:36:20";
+        subnet = mk-subnet (lib.fix (self:
+                           { min = ip4 10 0 3 10;
+                             max = ip4 10 0 3 254;
+                             subnet = ip4 10 0 3 0;
+                             static-hosts = { fangorn = { mac = "4c:cc:6a:28:33:18";
+                                                          ip = self.min;
+                                                        };
+                                            };
+                             }));
+      };
+  };
 
   dhcp-dns-servers = [ "8.8.8.8" "8.8.4.4" ];
   domain-name = "badi.sh";
@@ -56,8 +66,8 @@ let
   '';
 
   udev-rewrite-iface-name = let
-    mk-iface = x: {inherit (x) name; addr = x.mac; };
-    ifaces = map mk-iface ([wan-iface] ++ lan-ifaces);
+    mk-iface = name: x: {inherit name; addr = x.mac; };
+    ifaces = mapAttrsToList  mk-iface (wan-iface // lan-ifaces);
     in lib.concatMapStrings mk-udev-rewrite-iface-name ifaces;
 
 in
@@ -77,12 +87,12 @@ in
     "net.ipv4.conf.all.forwarding" = 1;
     "net.ipv4.conf.default.forwarding" = 1;
     "net.ipv6.conf.all.forwarding" = true;
-    "net.ipv6.conf.${wan-iface.name}.accept_ra" = 2;
+    "net.ipv6.conf.${wan-iface-name}.accept_ra" = 2;
   };
 
   networking.firewall = {
     enable = true;
-    trustedInterfaces = lib.catAttrs "name" lan-ifaces;
+    trustedInterfaces = attrNames lan-ifaces;
   };
   # networking.firewall.extraCommands = let
 
@@ -105,21 +115,25 @@ in
   # in [];
 
   networking.interfaces = let
-    mk-iface = iface:
-      { name = iface.name;
-        value = { ip4 = [ { address = ip4ToString iface.ip4;
-                            prefixLength = iface.prefix;
-                          }
-                        ];
-                };
+    mk-iface = name: iface:
+      { ip4 = [ { address = ip4ToString iface.ip4;
+                  prefixLength = iface.prefix;
+                }
+              ];
       };
-    in builtins.listToAttrs (map mk-iface lan-ifaces);
+    in mapAttrs mk-iface lan-ifaces;
 
   networking.nat = {
     enable = true;
-    externalInterface  = wan-iface.name;
-    internalInterfaces = lib.catAttrs "name" lan-ifaces;
-    internalIPs = lib.catAttrs "cidr" lan-ifaces;
+    externalInterface  = wan-iface-name;
+    internalInterfaces = attrNames lan-ifaces;
+    internalIPs = mapAttrsToList (_: iface: iface.subnet.cidr) lan-ifaces;
+    forwardPorts = [
+      { destination = "${ip4ToString lan-ifaces.lan2.subnet.static-hosts.fangorn.ip}:22";
+        proto = "tcp";
+        sourcePort = 2014;
+      }
+    ];
   };
 
   # for IPv6
@@ -142,9 +156,19 @@ in
 
   services.dhcpd4 = {
     enable = true;
-    interfaces = lib.catAttrs "name" lan-ifaces;
+    interfaces = attrNames  lan-ifaces;
     extraConfig =
-      let mk-subnet = lan: ''
+      let
+        mk-static-addr = subnet:
+          let
+            to-dhcpd-config = hostname: {mac, ip}: ''
+              host ${hostname} {
+                hardware ethernet ${lib.toUpper mac};
+                fixed-address ${ip4ToString ip};
+              }
+            '';
+          in lib.concatStrings (lib.mapAttrsToList to-dhcpd-config subnet.static-hosts);
+        mk-subnet = iface-name: lan: ''
 
         subnet ${ip4ToString lan.subnet.subnet} netmask ${ip4ToString lan.subnet.netmask} {
           range ${ip4ToString lan.subnet.min} ${ip4ToString lan.subnet.max};
@@ -154,6 +178,8 @@ in
           option domain-name "${domain-name}";
           ddns-domainname "${domain-name}";
           ddns-rev-domainname "in-addr.arpa.";
+
+          ${mk-static-addr lan.subnet}
         }
       '';
       in lib.concatStrings ([
@@ -179,7 +205,7 @@ in
           }
         ''
         ]
-        ++ map mk-subnet lan-ifaces);
+        ++ mapAttrsToList mk-subnet lan-ifaces);
           # option domain-name-servers ${lib.concatStringsSep "," dhcp-dns-servers};
   };
 
@@ -207,7 +233,7 @@ in
         ${mk-soa {}}
                  IN    NS     fea
         ;
-        fea      IN    A      ${ip4ToString (lib.head lan-ifaces).ip4}
+        fea      IN    A      ${ip4ToString lan-ifaces.lan0.ip4}
       '';
       rev-10-0 = writeText "bind.10.0.rev" ''
         ${mk-soa { soa = soaDef // {name = "10.0.in-addr.arpa";}; }}
@@ -218,8 +244,8 @@ in
       mk-named-entry-list = xs: lib.concatMapStrings (entry: " ${entry}; ") xs;
     in {
     enable = true;
-    listenOn = [ "127.0.0.1" ] ++ map ip4ToString (lib.catAttrs "ip4" lan-ifaces);
-    cacheNetworks = [ "127.0.0.0/24" ] ++ lib.catAttrs "cidr" (lib.catAttrs "subnet" lan-ifaces);
+    listenOn = [ "127.0.0.1" ] ++ mapAttrsToList (_: iface: ip4ToString iface.ip4) lan-ifaces;
+    cacheNetworks = [ "127.0.0.0/24" ] ++ mapAttrsToList (name: iface: iface.subnet.cidr) lan-ifaces;
     forwarders = dhcp-dns-servers;
     configFile = writeText "named.conf" ''
       include "/etc/bind/rndc.key";
