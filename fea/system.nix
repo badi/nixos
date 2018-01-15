@@ -2,7 +2,6 @@
 {
 
   imports = [
-    ../common/auto-upgrade.nix
     ../common/nix-config.nix
   ];
 
