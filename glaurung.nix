@@ -11,7 +11,7 @@
 
       ./common/auto-upgrade.nix
       ./common/basicSystem.nix
-      ./common/firefox-nightly.nix
+      ./common/firefox-overlay.nix
       ./common/kodi.nix
       ./common/nix-config.nix
       ./common/nvidia.nix
@@ -48,6 +48,7 @@
     emacs25-nox
     git
     google-chrome
+    firefox-overlay.firefox-beta-bin
     spotify
     skype
     tmux

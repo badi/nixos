@@ -19,9 +19,4 @@ in
     })
   ];
 
-
-  environment.systemPackages = with pkgs; [
-    firefox-overlay.firefox-nightly-bin
-  ];
-
 }

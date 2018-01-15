@@ -24,7 +24,7 @@ in
     ../common/desktopManager.nix
     ../common/auto-upgrade.nix
     # ../common/bluetooth.nix
-    ../common/firefox-nightly.nix
+    ../common/firefox-overlay.nix
     ../common/nvidia.nix
     ../common/users.nix
     ../common/yubikey.nix
@@ -65,6 +65,8 @@ in
   environment.systemPackages = with pkgs; [
     digikam gwenview okular
     keepassx-community
+
+    firefox-overlay.firefox-beta-bin
 
     wpsoffice
     okular
