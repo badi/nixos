@@ -47,11 +47,11 @@ let
       { ip4 = ip4 10 0 3 1; 
         mac = "00:0e:c4:d2:36:20";
         subnet = mk-subnet (lib.fix (self:
-                           { min = ip4 10 0 3 10;
+                           { min = ip4 10 0 3 11;
                              max = ip4 10 0 3 254;
                              subnet = ip4 10 0 3 0;
                              static-hosts = { fangorn = { mac = "4c:cc:6a:28:33:18";
-                                                          ip = self.min;
+                                                          ip = self.subnet // { d=10; };
                                                         };
                                             };
                              }));
