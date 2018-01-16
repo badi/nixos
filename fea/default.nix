@@ -234,6 +234,7 @@ in
                  IN    NS     fea
         ;
         fea      IN    A      ${ip4ToString lan-ifaces.lan0.ip4}
+        unifi    IN    CNAME  fea
       '';
       rev-10-0 = writeText "bind.10.0.rev" ''
         ${mk-soa { soa = soaDef // {name = "10.0.in-addr.arpa";}; }}
@@ -300,5 +301,20 @@ in
   services.fail2ban.enable = true;
 
   services.unifi.enable = true;
+
+  services.nginx = {
+    enable = true;
+    recommendedGzipSettings = true;
+    recommendedOptimisation = true;
+    recommendedProxySettings = true;
+    virtualHosts."unifi.badi.sh" = {
+      locations."/" = {
+        proxyPass = "http://fea.${domain-name}:8080/";
+        extraConfig = ''
+          proxy_redirect https://fea.badi.sh:8080/ http://$host/;
+        '';
+      };
+    };
+  };
 
 }
