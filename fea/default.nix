@@ -31,12 +31,16 @@ let
       { ip4 = ip4 10 0 1 1;
         mac = "00:0e:c4:d2:36:1e";
         subnet = mk-subnet (lib.fix (self:
-                           { min = ip4 10 0 1 11;
+                           { min = ip4 10 0 1 100;
                              max = ip4 10 0 1 254;
                              subnet = ip4 10 0 1 0;
                              static-hosts = { tolu = {
                                                 mac = "18:65:90:e1:33:85";
                                                 ip = self.subnet // { d=10; };
+                                              };
+                                              fangorn = {
+                                                mac = "4c:cc:6a:28:33:18";
+                                                ip = self.subnet // { d=11; };
                                               };
                                             };
                            }));
@@ -56,11 +60,7 @@ let
                            { min = ip4 10 0 3 11;
                              max = ip4 10 0 3 254;
                              subnet = ip4 10 0 3 0;
-                             static-hosts = { fangorn = { mac = "4c:cc:6a:28:33:18";
-                                                          ip = self.subnet // { d=10; };
-                                                        };
-                                            };
-                             }));
+                            }));
       };
   };
 
@@ -135,7 +135,7 @@ in
     internalInterfaces = attrNames lan-ifaces;
     internalIPs = mapAttrsToList (_: iface: iface.subnet.cidr) lan-ifaces;
     forwardPorts = [
-      { destination = "${ip4ToString lan-ifaces.lan2.subnet.static-hosts.fangorn.ip}:22";
+      { destination = "${ip4ToString lan-ifaces.lan0.subnet.static-hosts.fangorn.ip}:22";
         proto = "tcp";
         sourcePort = 2014;
       }
