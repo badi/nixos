@@ -17,7 +17,7 @@
       ../common/nvidia.nix
       ../common/syncthing.nix
 
-      (builtins.fetchTarball https://gitlab.com/badi.sh/nixos-mediacenter/repository/master/archive.tar.gz)
+      ../modules/mediacenter
     ];
 
   # Use the GRUB 2 boot loader.
