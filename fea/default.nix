@@ -30,10 +30,16 @@ let
     lan0 = mk-lan-iface
       { ip4 = ip4 10 0 1 1;
         mac = "00:0e:c4:d2:36:1e";
-        subnet = mk-subnet { min = ip4 10 0 1 10;
+        subnet = mk-subnet (lib.fix (self:
+                           { min = ip4 10 0 1 11;
                              max = ip4 10 0 1 254;
                              subnet = ip4 10 0 1 0;
-                           };
+                             static-hosts = { tolu = {
+                                                mac = "18:65:90:e1:33:85";
+                                                ip = self.subnet // { d=10; };
+                                              };
+                                            };
+                           }));
       };
     lan1 = mk-lan-iface
       { ip4 = ip4 10 0 2 1;
