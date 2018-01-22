@@ -19,6 +19,7 @@
     aria
     bind
     curl
+    dmidecode
     emacs25-nox
     file
     gitAndTools.gitFull
