@@ -25,7 +25,10 @@
 
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    gptfdisk smbclient xfsprogs youtube-dl
+    gptfdisk
+    smbclient
+    xfsprogs
+    youtube-dl
   ];
 
   users.users.root = {
