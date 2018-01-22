@@ -1,3 +1,0 @@
-[submodule "hardware"]
-	path = hardware
-	url = git@github.com:badi/nixos-hardware.git
