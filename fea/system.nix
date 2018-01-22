@@ -28,6 +28,9 @@
     ];
   };
 
+  services.prometheus.nodeExporter.enable = true;
+  services.prometheus.nodeExporter.openFirewall = true;
+
   time.timeZone = "US/Eastern";
 
 }

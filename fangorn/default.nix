@@ -128,6 +128,9 @@ in
         { targets = [ "10.0.0.10:9100" ];
           labels  = { alias = "glaurung"; };
         }
+        { targets = [ "fea.badi.sh:9100" ];
+          labels  = { alias = "fea"; };
+        }
       ];
     }
 
@@ -140,7 +143,7 @@ in
         { targets = [ "192.168.100.1" ];
           labels = { network = "internal"; what = "modem"; };
         }
-        { targets = [ "10.0.0.1" "10.0.0.2" "10.0.0.10" "fangorn.badi.sh" ];
+        { targets = [ "10.0.0.1" "10.0.0.2" "10.0.0.10" "fangorn.badi.sh" "fea.badi.sh" ];
           labels  = { network = "internal"; };
         }
         { targets = [ "google.com" "amazon.com" "spotify.com" "comcast.com" ];
