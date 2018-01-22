@@ -11,6 +11,6 @@
 
   namo = {...}: {
     deployment.targetHost = "10.0.0.2";
-    imports = [ ./namo.nix ];
+    imports = [ ./namo ];
   };
 }

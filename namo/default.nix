@@ -2,12 +2,12 @@
 
 {
   imports = [
-    ./common/nix-config.nix
+    ../common/nix-config.nix
 
-    ./namo/boot.nix
-    ./namo/samba.nix
+    ./boot.nix
+    ./samba.nix
 
-    ./common/vpn.nix
+    ../common/vpn.nix
   ];
 
   hardware.cpu.intel.updateMicrocode = true;
