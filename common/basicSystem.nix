@@ -18,6 +18,7 @@
 
     aria
     bind
+    bmon
     curl
     dmidecode
     emacs25-nox
@@ -36,6 +37,8 @@
     nix-prefetch-scripts
     nix-repl
     nix-serve
+    nmap
+    p7zip
     pciutils
     psmisc
     pv
