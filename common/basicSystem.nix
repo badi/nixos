@@ -16,11 +16,13 @@
 
   environment.systemPackages = with pkgs; [
 
+    aria
     bind
     curl
     emacs25-nox
     file
     gitAndTools.gitFull
+    hdparm
     htop
     hwdata
     inetutils
@@ -31,12 +33,19 @@
     mkpasswd
     nethogs
     nix-prefetch-scripts
+    nix-repl
     nix-serve
     pciutils
     psmisc
     pv
+    rsync
+    sdparm
     smartmontools
+    tmux
+    unrar
+    unzip
     usbutils
+    utillinux
     vim
     wget
     which
