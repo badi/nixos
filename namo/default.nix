@@ -1,8 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
-    ../common/nix-config.nix
+    ../common/basicSystem.nix
 
     ./boot.nix
     ./samba.nix
@@ -17,9 +17,7 @@
     hostName = "namo";
     usePredictableInterfaceNames = true;
 
-    firewall = {
-      enable = false;
-    };
+    firewall.enable = lib.mkForce false;
 
     networkmanager.enable = false;
     tcpcrypt.enable = true;
@@ -27,16 +25,8 @@
 
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    file wget rsync aria emacs25-nox nix-repl git
-    smartmontools hdparm sdparm lsscsi pciutils tmux
-    gptfdisk unzip unrar utillinux xfsprogs smbclient lsof
+    gptfdisk smbclient xfsprogs
   ];
-
-  services.openssh = {
-    enable = true;
-    passwordAuthentication = false;
-    permitRootLogin = "yes";
-  };
 
   users.users.root = {
     openssh.authorizedKeys.keys = [
