@@ -25,10 +25,10 @@
     fsType = "xfs";
   };
 
-  fileSystems."/mandos" = {
-    device = "mandos";
-    fsType = "zfs";
-  };
+  # fileSystems."/mandos" = {
+  #   device = "mandos";
+  #   fsType = "zfs";
+  # };
 
   services.zfs.autoSnapshot.enable = true;
   services.zfs.autoScrub.enable = true;
