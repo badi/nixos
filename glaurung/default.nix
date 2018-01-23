@@ -12,7 +12,6 @@
       ../common/basicSystem.nix
       ../common/firefox-overlay.nix
       ../common/kodi.nix
-      ../common/nix-config.nix
       ../common/nvidia.nix
       ../common/syncthing.nix
 
