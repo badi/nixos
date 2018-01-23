@@ -62,6 +62,8 @@ in
   };
 
 
+  nixpkgs.config.firefox.ffmpegSupport = true;
+
   environment.systemPackages = with pkgs; [
     digikam gwenview okular
     keepassx-community
