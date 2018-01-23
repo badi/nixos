@@ -4,6 +4,12 @@
     enableRollback = true;
   };
 
+  fangorn = {...}: {
+    deployment.targetHost = "localhost";
+    imports = [ ./fangorn ];
+  };
+
+
   fea = {...}: {
     deployment.targetHost = "fea";
     imports = [ ./fea ];
