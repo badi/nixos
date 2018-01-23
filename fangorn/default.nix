@@ -66,7 +66,7 @@ in
     digikam gwenview okular
     keepassx-community
 
-    firefox-overlay.firefox-beta-bin
+    firefox-overlay.firefox-nightly-bin
 
     wpsoffice
     okular
