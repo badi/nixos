@@ -44,6 +44,7 @@
     pv
     rsync
     sdparm
+    silver-searcher
     smartmontools
     tmux
     unrar

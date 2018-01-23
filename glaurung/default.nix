@@ -9,7 +9,6 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
-      ../common/auto-upgrade.nix
       ../common/basicSystem.nix
       ../common/firefox-overlay.nix
       ../common/kodi.nix
@@ -44,18 +43,9 @@
   nixpkgs.config.firefox.ffmpegSupport = true;
 
   environment.systemPackages = with pkgs; [
-    wget
-    emacs25-nox
-    git
     google-chrome
     firefox-overlay.firefox-beta-bin
     spotify
-    skype
-    tmux
-    nix-repl
-    nmap
-    pv
-    silver-searcher
     telnet
     gwenview
     kate
