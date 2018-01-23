@@ -81,6 +81,7 @@
   ################################################################################
   # system
   powerManagement.enable = true;
+  hardware.enableAllFirmware = true;
 
   time.timeZone = "US/Eastern";
 
