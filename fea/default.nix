@@ -9,6 +9,8 @@ let
   inherit (lib) attrNames concatStringsSep catAttrs mapAttrs mapAttrsToList optionalString;
   inherit (builtins) toString;
 
+  secrets = import ../secrets.nix {};
+
   wan-iface-name = "wan0";
   wan-iface = { "${wan-iface-name}" = { mac = "00:0e:c4:d2:36:1d"; }; };
 
@@ -64,7 +66,14 @@ let
       };
   };
 
-  dhcp-dns-servers = [ "8.8.8.8" "8.8.4.4" ];
+  upstream-dns-servers = {
+    google = [ (ip4 8 8 8 8) (ip4 8 8 4 4) ];
+    alternate-dns = [ (ip4 23 253 163 53) (ip4 198 101 242 72) ];
+    opendns = [ (ip4 208 67 222 222) (ip4 208 67 220 220) ];
+    adguard = [ (ip4 176 103 130 130) (ip4 176 103 130 131) ];
+  };
+
+  dhcp-dns-servers = map ip4ToString upstream-dns-servers.opendns;
   domain-name = "badi.sh";
 
   mk-udev-rewrite-iface-name = eth: ''
@@ -322,5 +331,15 @@ in
       };
     };
   };
+
+  services.ddclient = {
+    enable = true;
+    protocol = "dyndns2";
+    username = secrets.opendns.username;
+    password = "'${secrets.opendns.password}'";
+    server = "updates.opendns.com";
+    extraConfig = "Home";
+  };
+
 
 }
