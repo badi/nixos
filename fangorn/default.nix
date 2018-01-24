@@ -135,6 +135,9 @@ in
         { targets = [ "fea.badi.sh:9100" ];
           labels  = { alias = "fea"; };
         }
+        { targets = [ "fea.badi.sh:9101" ];
+          labels  = { alias = "unifi"; };
+        }
       ];
     }
 

@@ -341,5 +341,13 @@ in
     domain = "home";
   };
 
+  services.prometheus.unifiExporter = {
+    enable = true;
+    port = 9101;
+    unifiAddress = "https://unifi.badi.sh:8443";
+    unifiInsecure = true;
+    unifiUsername = secrets.unifiExporter.username;
+    unifiPassword = secrets.unifiExporter.password;
+  };
 
 }
