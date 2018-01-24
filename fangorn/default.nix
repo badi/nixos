@@ -5,6 +5,8 @@
 # in
 
 let
+  secrets = import ../secrets.nix {};
+
   # https://wiki.archlinux.org/index.php/Network_configuration#Change_device_name
   ethernet = {
     name = "net0";
@@ -171,8 +173,8 @@ in
   services.ddclient = {
     enable = true;
     protocol = "namecheap";
-    username = "badi.sh";
-    password = pkgs.lib.readFile /var/lib/dyndns/badi.sh.password;
+    username = secrets.namecheap.username;
+    password = "'${secrets.namecheap.password}'";
     domain = "fangorn";
   };
 
