@@ -338,7 +338,7 @@ in
     username = secrets.opendns.username;
     password = "'${secrets.opendns.password}'";
     server = "updates.opendns.com";
-    extraConfig = "Home";
+    domain = "home";
   };
 
 
