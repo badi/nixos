@@ -99,7 +99,7 @@
               "intervalFactor": 2,
               "legendFormat": "{{alias}}",
               "refId": "A",
-              "step": 2
+              "step": 4
             }
           ],
           "thresholds": [],
@@ -176,7 +176,7 @@
               "intervalFactor": 2,
               "legendFormat": "{{alias}}",
               "refId": "A",
-              "step": 2
+              "step": 4
             }
           ],
           "thresholds": [],
@@ -255,7 +255,7 @@
               "intervalFactor": 2,
               "legendFormat": "{{alias}}",
               "refId": "A",
-              "step": 2
+              "step": 4
             }
           ],
           "thresholds": [],
@@ -305,7 +305,7 @@
     },
     {
       "collapse": false,
-      "height": 236,
+      "height": 285,
       "panels": [
         {
           "aliasColors": {},
@@ -348,7 +348,7 @@
               "intervalFactor": 2,
               "legendFormat": "90%ile for external",
               "refId": "B",
-              "step": 2
+              "step": 4
             },
             {
               "expr": "max(quantile_over_time(0.9, probe_duration_seconds{network=\"internal\", what!=\"modem\"}[1m]))",
@@ -358,7 +358,7 @@
               "intervalFactor": 2,
               "legendFormat": "90%ile for internal",
               "refId": "A",
-              "step": 2
+              "step": 4
             },
             {
               "expr": "probe_duration_seconds{what=\"modem\"}",
@@ -368,7 +368,7 @@
               "intervalFactor": 2,
               "legendFormat": "{{what}}",
               "refId": "D",
-              "step": 2
+              "step": 4
             }
           ],
           "thresholds": [],
@@ -410,93 +410,6 @@
           ]
         },
         {
-          "cards": {
-            "cardPadding": null,
-            "cardRound": null
-          },
-          "color": {
-            "cardColor": "#b4ff00",
-            "colorScale": "sqrt",
-            "colorScheme": "interpolateSpectral",
-            "exponent": 0.5,
-            "max": null,
-            "min": null,
-            "mode": "spectrum"
-          },
-          "dataFormat": "timeseries",
-          "datasource": "${DS_PROMETHEUS}",
-          "heatmap": {},
-          "hideTimeOverride": false,
-          "highlightCards": true,
-          "id": 11,
-          "legend": {
-            "show": false
-          },
-          "links": [],
-          "minSpan": null,
-          "span": 4,
-          "targets": [
-            {
-              "expr": "count_over_time(probe_success{instance=\"google.com\"}[30m]) - sum_over_time(probe_success{instance=\"google.com\"}[30m])",
-              "format": "time_series",
-              "hide": true,
-              "intervalFactor": 2,
-              "refId": "A",
-              "step": 60
-            },
-            {
-              "expr": "count_over_time(probe_success[1m]) - sum_over_time(probe_success[1m])",
-              "format": "time_series",
-              "hide": true,
-              "intervalFactor": 2,
-              "refId": "B",
-              "step": 7200
-            },
-            {
-              "expr": "count_over_time(probe_success{network=\"external\"}[1m]) - sum_over_time(probe_success{network=\"external\"}[1m])",
-              "format": "time_series",
-              "hide": false,
-              "intervalFactor": 2,
-              "legendFormat": "b",
-              "refId": "C",
-              "step": 2
-            },
-            {
-              "expr": "clamp_max(count_over_time(probe_success{network=\"internal\"}[1m]) - sum_over_time(probe_success{network=\"internal\"}[1m]), 1)",
-              "format": "time_series",
-              "hide": false,
-              "intervalFactor": 2,
-              "legendFormat": "a",
-              "refId": "D",
-              "step": 2
-            }
-          ],
-          "timeFrom": null,
-          "title": "Ping State",
-          "tooltip": {
-            "show": true,
-            "showHistogram": true
-          },
-          "transparent": false,
-          "type": "heatmap",
-          "xAxis": {
-            "show": true
-          },
-          "xBucketNumber": null,
-          "xBucketSize": null,
-          "yAxis": {
-            "decimals": null,
-            "format": "none",
-            "logBase": 1,
-            "max": null,
-            "min": "0",
-            "show": true,
-            "splitFactor": null
-          },
-          "yBucketNumber": null,
-          "yBucketSize": null
-        },
-        {
           "aliasColors": {},
           "bars": false,
           "dashLength": 10,
@@ -505,13 +418,13 @@
           "fill": 0,
           "id": 13,
           "legend": {
-            "alignAsTable": false,
+            "alignAsTable": true,
             "avg": false,
             "current": false,
             "hideEmpty": false,
             "max": false,
             "min": false,
-            "rightSide": false,
+            "rightSide": true,
             "show": true,
             "total": false,
             "values": false
@@ -526,7 +439,7 @@
           "renderer": "flot",
           "seriesOverrides": [],
           "spaceLength": 10,
-          "span": 4,
+          "span": 5,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -537,7 +450,7 @@
               "intervalFactor": 2,
               "legendFormat": "{{instance}}",
               "refId": "A",
-              "step": 2
+              "step": 4
             }
           ],
           "thresholds": [],
@@ -576,6 +489,93 @@
               "show": true
             }
           ]
+        },
+        {
+          "cards": {
+            "cardPadding": null,
+            "cardRound": null
+          },
+          "color": {
+            "cardColor": "#b4ff00",
+            "colorScale": "sqrt",
+            "colorScheme": "interpolateSpectral",
+            "exponent": 0.5,
+            "max": null,
+            "min": null,
+            "mode": "spectrum"
+          },
+          "dataFormat": "timeseries",
+          "datasource": "${DS_PROMETHEUS}",
+          "heatmap": {},
+          "hideTimeOverride": false,
+          "highlightCards": true,
+          "id": 11,
+          "legend": {
+            "show": false
+          },
+          "links": [],
+          "minSpan": null,
+          "span": 3,
+          "targets": [
+            {
+              "expr": "count_over_time(probe_success{instance=\"google.com\"}[30m]) - sum_over_time(probe_success{instance=\"google.com\"}[30m])",
+              "format": "time_series",
+              "hide": true,
+              "intervalFactor": 2,
+              "refId": "A",
+              "step": 60
+            },
+            {
+              "expr": "count_over_time(probe_success[1m]) - sum_over_time(probe_success[1m])",
+              "format": "time_series",
+              "hide": true,
+              "intervalFactor": 2,
+              "refId": "B",
+              "step": 7200
+            },
+            {
+              "expr": "count_over_time(probe_success{network=\"external\"}[1m]) - sum_over_time(probe_success{network=\"external\"}[1m])",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 2,
+              "legendFormat": "b",
+              "refId": "C",
+              "step": 10
+            },
+            {
+              "expr": "clamp_max(count_over_time(probe_success{network=\"internal\"}[1m]) - sum_over_time(probe_success{network=\"internal\"}[1m]), 1)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 2,
+              "legendFormat": "a",
+              "refId": "D",
+              "step": 10
+            }
+          ],
+          "timeFrom": null,
+          "title": "Ping State",
+          "tooltip": {
+            "show": true,
+            "showHistogram": true
+          },
+          "transparent": false,
+          "type": "heatmap",
+          "xAxis": {
+            "show": true
+          },
+          "xBucketNumber": null,
+          "xBucketSize": null,
+          "yAxis": {
+            "decimals": null,
+            "format": "none",
+            "logBase": 1,
+            "max": null,
+            "min": "0",
+            "show": true,
+            "splitFactor": null
+          },
+          "yBucketNumber": null,
+          "yBucketSize": null
         }
       ],
       "repeat": null,
@@ -587,7 +587,7 @@
     },
     {
       "collapse": false,
-      "height": 295,
+      "height": 265,
       "panels": [
         {
           "aliasColors": {},
@@ -599,7 +599,7 @@
           "fill": 1,
           "id": 14,
           "legend": {
-            "alignAsTable": false,
+            "alignAsTable": true,
             "avg": false,
             "current": false,
             "max": false,
@@ -620,7 +620,7 @@
           "renderer": "flot",
           "seriesOverrides": [],
           "spaceLength": 10,
-          "span": 12,
+          "span": 6,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -632,7 +632,7 @@
               "intervalFactor": 2,
               "legendFormat": "TX - {{alias}}",
               "refId": "B",
-              "step": 2
+              "step": 4
             },
             {
               "expr": "max(irate(node_network_receive_bytes[10s])) by (alias) * 8",
@@ -642,7 +642,7 @@
               "intervalFactor": 2,
               "legendFormat": "RX - {{alias}}",
               "refId": "A",
-              "step": 2
+              "step": 4
             }
           ],
           "thresholds": [],
@@ -666,6 +666,88 @@
           "yaxes": [
             {
               "format": "Bps",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "${DS_PROMETHEUS}",
+          "decimals": null,
+          "fill": 0,
+          "id": 15,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": true,
+            "show": true,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "unifi_stations_rssi_dbm ",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "{{hostname}}",
+              "refId": "A",
+              "step": 4
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "AP Signal Strength",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "transparent": false,
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "decimals": null,
+              "format": "short",
               "label": null,
               "logBase": 1,
               "max": null,
@@ -733,7 +815,7 @@
               "intervalFactor": 2,
               "legendFormat": "{{alias}}",
               "refId": "A",
-              "step": 2
+              "step": 4
             }
           ],
           "thresholds": [],
@@ -811,7 +893,7 @@
               "intervalFactor": 2,
               "legendFormat": "{{alias}}",
               "refId": "B",
-              "step": 2
+              "step": 10
             }
           ],
           "thresholds": [],
@@ -919,7 +1001,7 @@
               "hide": false,
               "intervalFactor": 2,
               "refId": "B",
-              "step": 4
+              "step": 40
             }
           ],
           "thresholds": "",
@@ -951,7 +1033,7 @@
     "list": []
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {
@@ -981,5 +1063,5 @@
   },
   "timezone": "",
   "title": "Main Dash",
-  "version": 56
+  "version": 57
 }
