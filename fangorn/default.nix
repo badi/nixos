@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 # let
 #   packageChoices.withChrome = true;
@@ -72,6 +72,7 @@ in
 
     firefox-overlay.firefox-nightly-bin
 
+    pgadmin pgcli
     wpsoffice
     okular
     google-chrome
@@ -83,6 +84,12 @@ in
     tmux
   ];
 
+
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql100;
+    dataDir = "/var/lib/postgresql/10.0";
+  };
 
   services.synergy.server.enable = false;
   services.synergy.server.configFile = "/home/badi/.synergy.conf";
