@@ -84,7 +84,7 @@ in
   ];
 
 
-  services.synergy.server.enable = true;
+  services.synergy.server.enable = false;
   services.synergy.server.configFile = "/home/badi/.synergy.conf";
 
   services.grafana.enable = true;
