@@ -38,6 +38,8 @@
   services.syncthing.useInotify = true;
   services.syncthing.openDefaultPorts = true;
 
+  sound.enable = false;
+
   system.stateVersion = "16.09";
 
 }
