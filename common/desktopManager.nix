@@ -6,11 +6,16 @@
   hardware.pulseaudio.package = pkgs.pulseaudioFull;
   hardware.pulseaudio.daemon.config.flat-volumes = "no";
 
+  services.upower.enable = true;
+
   services.xserver.enable = true;
   services.xserver.layout = "us";
 
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
+
+  environment.systemPackages = with pkgs;
+    [ xscreensaver ];
 
   fonts = {
     enableDefaultFonts = true;
@@ -29,5 +34,9 @@
       unifont
     ];
   };
+
+  i18n.consoleFont = "Lat2-Terminus16";
+  i18n.consoleKeyMap = "us";
+  i18n.defaultLocale = "en_US.UTF-8";
 
 }

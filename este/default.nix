@@ -32,7 +32,6 @@
 
   environment.systemPackages = with pkgs; [
 
-    aria2
     emacs25
     firefox-overlay.firefox-nightly-bin
     google-chrome
@@ -72,17 +71,6 @@
     openDefaultPorts = true;
     useInotify = true;
   };
-
-  i18n = {
-    consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "us";
-    defaultLocale = "en_US.UTF-8";
-  };
-
-
-  # environment.systemPackages = with pkgs; [
-  #   wget vim
-  # ];
 
   services.printing.enable = true;
 

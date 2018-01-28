@@ -22,7 +22,6 @@ in
     # ./packages.nix
 
     ../common/basicSystem.nix
-    ../common/workstation.nix
     ../common/desktopManager.nix
     ../common/auto-upgrade.nix
     # ../common/bluetooth.nix
