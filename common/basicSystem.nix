@@ -17,13 +17,19 @@
   environment.systemPackages = with pkgs; [
 
     aria
+    bc
     bind
     bmon
+    colordiff
     curl
     dmidecode
+    dos2unix
     emacs25-nox
     file
+    gitAndTools.git-crypt
+    gitAndTools.git-extras
     gitAndTools.gitFull
+    gnupg
     hdparm
     htop
     hwdata
@@ -47,6 +53,8 @@
     silver-searcher
     smartmontools
     tmux
+    tree
+    unison
     unrar
     unzip
     usbutils
