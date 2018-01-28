@@ -6,6 +6,9 @@
   hardware.pulseaudio.package = pkgs.pulseaudioFull;
   hardware.pulseaudio.daemon.config.flat-volumes = "no";
 
+  services.xserver.enable = true;
+  services.xserver.layout = "us";
+
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 

@@ -4,11 +4,15 @@
     enableRollback = true;
   };
 
+  este = {...}: {
+    deployment.targetHost = "este";
+    imports = [ ./este ];
+  };
+
   fangorn = {...}: {
     deployment.targetHost = "localhost";
     imports = [ ./fangorn ];
   };
-
 
   fea = {...}: {
     deployment.targetHost = "fea";
