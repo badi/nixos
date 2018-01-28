@@ -34,7 +34,7 @@
 
     aria2
     emacs25
-    firefox-overlay.firefox-beta-bin
+    firefox-overlay.firefox-nightly-bin
     google-chrome
     keepassx-community
     libreoffice
