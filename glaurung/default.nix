@@ -43,7 +43,7 @@
 
   environment.systemPackages = with pkgs; [
     google-chrome
-    firefox-overlay.firefox-nightly-bin
+    firefox-overlay.firefox-beta-bin
     spotify
     telnet
     gwenview
