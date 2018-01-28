@@ -5,8 +5,6 @@
     [ # Include the results of the hardware scan.
       ./hardware.nix
       ../common/basicSystem.nix
-
-      ../common/basicSystem.nix
       ../common/desktopManager.nix
       # ../common/nvidia.nix
       ../common/firefox-overlay.nix
