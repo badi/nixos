@@ -67,38 +67,39 @@ in
   nixpkgs.config.firefox.ffmpegSupport = true;
 
   environment.systemPackages = with pkgs; [
+
     aspell
     aspellDicts.en
     aws
     digikam gwenview okular
-    keepassx-community
     emacs25
-
+    evince
     firefox-overlay.firefox-nightly-bin
-
     gimp-with-plugins
     gnutls
+    google-chrome
     graphviz
     httpie
     imagemagick
+    inkscape
     inotify-tools
     jq
+    keepassx-community
     keychain
     mediainfo
     mendeley
     nixops
+    okular
     pandoc
-    pgadmin pgcli
+    pgadmin
+    pgcli
     pinentry
     pingus
     popfile
-    wpsoffice
-    okular
-    google-chrome
-    evince
-    inkscape
     spotify
+    wpsoffice
     xclip
+
   ];
 
 
