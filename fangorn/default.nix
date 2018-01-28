@@ -97,6 +97,7 @@ in
     pingus
     popfile
     spotify
+    terraform_0_11
     wpsoffice
     xclip
 
