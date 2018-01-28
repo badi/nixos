@@ -157,6 +157,9 @@ in
         { targets = [ "10.0.0.10:9100" ];
           labels  = { alias = "glaurung"; };
         }
+        { targets = [ "este.badi.sh:9100" ];
+          labels  = { alias = "este"; };
+        }
         { targets = [ "fea.badi.sh:9100" ];
           labels  = { alias = "fea"; };
         }

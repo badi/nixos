@@ -73,6 +73,9 @@
 
   services.printing.enable = true;
 
+  services.prometheus.nodeExporter.enable = true;
+  services.prometheus.nodeExporter.openFirewall = true;
+
   services.xserver.libinput.enable = true;
 
   users.extraUsers.melissa = {
