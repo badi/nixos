@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
 
       ../common/basicSystem.nix
+      ../common/desktopManager.nix
       ../common/firefox-overlay.nix
       ../common/kodi.nix
       ../common/nvidia.nix
@@ -29,16 +30,6 @@
 
   networking.hostName = "glaurung"; # Define your hostname.
 
-
-  i18n = {
-    consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "us";
-    defaultLocale = "en_US.UTF-8";
-  };
-
-
-  nix.useSandbox = true;
-  # nix.extraOptions = "binary-caches-parallel-connections = 50";
   nixpkgs.config.firefox.ffmpegSupport = true;
 
   environment.systemPackages = with pkgs; [
@@ -52,11 +43,6 @@
     kmplayer
   ];
 
-  hardware.pulseaudio.enable = true;
-  hardware.pulseaudio.package = pkgs.pulseaudioFull;
-  hardware.pulseaudio.daemon.config.flat-volumes = "no";
-  hardware.bluetooth.enable = true;
-
   services.unified-remote.enable = true;
   services.unified-remote.openFirewall = true;
 
@@ -67,9 +53,6 @@
 
   services.prometheus.nodeExporter.enable = true;
   services.prometheus.nodeExporter.openFirewall = true;
-
-  services.xserver.enable = true;
-  services.xserver.layout = "us";
 
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.displayManager.sddm.autoLogin.enable = true;
