@@ -99,7 +99,7 @@
               "intervalFactor": 2,
               "legendFormat": "{{alias}}",
               "refId": "A",
-              "step": 4
+              "step": 2
             }
           ],
           "thresholds": [],
@@ -176,7 +176,7 @@
               "intervalFactor": 2,
               "legendFormat": "{{alias}}",
               "refId": "A",
-              "step": 4
+              "step": 2
             }
           ],
           "thresholds": [],
@@ -255,7 +255,7 @@
               "intervalFactor": 2,
               "legendFormat": "{{alias}}",
               "refId": "A",
-              "step": 4
+              "step": 2
             }
           ],
           "thresholds": [],
@@ -348,7 +348,7 @@
               "intervalFactor": 2,
               "legendFormat": "90%ile for external",
               "refId": "B",
-              "step": 4
+              "step": 2
             },
             {
               "expr": "max(quantile_over_time(0.9, probe_duration_seconds{network=\"internal\", what!=\"modem\"}[1m]))",
@@ -358,7 +358,7 @@
               "intervalFactor": 2,
               "legendFormat": "90%ile for internal",
               "refId": "A",
-              "step": 4
+              "step": 2
             },
             {
               "expr": "probe_duration_seconds{what=\"modem\"}",
@@ -368,7 +368,7 @@
               "intervalFactor": 2,
               "legendFormat": "{{what}}",
               "refId": "D",
-              "step": 4
+              "step": 2
             }
           ],
           "thresholds": [],
@@ -450,7 +450,7 @@
               "intervalFactor": 2,
               "legendFormat": "{{instance}}",
               "refId": "A",
-              "step": 4
+              "step": 2
             }
           ],
           "thresholds": [],
@@ -540,7 +540,7 @@
               "intervalFactor": 2,
               "legendFormat": "b",
               "refId": "C",
-              "step": 10
+              "step": 2
             },
             {
               "expr": "clamp_max(count_over_time(probe_success{network=\"internal\"}[1m]) - sum_over_time(probe_success{network=\"internal\"}[1m]), 1)",
@@ -549,7 +549,7 @@
               "intervalFactor": 2,
               "legendFormat": "a",
               "refId": "D",
-              "step": 10
+              "step": 2
             }
           ],
           "timeFrom": null,
@@ -601,14 +601,14 @@
           "legend": {
             "alignAsTable": true,
             "avg": false,
-            "current": false,
+            "current": true,
             "max": false,
             "min": false,
             "rightSide": true,
             "show": true,
             "sideWidth": 140,
             "total": false,
-            "values": false
+            "values": true
           },
           "lines": true,
           "linewidth": 1,
@@ -632,7 +632,7 @@
               "intervalFactor": 2,
               "legendFormat": "TX - {{alias}}",
               "refId": "B",
-              "step": 4
+              "step": 2
             },
             {
               "expr": "max(irate(node_network_receive_bytes[10s])) by (alias) * 8",
@@ -642,7 +642,7 @@
               "intervalFactor": 2,
               "legendFormat": "RX - {{alias}}",
               "refId": "A",
-              "step": 4
+              "step": 2
             }
           ],
           "thresholds": [],
@@ -723,7 +723,7 @@
               "intervalFactor": 2,
               "legendFormat": "{{hostname}}",
               "refId": "A",
-              "step": 4
+              "step": 2
             }
           ],
           "thresholds": [],
@@ -815,7 +815,7 @@
               "intervalFactor": 2,
               "legendFormat": "{{alias}}",
               "refId": "A",
-              "step": 4
+              "step": 2
             }
           ],
           "thresholds": [],
@@ -893,7 +893,7 @@
               "intervalFactor": 2,
               "legendFormat": "{{alias}}",
               "refId": "B",
-              "step": 10
+              "step": 2
             }
           ],
           "thresholds": [],
@@ -1001,7 +1001,7 @@
               "hide": false,
               "intervalFactor": 2,
               "refId": "B",
-              "step": 40
+              "step": 4
             }
           ],
           "thresholds": "",
@@ -1033,7 +1033,7 @@
     "list": []
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {
@@ -1063,5 +1063,5 @@
   },
   "timezone": "",
   "title": "Main Dash",
-  "version": 57
+  "version": 60
 }
