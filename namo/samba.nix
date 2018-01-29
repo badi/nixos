@@ -33,7 +33,10 @@
       # passwd program
       # unix password sync
     '';
-  };   
+  };
+
+  networking.firewall.allowedTCPPorts = lib.mkIf config.services.samba.enable [ 139 445 ];
+  networking.firewall.allowedUDPPorts = lib.mkIf config.services.samba.enable [ 139 445 ];
 
   systemd.services.samba-smbd.after = [ "zfs-mount.service" ];
 
