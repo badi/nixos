@@ -55,7 +55,7 @@ in
   networking.firewall.allowedTCPPortRanges = [ { from = 9000; to = 9100; } ];   #  to monkey around with
 
   fileSystems."/home/badi/mandos" = {
-    device = "//10.0.0.2/mandos";
+    device = "//namo/mandos";
     fsType = "cifs";
     options = [ "credentials=/var/lib/mandos/auth" "uid=badi" "gid=users" "auto"
                 "x-systemd.automount"
@@ -152,10 +152,10 @@ in
         { targets = [ "localhost:9100" ];
           labels  = { alias = "fangorn"; };
         }
-        { targets = [ "10.0.0.2:9100" ];
+        { targets = [ "namo.badi.sh:9100" ];
           labels  = { alias = "namo"; };
         }
-        { targets = [ "10.0.0.10:9100" ];
+        { targets = [ "glaurung.badi.sh:9100" ];
           labels  = { alias = "glaurung"; };
         }
         { targets = [ "este.badi.sh:9100" ];
@@ -179,7 +179,7 @@ in
         { targets = [ "192.168.100.1" ];
           labels = { network = "internal"; what = "modem"; };
         }
-        { targets = [ "10.0.0.1" "10.0.0.2" "10.0.0.10" "fangorn.badi.sh" "fea.badi.sh" ];
+        { targets = [ "namo.badi.sh" "glaurung.badi.sh" "fangorn.badi.sh" "fea.badi.sh" ];
           labels  = { network = "internal"; };
         }
         { targets = [ "google.com" "amazon.com" "spotify.com" "comcast.com" ];

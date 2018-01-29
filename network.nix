@@ -20,12 +20,12 @@
   };
 
   glaurung = {...}: {
-    deployment.targetHost = "10.0.0.10";
+    deployment.targetHost = "glaurung";
     imports = [ ./glaurung ];
   };
 
   namo = {...}: {
-    deployment.targetHost = "10.0.0.2";
+    deployment.targetHost = "namo";
     imports = [ ./namo ];
   };
 }

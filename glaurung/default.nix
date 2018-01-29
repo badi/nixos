@@ -90,7 +90,7 @@
   };
 
   fileSystems."/mandos" = {
-    device = "//10.0.0.2/mandos";
+    device = "//namo/mandos";
     fsType = "cifs";
     options = [
       "ro"
