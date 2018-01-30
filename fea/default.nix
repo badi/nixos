@@ -50,7 +50,7 @@ let
     lan1 = mk-lan-iface
       { ip4 = ip4 10 0 2 1;
         mac = "00:0e:c4:d2:36:1f";
-        subnet = mk-subnet { min = ip4 10 0 2 10;
+        subnet = mk-subnet { min = ip4 10 0 2 100;
                              max = ip4 10 0 2 254;
                              subnet = ip4 10 0 2 0;
                            };
@@ -59,7 +59,7 @@ let
       { ip4 = ip4 10 0 3 1; 
         mac = "00:0e:c4:d2:36:20";
         subnet = mk-subnet (lib.fix (self:
-                           { min = ip4 10 0 3 11;
+                           { min = ip4 10 0 3 100;
                              max = ip4 10 0 3 254;
                              subnet = ip4 10 0 3 0;
                             }));
