@@ -49,7 +49,7 @@
   services.ntp.enable = true;
 
   services.synergy.client.enable = true;
-  services.synergy.client.serverAddress = "10.0.0.107";
+  services.synergy.client.serverAddress = "este";
 
   services.prometheus.nodeExporter.enable = true;
   services.prometheus.nodeExporter.openFirewall = true;
