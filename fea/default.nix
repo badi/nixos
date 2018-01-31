@@ -151,6 +151,13 @@ in
     ];
   };
 
+  services.miniupnpd = {
+    enable = true;
+    externalInterface = wan-iface-name;
+    internalIPs = attrNames lan-ifaces;
+    natpmp = false;             # commonly used for Apple devices
+  };
+
   # for IPv6
   services.radvd = {
     enable = false;
