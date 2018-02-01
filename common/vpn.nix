@@ -9,7 +9,7 @@ let
   ovpn_cfgs = pkgs.fetchzip {
     url = "https://downloads.nordcdn.com/configs/archives/servers/ovpn.zip";
     stripRoot = false;
-    sha256 = "0avrmi649226jx0jscfmb6v34cw8lcl6mh324r8bjczylzxqcc58";
+    sha256 = "0mchkv6j8qg4w64ri7z9ax92r7bx2cn5ckjqij35rcnyx6gqr33d";
   };
 
   auth_file = secrets.nordvpn.auth_file;
