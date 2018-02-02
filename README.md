@@ -11,3 +11,7 @@ There are several machines, each defined within a subdirectory:
 - `namo`: fileserver
 
 These are deployed by NixOps (see [network.nix](./network.nix)).
+
+# Location
+
+This repository is located on [GitLab](https://gitlab.com/badi/nixos)
