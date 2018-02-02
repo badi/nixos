@@ -68,8 +68,6 @@ in
 
   environment.systemPackages = with pkgs; [
 
-    aspell
-    aspellDicts.en
     aws
     digikam gwenview okular
     emacs25
@@ -101,6 +99,7 @@ in
     terraform_0_11
     wpsoffice
     xclip
+    (aspellWithDicts (dicts: with dicts; [en]))
 
   ];
 
