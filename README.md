@@ -1,14 +1,13 @@
-# Installation
+# About
 
-1. Clone this repository
+This repository contains my NixOS configuration files.
 
+There are several machines, each defined within a subdirectory:
 
-1. Ensure contents of `/etc/nixos/configuration.nix` is like:
+- `fangorn`: main development node
+- `fea`: router
+- `glaurung`: media center
+- `este`: laptop
+- `namo`: fileserver
 
-```nix
-{ imports = [ /home/badi/nixos/<ENTRYPOINT>.nix ]; }
-```
-
-where `<ENTRYPOINT>` is the machine name eg `fangorn`, `irmo`, `gambit` etc.
-
-1. `nixos-rebuild switch`
+These are deployed by NixOps (see [network.nix](./network.nix)).
