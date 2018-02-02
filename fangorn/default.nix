@@ -86,6 +86,7 @@ in
     jq
     keepassx-community
     keychain
+    konversation
     mediainfo
     mendeley
     nixops
