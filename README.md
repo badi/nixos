@@ -10,7 +10,7 @@ There are several machines, each defined within a subdirectory:
 - `este`: laptop
 - `namo`: fileserver
 
-These are deployed by NixOps (see [network.nix](./network.nix)).
+These are deployed by NixOps (see [network](./network)).
 
 # Location
 
