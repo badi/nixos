@@ -1,10 +1,10 @@
-{ ... }:
+{ config, lib, ... }:
 
 {
 
-  services.openssh.enable = true;
-  services.openssh.passwordAuthentication = false;
-  services.openssh.permitRootLogin = "yes";
+  services.openssh.enable = lib.mkDefault true;
+  services.openssh.passwordAuthentication = lib.mkDefault false;
+  services.openssh.permitRootLogin = lib.mkDefault "yes";
 
   users.users.root = {
     openssh.authorizedKeys.keys = [
