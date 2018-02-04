@@ -24,7 +24,6 @@ in
     ../common/basicSystem.nix
     ../common/oh-my-zsh.nix
     ../common/desktopManager.nix
-    ../common/auto-upgrade.nix
     # ../common/bluetooth.nix
     ../common/firefox-overlay.nix
     ../common/nvidia.nix
