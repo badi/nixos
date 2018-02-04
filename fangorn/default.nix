@@ -96,6 +96,7 @@ in
     popfile
     spotify
     terraform_0_11
+    weechat qweechat
     wpsoffice
     xclip
     (aspellWithDicts (dicts: with dicts; [en]))
