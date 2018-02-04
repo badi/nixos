@@ -1,7 +1,7 @@
 { pkgs, config, ...}:
 
 let
-  secrets = import ../secrets.nix {};
+  secrets = import ../secrets {};
 
   inherit (pkgs) lib;
   inherit (builtins) readFile toFile replaceStrings;

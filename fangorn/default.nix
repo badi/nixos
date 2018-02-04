@@ -5,7 +5,7 @@
 # in
 
 let
-  secrets = import ../secrets.nix {};
+  secrets = import ../secrets {};
 
   # https://wiki.archlinux.org/index.php/Network_configuration#Change_device_name
   ethernet = {
