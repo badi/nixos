@@ -6,26 +6,26 @@
 
   este = {...}: {
     deployment.targetHost = "este";
-    imports = [ ./este ];
+    imports = [ ../este ];
   };
 
   fangorn = {...}: {
     deployment.targetHost = "localhost";
-    imports = [ ./fangorn ];
+    imports = [ ../fangorn ];
   };
 
   fea = {...}: {
     deployment.targetHost = "fea";
-    imports = [ ./fea ];
+    imports = [ ../fea ];
   };
 
   glaurung = {...}: {
     deployment.targetHost = "glaurung";
-    imports = [ ./glaurung ];
+    imports = [ ../glaurung ];
   };
 
   namo = {...}: {
     deployment.targetHost = "namo";
-    imports = [ ./namo ];
+    imports = [ ../namo ];
   };
 }
