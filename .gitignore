@@ -1,3 +1,5 @@
 *~
 configuration.nix
 result
+.terraform
+tf.plan
