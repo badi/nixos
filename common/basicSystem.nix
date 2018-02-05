@@ -22,6 +22,7 @@
     bmon
     colordiff
     curl
+    direnv
     dmidecode
     dos2unix
     emacs25-nox
