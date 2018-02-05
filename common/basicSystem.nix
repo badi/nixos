@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, lib, config, ... }:
 {
 
   imports = [
@@ -8,11 +8,11 @@
 
   ################################################################################
   # environment
-  boot.cleanTmpDir = true;
+  boot.cleanTmpDir = lib.mkDefault true;
 
-  programs.bash.enableCompletion = true;
-  programs.zsh.enable = true;
-  programs.zsh.enableCompletion = true;
+  programs.bash.enableCompletion = lib.mkDefault true;
+  programs.zsh.enable = lib.mkDefault true;
+  programs.zsh.enableCompletion = lib.mkDefault true;
 
   environment.systemPackages = with pkgs; [
 
@@ -74,24 +74,24 @@
 
   ################################################################################
   # security
-  networking.tcpcrypt.enable = false;
-  networking.firewall.enable = true;
-  networking.firewall.allowPing = true;
+  networking.tcpcrypt.enable = lib.mkDefault false;
+  networking.firewall.enable = lib.mkDefault true;
+  networking.firewall.allowPing = lib.mkDefault true;
 
-  # TODO security.hideProcessInformation = true;
-  security.pam.enableSSHAgentAuth = true;
-  security.polkit.enable = true;
+  # TODO security.hideProcessInformation = lib.mkDefault true;
+  security.pam.enableSSHAgentAuth = lib.mkDefault true;
+  security.polkit.enable = lib.mkDefault true;
 
   ################################################################################
   # services
-  services.ntp.enable = true;
-  services.smartd.enable = true;
+  services.ntp.enable = lib.mkDefault true;
+  services.smartd.enable = lib.mkDefault true;
 
   ################################################################################
   # system
-  powerManagement.enable = true;
-  hardware.enableAllFirmware = true;
+  powerManagement.enable = lib.mkDefault true;
+  hardware.enableAllFirmware = lib.mkDefault true;
 
-  time.timeZone = "US/Eastern";
+  time.timeZone = lib.mkDefault "US/Eastern";
 
 }
