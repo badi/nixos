@@ -35,6 +35,20 @@ in
     ../common/syncthing.nix
   ];
 
+
+  services.xserver.windowManager.i3 = {
+    enable = true;
+    extraPackages = with pkgs; [
+      arandr
+      dmenu
+      i3lock
+      i3lock-fancy
+      i3status
+      notify-osd
+      rofi
+    ];
+  };
+
   services.udev.extraRules = ''
     SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="${ethernet.mac}", NAME="${ethernet.name}"
   '';
