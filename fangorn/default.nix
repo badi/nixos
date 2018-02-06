@@ -82,6 +82,7 @@ in
   environment.systemPackages = with pkgs; [
 
     aws
+    alacritty
     digikam gwenview okular
     emacs25
     evince
