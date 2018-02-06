@@ -27,6 +27,7 @@
       bakoma_ttf
       corefonts
       dejavu_fonts
+      font-awesome-ttf
       gentium
       inconsolata
       liberation_ttf
