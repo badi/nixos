@@ -41,11 +41,14 @@ in
     extraPackages = with pkgs; [
       arandr
       dmenu
+      dunst
+      enlightenment.terminology
       i3lock
       i3lock-fancy
       i3status
       notify-osd
       rofi
+      volnoti
     ];
   };
 
