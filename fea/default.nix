@@ -74,7 +74,7 @@ let
   };
 
   dhcp-dns-servers = map ip4ToString upstream-dns-servers.opendns;
-  domain-name = "badi.sh";
+  domain-name = "localdomain";
 
   mk-udev-rewrite-iface-name = eth: ''
     SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="${eth.addr}", NAME="${eth.name}"
@@ -329,11 +329,11 @@ in
     recommendedGzipSettings = true;
     recommendedOptimisation = true;
     recommendedProxySettings = true;
-    virtualHosts."unifi.badi.sh" = {
+    virtualHosts."unifi.${domain-name}" = {
       locations."/" = {
         proxyPass = "http://fea.${domain-name}:8080/";
         extraConfig = ''
-          proxy_redirect https://fea.badi.sh:8080/ http://$host/;
+          proxy_redirect https://fea.${domain-name}:8080/ http://$host/;
         '';
       };
     };
@@ -351,7 +351,7 @@ in
   services.prometheus.unifiExporter = {
     enable = true;
     port = 9101;
-    unifiAddress = "https://unifi.badi.sh:8443";
+    unifiAddress = "https://unifi.${domain-name}:8443";
     unifiInsecure = true;
     unifiUsername = secrets.unifiExporter.username;
     unifiPassword = secrets.unifiExporter.password;

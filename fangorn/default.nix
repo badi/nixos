@@ -167,19 +167,19 @@ in
         { targets = [ "localhost:9100" ];
           labels  = { alias = "fangorn"; };
         }
-        { targets = [ "namo.badi.sh:9100" ];
+        { targets = [ "namo:9100" ];
           labels  = { alias = "namo"; };
         }
-        { targets = [ "glaurung.badi.sh:9100" ];
+        { targets = [ "glaurung:9100" ];
           labels  = { alias = "glaurung"; };
         }
-        { targets = [ "este.badi.sh:9100" ];
+        { targets = [ "este:9100" ];
           labels  = { alias = "este"; };
         }
-        { targets = [ "fea.badi.sh:9100" ];
+        { targets = [ "fea:9100" ];
           labels  = { alias = "fea"; };
         }
-        { targets = [ "fea.badi.sh:9101" ];
+        { targets = [ "fea:9101" ];
           labels  = { alias = "unifi"; };
         }
       ];
@@ -194,7 +194,7 @@ in
         { targets = [ "192.168.100.1" ];
           labels = { network = "internal"; what = "modem"; };
         }
-        { targets = [ "namo.badi.sh" "glaurung.badi.sh" "fangorn.badi.sh" "fea.badi.sh" ];
+        { targets = [ "namo" "glaurung" "fangorn" "fea" ];
           labels  = { network = "internal"; };
         }
         { targets = [ "google.com" "amazon.com" "spotify.com" "comcast.com" ];
