@@ -3,3 +3,4 @@ configuration.nix
 result
 .terraform
 tf.plan
+terraform.tfstate.backup

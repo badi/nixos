@@ -43,9 +43,15 @@ in
       inherit (secrets.nole) instanceType ebsOptimized ebsInitialRootDiskSize usePrivateIpAddress;
       subnetId = tf."aws_subnet.main".primary.id;
       securityGroupIds = [ tf."aws_security_group.allow_all".primary.id ];
-      elasticIPv4 = tf."aws_eip.test".primary.attributes.public_ip;
+      elasticIPv4 = tf."aws_eip.main".primary.attributes.public_ip;
       keyPair = resources.ec2KeyPairs.keypair;
     };
+  };
+
+  nole-dev = { resource, lib, ...}: {
+    imports = [ ../nole ];
+    deployment.targetEnv = "virtualbox";
+    deployment.virtualbox.headless = true;
   };
 
 }
