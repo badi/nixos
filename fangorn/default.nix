@@ -114,6 +114,7 @@ in
     popfile
     spotify
     terraform_0_11
+    thunderbird
     weechat qweechat
     wpsoffice
     xclip
