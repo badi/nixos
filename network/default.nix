@@ -48,10 +48,10 @@ in
     };
   };
 
-  nole-dev = { resource, lib, ...}: {
-    imports = [ ../nole ];
-    deployment.targetEnv = "virtualbox";
-    deployment.virtualbox.headless = true;
-  };
+  # nole-dev = { resource, lib, ...}: {
+  #   imports = [ ../nole ];
+  #   deployment.targetEnv = "virtualbox";
+  #   deployment.virtualbox.headless = true;
+  # };
 
 }
