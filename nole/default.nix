@@ -16,10 +16,8 @@ in
 
   services.ddclient = {
     enable = true;
-    protocol = "namecheap";
-    username = secrets.namecheap.username;
-    password = "'${secrets.namecheap.password}'";
-    domain = config.networking.hostName;
+    inherit (secrets.ddclient.aleph) protocol username password;
+    domain = "${config.networking.hostName}.${secrets.mailserver.domain}";
   };
 
 

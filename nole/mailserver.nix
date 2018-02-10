@@ -5,16 +5,17 @@ in
 
 {
   imports = [
-    (builtins.fetchTarball "https://github.com/r-raymond/nixos-mailserver/archive/master.tar.gz")
+    (builtins.fetchTarball "https://github.com/r-raymond/nixos-mailserver/archive/v2.1-rc2.tar.gz")
   ];
 
   mailserver = {
     enable = true;
-    fqdn = "${config.networking.hostName}.badi.sh";
+    fqdn = "${config.networking.hostName}.${secrets.mailserver.domain}";
+
     domains = secrets.mailserver.options.domains;
 
     loginAccounts = secrets.mailserver.options.loginAccounts;
-    extraVirtualAliases = secrets.mailserver.options.extraVirtualAliases;
+    # extraVirtualAliases = secrets.mailserver.options.extraVirtualAliases;
 
     # Let's Encrypt
     certificateScheme = 3;
