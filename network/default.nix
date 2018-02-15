@@ -36,7 +36,7 @@ in
     imports = [ ../nole ];
     deployment.ec2 =
       let
-        tf = (lib.head (lib.importJSON ../terraform/terraform.tfstate).modules).resources;
+        tf = (lib.head (lib.importJSON ../terraform/prod/terraform.tfstate).modules).resources;
     in
     {
       inherit (secrets.aws) accessKeyId region;
