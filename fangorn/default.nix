@@ -60,8 +60,7 @@ in
     SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="${ethernet.mac}", NAME="${ethernet.name}"
   '';
 
-
-  services.openvpn.servers.nordvpn.autoStart = false;
+  services.openvpn.servers.streisand.autoStart = false;
 
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
