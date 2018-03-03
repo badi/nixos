@@ -35,6 +35,10 @@ in
     ../common/syncthing.nix
   ];
 
+  boot.kernelModules = [ "wireguard" ];
+  boot.extraModulePackages = with pkgs.linuxPackages; [
+    wireguard
+  ];
 
   services.xserver.windowManager.i3 = {
     enable = true;
