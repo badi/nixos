@@ -5,7 +5,7 @@ in
 
 {
   imports = [
-    (builtins.fetchTarball "https://github.com/r-raymond/nixos-mailserver/archive/v2.1-rc2.tar.gz")
+    (builtins.fetchTarball "https://github.com/r-raymond/nixos-mailserver/archive/v2.1.3.tar.gz")
   ];
 
   mailserver = {
