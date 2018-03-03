@@ -73,7 +73,7 @@ let
     adguard = [ (ip4 176 103 130 130) (ip4 176 103 130 131) ];
   };
 
-  dhcp-dns-servers = map ip4ToString upstream-dns-servers.opendns;
+  dhcp-dns-servers = map ip4ToString upstream-dns-servers.google;
   domain-name = "localdomain";
 
   mk-udev-rewrite-iface-name = eth: ''
