@@ -69,7 +69,6 @@ let
   upstream-dns-servers = {
     google = [ (ip4 8 8 8 8) (ip4 8 8 4 4) ];
     alternate-dns = [ (ip4 23 253 163 53) (ip4 198 101 242 72) ];
-    opendns = [ (ip4 208 67 222 222) (ip4 208 67 220 220) ];
     adguard = [ (ip4 176 103 130 130) (ip4 176 103 130 131) ];
   };
 
@@ -341,11 +340,10 @@ in
 
   services.ddclient = {
     enable = true;
-    protocol = "dyndns2";
-    username = secrets.opendns.username;
-    password = "'${secrets.opendns.password}'";
-    server = "updates.opendns.com";
-    domain = "home";
+    protocol = "namecheap";
+    username = secrets.namecheap.username;
+    password = "'${secrets.namecheap.password}'";
+    domain = "fangorn";
   };
 
   services.prometheus.unifiExporter = {

@@ -224,15 +224,6 @@ in
 
   ];
 
-  services.ddclient = {
-    enable = true;
-    protocol = "namecheap";
-    username = secrets.namecheap.username;
-    password = "'${secrets.namecheap.password}'";
-    domain = "fangorn";
-  };
-
-
   system.stateVersion = "16.03";
 
 }
