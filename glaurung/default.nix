@@ -4,6 +4,10 @@
 
 { config, pkgs, ... }:
 
+let
+  secrets = import ../secrets {};
+in
+
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -66,14 +70,10 @@
   users.extraUsers.badi = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
-    openssh.authorizedKeys.keys = [
-      # fangorn
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINddUe+ma6S0Y27La0wGd5JVSiVwiza4Xal5dtYub0x0"
-      # tolu
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGvnljjiF48eoHjolTVhxrv9PiQnsjoc9mIExYPv7JZC"
-      # este
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOE6B4AQ8RRltw/iXJFgjN6yQT1vDD8k+64gR/HgIyeX"
-    ];
+    openssh.authorizedKeys.keys = with secrets.ssh-keys.badi;
+        fangorn ++
+        tolu ++
+        este;
   };
 
   users.extraUsers.htpc = {
