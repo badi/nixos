@@ -20,6 +20,9 @@ in
     uid = 1000;
     shell = "/run/current-system/sw/bin/zsh";
     openssh.authorizedKeys.keys =
-      secrets.ssh-keys.badi.fangorn;
+      secrets.ssh-keys.badi.fangorn
+      ++ secrets.ssh-keys.badi.este
+      ++ secrets.ssh-keys.badi.tolu
+      ;
   };
 }
