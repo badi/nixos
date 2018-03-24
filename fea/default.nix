@@ -321,7 +321,10 @@ in
 
   services.fail2ban.enable = true;
 
-  services.unifi.enable = true;
+  services.unifi = {
+    enable = true;
+    unifi = pkgs.unifi;
+  };
 
   services.nginx = {
     enable = true;
