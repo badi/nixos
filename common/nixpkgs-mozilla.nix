@@ -2,5 +2,5 @@
 
 fetchgit {
   url = "git://github.com/mozilla/nixpkgs-mozilla.git";
-	sha256 = "1r2jglgl9k881byv1kc3rdda2lzaarvb0xn7nx3q0b3h25apjff5";
+	sha256 = "034m1dryrzh2lmjvk3c0krgip652dql46w5yfwpvh7gavd3iypyw";
 }
