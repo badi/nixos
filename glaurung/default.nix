@@ -38,7 +38,7 @@ in
 
   environment.systemPackages = with pkgs; [
     google-chrome
-    firefox-overlay.firefox-beta-bin
+    firefox-overlay.firefox-bin
     spotify
     telnet
     gwenview

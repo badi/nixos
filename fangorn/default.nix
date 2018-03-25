@@ -93,7 +93,7 @@ in
     digikam gwenview okular
     emacs25
     evince
-    firefox-overlay.firefox-nightly-bin
+    firefox-overlay.firefox-bin
     gimp-with-plugins
     gnutls
     google-chrome

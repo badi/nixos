@@ -32,7 +32,7 @@
   environment.systemPackages = with pkgs; [
 
     emacs25
-    firefox-overlay.firefox-nightly-bin
+    firefox-overlay.firefox-bin
     google-chrome
     keepassx-community
     libreoffice
