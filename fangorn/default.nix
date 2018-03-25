@@ -22,6 +22,7 @@ in
     # ./packages.nix
 
     ../common/basicSystem.nix
+    ../common/dumb-login-shell-prompt.nix
     ../common/oh-my-zsh.nix
     ../common/desktopManager.nix
     # ../common/bluetooth.nix
