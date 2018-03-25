@@ -352,6 +352,7 @@ in
   services.prometheus.unifiExporter = {
     enable = true;
     port = 9101;
+    unifiTimeout = "2m";
     unifiAddress = "https://unifi.${domain-name}:8443";
     unifiInsecure = true;
     unifiUsername = secrets.unifiExporter.username;
