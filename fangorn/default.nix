@@ -34,6 +34,7 @@ in
     ../common/vpn.nix
     ../common/popfile.nix
     ../common/syncthing.nix
+    ../common/junk-blocker.nix
   ];
 
   boot.kernelModules = [ "wireguard" ];

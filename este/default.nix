@@ -9,7 +9,7 @@
       # ../common/nvidia.nix
       ../common/firefox-overlay.nix
       ../common/nix-config.nix
-
+      ../common/junk-blocker.nix
       ../common/users.nix
     ];
 
