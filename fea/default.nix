@@ -250,7 +250,7 @@ in
                                    )
           ;
         '';
-      badi-sh = writeText "bind.${domain-name}" ''
+      forward-10-0 = writeText "bind.${domain-name}" ''
         ${mk-soa {}}
                  IN    NS     fea
         ;
@@ -284,7 +284,7 @@ in
       };
       zone "${domain-name}" {
         type master;
-        file "${badi-sh}";
+        file "${forward-10-0}";
         allow-update { key rndc-key; };
       };
       zone "0.10.in-addr.arpa" {
