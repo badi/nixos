@@ -12,8 +12,15 @@ let
     name = "net0";
     mac = "4c:cc:6a:28:33:18";
   };
-in
 
+  pkgsUnstable = import (pkgs.fetchFromGitHub {
+    owner = "NixOS";
+    repo = "nixpkgs-channels";
+    rev = "nixpkgs-unstable";
+    sha256 = "0whwjrggjq3mfdgnli16v7scq532xh67f7j71224xp9mq4ayiz98";
+  }) {};
+
+in
 {
 
   imports = [
@@ -35,6 +42,8 @@ in
     ../common/popfile.nix
     ../common/syncthing.nix
     ../common/junk-blocker.nix
+
+    ../modules/nextcloud
   ];
 
   boot.kernelModules = [ "wireguard" ];
@@ -133,6 +142,16 @@ in
     package = pkgs.postgresql100;
     dataDir = "/var/lib/postgresql/10.0";
   };
+
+  services.nginx.enable = true;
+  services.nextcloud = {
+    enable = true;
+    package = pkgsUnstable.nextcloud;
+    vhosts = ["${config.networking.hostName}.localdomain"];
+    listenAddr = "0.0.0.0";
+    openFirewall = true;
+  };
+
 
   services.synergy.server.enable = false;
   services.synergy.server.configFile = "/home/badi/.synergy.conf";
