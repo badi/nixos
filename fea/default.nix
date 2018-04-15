@@ -250,14 +250,15 @@ in
                                    )
           ;
         '';
-      forward-10-0 = writeText "bind.${domain-name}" ''
+      mk-bind-file = name: writeText "bind.${name}";
+      forward-domain = mk-bind-file "${domain-name}.forward" ''
         ${mk-soa {}}
                  IN    NS     fea
         ;
         fea      IN    A      ${ip4ToString lan-ifaces.lan0.ip4}
         unifi    IN    CNAME  fea
       '';
-      rev-10-0 = writeText "bind.10.0.rev" ''
+      rev-domain = mk-bind-file "10.0.rev" ''
         ${mk-soa { soa = soaDef // {name = "10.0.in-addr.arpa";}; }}
                  IN    NS     fea.${domain-name}.
                  IN    PTR    fea.${domain-name}.
@@ -284,12 +285,12 @@ in
       };
       zone "${domain-name}" {
         type master;
-        file "${forward-10-0}";
+        file "${forward-domain}";
         allow-update { key rndc-key; };
       };
       zone "0.10.in-addr.arpa" {
         type master;
-        file "${rev-10-0}";
+        file "${rev-domain}";
         allow-update { key rndc-key; };
       };
     '';
