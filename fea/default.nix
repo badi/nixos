@@ -73,7 +73,7 @@ let
   };
 
   dhcp-dns-servers = map ip4ToString upstream-dns-servers.google;
-  domain-name = "localdomain";
+  domain-name = "badi.sh";
 
   mk-udev-rewrite-iface-name = eth: ''
     SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="${eth.addr}", NAME="${eth.name}"
