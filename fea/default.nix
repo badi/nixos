@@ -256,7 +256,8 @@ in
                  IN    NS     fea
         ;
         fea      IN    A      ${ip4ToString lan-ifaces.lan0.ip4}
-        unifi    IN    CNAME  fea
+        unifi    IN    CNAME  fangorn
+        cloud    IN    CNAME  fangorn
       '';
       rev-domain = mk-bind-file "10.0.rev" ''
         ${mk-soa { soa = soaDef // {name = "10.0.in-addr.arpa";}; }}
