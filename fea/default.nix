@@ -159,7 +159,7 @@ in
   };
 
   services.miniupnpd = {
-    enable = true;
+    enable = false;
     externalInterface = wan-iface-name;
     internalIPs = attrNames lan-ifaces;
     natpmp = false;             # commonly used for Apple devices
