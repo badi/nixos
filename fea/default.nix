@@ -147,6 +147,14 @@ in
         proto = "tcp";
         sourcePort = 2014;
       }
+      { destination = "${ip4ToString lan-ifaces.lan0.subnet.static-hosts.fangorn.ip}:80";
+        proto = "tcp";
+        sourcePort = 80;
+      }
+      { destination = "${ip4ToString lan-ifaces.lan0.subnet.static-hosts.fangorn.ip}:443";
+        proto = "tcp";
+        sourcePort = 443;
+      }
     ];
   };
 
