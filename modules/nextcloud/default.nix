@@ -81,6 +81,14 @@ in
       '';
     };
 
+    clientMaxBodySize = mkOption {
+      type = types.str;
+      default = "512M";
+      description = ''
+        FIXME
+      '';
+    };
+
   };
 
   config = mkMerge [
@@ -186,7 +194,7 @@ in
               }
 
               # set max upload size
-              client_max_body_size 512M;
+              client_max_body_size ${cfg.clientMaxBodySize};
               fastcgi_buffers 64 4K;
 
               location / {
