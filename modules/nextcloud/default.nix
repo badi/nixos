@@ -147,9 +147,7 @@ in
           "${builtins.head cfg.vhosts}" = {
             # addSSL = cfg.enableSSL;
             forceSSL = cfg.enableSSL;
-            # enableACME = true;
-            sslCertificate = "/var/lib/acme/${config.networking.hostName}.localdomain/full.pem";
-            sslCertificateKey = "/var/lib/acme/${config.networking.hostName}.localdomain/key.pem";
+            enableACME = cfg.enableSSL;
             root = cfg.installPrefix;
             serverAliases = builtins.tail cfg.vhosts;
 
