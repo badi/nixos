@@ -158,6 +158,7 @@ in
     vhosts = [ "cloud.badi.sh" "${config.networking.hostName}.badi.sh" ];
     listenAddr = "0.0.0.0";
     openFirewall = true;
+    clientMaxBodySize = "1G";
   };
 
 
