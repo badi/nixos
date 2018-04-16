@@ -143,11 +143,19 @@ in
     dataDir = "/var/lib/postgresql/10.0";
   };
 
-  services.nginx.enable = true;
+
+
+
+  services.nginx = {
+    enable = true;
+    recommendedGzipSettings = true;
+    recommendedOptimisation = true;
+    recommendedProxySettings = true;
+  };
   services.nextcloud = {
     enable = true;
     package = pkgsUnstable.nextcloud;
-    vhosts = ["${config.networking.hostName}.localdomain"];
+    vhosts = [ "cloud.badi.sh" "${config.networking.hostName}.badi.sh" ];
     listenAddr = "0.0.0.0";
     openFirewall = true;
   };
