@@ -199,7 +199,8 @@ in
               location ~ ^/(?:build|tests|config|lib|3rdparty|templates|data)/ {
                   deny all;
               }
-              location ~ ^/(?:\.|autotest|occ|issue|indie|db_|console) {
+
+              location ~ ^/(?:\.(?!well-known)|autotest|occ|issue|indie|db_|console) {
                   deny all;
               }
           
