@@ -1,5 +1,6 @@
-# Owncloud service
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs
+, ...
+}:
 
 with lib;
 
@@ -23,6 +24,9 @@ in
         user = "nginx";
         group = "nginx";
       };
+      description = ''
+        A set with keys "user" and "group" for the owner of the data.
+      '';
     };
 
     listenAddr = mkOption {
@@ -57,11 +61,17 @@ in
     vhosts = mkOption {
       type = types.listOf types.str;
       default = [ "cloud.${config.networking.hostname}" ];
+      description = ''
+        Nginx virtual host IDs.
+      '';
     };
 
     enableSSL = mkOption {
       type = types.bool;
       default = true;
+      description = ''
+        This will enable ACME for the "vhosts".
+      '';
     };
 
     installPrefix = mkOption {
@@ -77,7 +87,7 @@ in
       type = types.path;
       default = "/var/www/nextcloud/data";
       description = ''
-        FIXME
+        Where Nextcloud stores files.
       '';
     };
 
@@ -85,7 +95,7 @@ in
       type = types.str;
       default = "512M";
       description = ''
-        FIXME
+        Sets the "client_max_body_size" parameter for Nginx.
       '';
     };
 
@@ -108,8 +118,7 @@ in
 
       services.phpfpm.pools.nextcloud = {
         listen = "/run/nextcloud.socket";
-        extraConfig = concatStringsSep "\n" [
-          ''
+        extraConfig = ''
             listen.owner = ${cfg.userinfo.user}
             listen.group = nginx
             user = ${cfg.userinfo.user}
@@ -120,14 +129,7 @@ in
             pm.min_spare_servers = 5
             pm.max_spare_servers = 20
             pm.max_requests = 500
-          ''
-
-        ]
-        # ++ optional (cfg.loggingTargets.phpfpm == "syslog") ''
-        #   syslog.facility = ${cfg.loggingTargets.phpfpmSyslogIdent}
-        # ''
-        ;
-
+          '';
       };
 
       systemd.services.phpfpm-nextcloud.preStart =''
@@ -153,7 +155,6 @@ in
         recommendedTlsSettings = true;
         virtualHosts = {
           "${builtins.head cfg.vhosts}" = {
-            # addSSL = cfg.enableSSL;
             forceSSL = cfg.enableSSL;
             enableACME = cfg.enableSSL;
             root = cfg.installPrefix;
