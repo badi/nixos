@@ -39,11 +39,11 @@ in
     ../common/yubikey.nix
     ../common/virthost.nix
     ../common/vpn.nix
-    ../common/popfile.nix
     ../common/syncthing.nix
     ../common/junk-blocker.nix
 
     ../modules/nextcloud
+    ../modules/popfile
   ];
 
   boot.kernelModules = [ "wireguard" ];
@@ -161,6 +161,7 @@ in
     clientMaxBodySize = "1G";
   };
 
+  services.popfile.enable = true;
 
   services.synergy.server.enable = false;
   services.synergy.server.configFile = "/home/badi/.synergy.conf";
