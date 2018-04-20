@@ -36,7 +36,9 @@
     google-chrome
     keepassx-community
     libreoffice
+    nextcloud-client
     okular
+    syncthing-tray
     wpsoffice
 
   ];
