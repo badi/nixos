@@ -9,7 +9,7 @@ let
 in
 {
   options.services.nextcloud = {
-    enable = mkEnableOption "Nextcloud instance";
+    enable = mkEnableOption "Nextcloud server";
 
     package = mkOption {
       type = types.package;
