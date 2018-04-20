@@ -133,10 +133,9 @@ in
       };
 
       systemd.services.phpfpm-nextcloud.preStart =''
-        echo "Setting up Nextcloud in ${cfg.installPrefix}/"
-        set -ex
-        test -f ${cfg.installPrefix}/.nixos-init \
-          || ${pkgs.rsync}/bin/rsync -a --checksum "${cfg.package}"/ "${cfg.installPrefix}"/
+        init_done="${cfg.installPrefix}/.nixos-init"
+        test -f "$init_done" && exit 0
+        ${pkgs.rsync}/bin/rsync -a --checksum "${cfg.package}"/ "${cfg.installPrefix}"/
         mkdir -p "${cfg.dataDir}"
         chown -R ${cfg.userinfo.user}:${cfg.userinfo.group} "${cfg.installPrefix}"
         chown -R ${cfg.userinfo.user}:${cfg.userinfo.group} "${cfg.dataDir}"
@@ -145,7 +144,6 @@ in
         chmod 750 "${cfg.installPrefix}/apps"
         chmod 700 "${cfg.installPrefix}/config"
         touch ${cfg.installPrefix}/.nixos-init
-        set +x
       '';
 
 
