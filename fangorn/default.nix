@@ -67,6 +67,8 @@ in
     ];
   };
 
+  users.users.root.openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPDbgpcaBErGwC4jgyREUF9DMEEdxYo3/H0Zx0naZqTz NixOps client key for fangorn" ];
+
   services.udev.extraRules = ''
     SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="${ethernet.mac}", NAME="${ethernet.name}"
   '';
