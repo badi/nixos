@@ -1,4 +1,6 @@
-{ ... }:
+{ pkgs
+, ...
+}:
 
 {
   services.syncthing = {
@@ -8,5 +10,7 @@
     dataDir = "/home/badi/.syncthing";
     openDefaultPorts = true;
   };
+
+  environment.systemPackages = [ pkgs.syncthing-tray ];
 
 }
