@@ -14,11 +14,16 @@
 
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.windowManager.xmonad = {
+    enable = true;
+    enableContribAndExtras = true;
+  };
 
   environment.systemPackages = with pkgs; [
     xscreensaver
     gnome-breeze
     gnome_themes_standard
+    trayer
   ];
 
   fonts = {
