@@ -35,7 +35,6 @@
   services.smartd.enable = true;
 
   services.syncthing.enable = true;
-  services.syncthing.useInotify = true;
   services.syncthing.openDefaultPorts = true;
 
   sound.enable = false;

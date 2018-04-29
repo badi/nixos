@@ -70,7 +70,6 @@
     user = "melissa";
     dataDir = "/home/melissa/.syncthing";
     openDefaultPorts = true;
-    useInotify = true;
   };
 
   services.printing.enable = true;
