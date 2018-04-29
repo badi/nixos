@@ -40,8 +40,8 @@ in
   services.zfs.autoScrub.interval = "weekly";
   services.zfs.autoScrub.pools = [ "mandos" ];
 
-  services.prometheus.nodeExporter.enable = true;
-  services.prometheus.nodeExporter.openFirewall = true;
+  services.prometheus.exporters.node.enable = true;
+  services.prometheus.exporters.node.openFirewall = true;
 
   users.extraGroups.mandos.gid = 1002;
   users.extraUsers.badi = {

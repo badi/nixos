@@ -56,8 +56,8 @@ in
   services.synergy.client.enable = true;
   services.synergy.client.serverAddress = "este";
 
-  services.prometheus.nodeExporter.enable = true;
-  services.prometheus.nodeExporter.openFirewall = true;
+  services.prometheus.exporters.node.enable = true;
+  services.prometheus.exporters.node.openFirewall = true;
 
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.displayManager.sddm.autoLogin.enable = true;

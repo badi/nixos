@@ -174,8 +174,7 @@ in
   services.grafana.addr = "0.0.0.0";
 
   services.prometheus.enable = true;
-  services.prometheus.nodeExporter.enable = true;
-  # services.prometheus.nodeExporter.enabledCollectors = [];
+  services.prometheus.exporters.node.enable = true;
 
   services.prometheus.blackboxExporter.enable = true;
   services.prometheus.blackboxExporter.openFirewall = true;
