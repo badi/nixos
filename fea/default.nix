@@ -359,7 +359,7 @@ in
     domain = "fangorn";
   };
 
-  services.prometheus.unifiExporter = {
+  services.prometheus.exporters.unifi = {
     enable = true;
     port = 9101;
     unifiTimeout = "2m";
