@@ -176,9 +176,9 @@ in
   services.prometheus.enable = true;
   services.prometheus.exporters.node.enable = true;
 
-  services.prometheus.blackboxExporter.enable = true;
-  services.prometheus.blackboxExporter.openFirewall = true;
-  services.prometheus.blackboxExporter.configFile = pkgs.writeTextFile {
+  services.prometheus.exporters.blackbox.enable = true;
+  services.prometheus.exporters.blackbox.openFirewall = true;
+  services.prometheus.exporters.blackbox.configFile = pkgs.writeTextFile {
     name = "prometheus-blackbox.config";
     text = ''
       modules:
