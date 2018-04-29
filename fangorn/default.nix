@@ -61,7 +61,9 @@ in
       i3lock
       i3lock-fancy
       i3status
+      nextcloud-client
       notify-osd
+      pasystray
       rofi
       volnoti
     ];
