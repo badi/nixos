@@ -17,7 +17,7 @@ in
   services.ddclient = {
     enable = true;
     inherit (secrets.ddclient.aleph) protocol username password;
-    domain = "${config.networking.hostName}.${secrets.mailserver.domain}";
+    domains = [ "${config.networking.hostName}.${secrets.mailserver.domain}" ];
   };
 
 

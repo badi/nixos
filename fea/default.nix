@@ -357,7 +357,7 @@ in
     protocol = "namecheap";
     username = secrets.namecheap.username;
     password = "'${secrets.namecheap.password}'";
-    domain = "fangorn";
+    domains = [ "fangorn" ];
   };
 
   services.prometheus.exporters.unifi = {
