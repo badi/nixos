@@ -130,10 +130,11 @@ in
 
   networking.interfaces = let
     mk-iface = name: iface:
-      { ip4 = [ { address = ip4ToString iface.ip4;
-                  prefixLength = iface.prefix;
-                }
-              ];
+      { ipv4.addresses =
+        [ { address = ip4ToString iface.ip4;
+            prefixLength = iface.prefix;
+          }
+        ];
       };
     in mapAttrs mk-iface lan-ifaces;
 
