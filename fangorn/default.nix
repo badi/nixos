@@ -56,7 +56,7 @@ in
       arandr
       dmenu
       dunst
-      enlightenment.terminology
+      # enlightenment.terminology
       i3lock
       i3lock-fancy
       i3status
@@ -107,7 +107,7 @@ in
     emacs25
     evince
     firefox-bin
-    gimp-with-plugins
+    # gimp-with-plugins
     gnutls
     google-chrome
     graphviz
