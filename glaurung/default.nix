@@ -15,7 +15,6 @@ in
 
       ../common/basicSystem.nix
       ../common/desktopManager.nix
-      ../common/firefox-overlay.nix
       ../common/kodi.nix
       ../common/nvidia.nix
       ../common/syncthing.nix
@@ -39,7 +38,7 @@ in
 
   environment.systemPackages = with pkgs; [
     google-chrome
-    firefox-overlay.firefox-bin
+    firefox-bin
     spotify
     telnet
     gwenview

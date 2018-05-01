@@ -33,7 +33,6 @@ in
     ../common/oh-my-zsh.nix
     ../common/desktopManager.nix
     # ../common/bluetooth.nix
-    ../common/firefox-overlay.nix
     ../common/nvidia.nix
     ../common/users.nix
     ../common/yubikey.nix
@@ -107,7 +106,7 @@ in
     digikam gwenview okular
     emacs25
     evince
-    firefox-overlay.firefox-bin
+    firefox-bin
     gimp-with-plugins
     gnutls
     google-chrome
@@ -131,7 +130,7 @@ in
     pingus
     popfile
     spotify
-    terraform_0_11
+    terraform-full
     thunderbird
     weechat qweechat
     wpsoffice

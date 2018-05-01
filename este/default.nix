@@ -7,7 +7,6 @@
       ../common/basicSystem.nix
       ../common/desktopManager.nix
       # ../common/nvidia.nix
-      ../common/firefox-overlay.nix
       ../common/nix-config.nix
       ../common/junk-blocker.nix
       ../common/users.nix
@@ -32,7 +31,7 @@
   environment.systemPackages = with pkgs; [
 
     emacs25
-    firefox-overlay.firefox-bin
+    firefox-bin
     google-chrome
     keepassx-community
     libreoffice
