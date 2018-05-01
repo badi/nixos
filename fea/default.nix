@@ -363,7 +363,7 @@ in
   services.prometheus.exporters.unifi = {
     enable = true;
     port = 9101;
-    unifiTimeout = "2m";
+    unifiTimeout = "5m";
     unifiAddress = "https://fea.${domain-name}:8443";
     unifiInsecure = true;
     unifiUsername = secrets.unifiExporter.username;
