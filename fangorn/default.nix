@@ -44,6 +44,10 @@ in
     ../modules/popfile
   ];
 
+  hardware.opengl.extraPackages = with pkgs; [
+    vaapiIntel vaapiVdpau libvdpau-va-gl intel-ocl
+  ];
+
   boot.kernelModules = [ "wireguard" ];
   boot.extraModulePackages = with pkgs.linuxPackages; [
     wireguard
