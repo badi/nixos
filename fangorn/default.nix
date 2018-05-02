@@ -35,7 +35,6 @@ in
     # ../common/bluetooth.nix
     ../common/nvidia.nix
     ../common/users.nix
-    ../common/yubikey.nix
     ../common/virthost.nix
     ../common/vpn.nix
     ../common/syncthing.nix

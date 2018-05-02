@@ -5,6 +5,7 @@
   hardware.pulseaudio.enable = true;
   hardware.pulseaudio.package = pkgs.pulseaudioFull;
   hardware.pulseaudio.daemon.config.flat-volumes = "no";
+  hardware.u2f.enable = true;
   hardware.bluetooth.enable = true;
 
   services.upower.enable = true;
