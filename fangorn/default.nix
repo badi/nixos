@@ -118,6 +118,7 @@ in
     keepassx-community
     keychain
     konversation
+    masterpdfeditor
     mediainfo
     mendeley
     nixops
