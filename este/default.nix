@@ -76,7 +76,11 @@
   services.prometheus.exporters.node.enable = true;
   services.prometheus.exporters.node.openFirewall = true;
 
-  services.xserver.libinput.enable = true;
+  services.xserver.libinput = {
+    enable = true;
+    disableWhileTyping = true;
+    clickMethod = "clickfinger";
+  };
 
   users.extraUsers.melissa = {
     isNormalUser = true;
