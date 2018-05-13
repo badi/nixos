@@ -15,11 +15,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  services.xserver.displayManager.sddm.enable = lib.mkForce false;
-  services.xserver.desktopManager.plasma5.enable = lib.mkForce false;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome3.enable = true;
-  services.xserver.desktopManager.xfce.enable = true;
+  services.xserver.displayManager.sddm.enable = lib.mkForce true;
+  # services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.plasma5.enable = lib.mkForce true;
+  # services.xserver.desktopManager.gnome3.enable = true;
+  # services.xserver.desktopManager.xfce.enable = true;
 
   services.xserver.desktopManager.gnome3.sessionPath = with pkgs; [
     chrome-gnome-shell
