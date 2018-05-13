@@ -8,6 +8,8 @@ in
     (builtins.fetchTarball "https://github.com/r-raymond/nixos-mailserver/archive/v2.1.3.tar.gz")
   ];
 
+  services.rmilter.extraConfig = "bind_socket = unix:/run/rmilter/rmilter.sock";
+
   mailserver = {
     enable = true;
     fqdn = "${config.networking.hostName}.${secrets.mailserver.domain}";
