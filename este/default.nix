@@ -85,8 +85,9 @@
 
   services.xserver.libinput = {
     enable = true;
-    disableWhileTyping = true;
+    accelSpeed = "-0.8";
     clickMethod = "clickfinger";
+    disableWhileTyping = true;
   };
 
   users.extraUsers.melissa = {
