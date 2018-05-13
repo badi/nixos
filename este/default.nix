@@ -90,14 +90,6 @@
     disableWhileTyping = true;
   };
 
-  users.extraUsers.melissa = {
-    isNormalUser = true;
-    createHome = true;
-    extraGroups = [ "wheel" ];
-    initialHashedPassword = "$6$yQ/gOzSE$LX58qHAXQ/Ug0sYdG624F0J9Bh6rc1IngDdNA2ijV/qkO8SoakJa1uHJ6DnPyNz7tm.nPKDPFB5wCkjlLj.yE.";
-  };
-
-  # This value determines the NixOS release with which your system is to be
   # https://wayland.freedesktop.org/libinput/doc/1.10.0//absolute_coordinate_ranges.html
   services.udev.extraRules = ''
     # Thinkpad T540P
@@ -108,6 +100,14 @@
       EVDEV_ABS_36=1171:4686:46
   '';
 
+  users.extraUsers.melissa = {
+    isNormalUser = true;
+    createHome = true;
+    extraGroups = [ "wheel" ];
+    initialHashedPassword = "$6$yQ/gOzSE$LX58qHAXQ/Ug0sYdG624F0J9Bh6rc1IngDdNA2ijV/qkO8SoakJa1uHJ6DnPyNz7tm.nPKDPFB5wCkjlLj.yE.";
+  };
+
+  # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
