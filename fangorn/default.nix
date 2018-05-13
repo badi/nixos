@@ -32,7 +32,7 @@ in
     ../common/dumb-login-shell-prompt.nix
     ../common/oh-my-zsh.nix
     ../common/desktopManager.nix
-    # ../common/bluetooth.nix
+    ../common/devenv-haskell.nix
     ../common/nvidia.nix
     ../common/users.nix
     ../common/virthost.nix
