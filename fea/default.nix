@@ -334,7 +334,7 @@ in
 
   services.unifi = {
     enable = true;
-    unifiPackage = pkgs.unifiTesting;
+    unifiPackage = pkgs.unifiStable;
   };
 
   services.nginx = {
