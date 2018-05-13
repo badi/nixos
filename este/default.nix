@@ -64,6 +64,13 @@
     ];
   };
 
+  powerManagement = {
+    enable = true;
+    powertop.enable = true;
+    powerDownCommands = "modprobe -r psmouse";
+    powerUpCommands = "modprobe psmouse";
+  };
+
   services.syncthing = {
     enable = true;
     user = "melissa";
