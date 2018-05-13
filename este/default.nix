@@ -90,6 +90,16 @@
   };
 
   # This value determines the NixOS release with which your system is to be
+  # https://wayland.freedesktop.org/libinput/doc/1.10.0//absolute_coordinate_ranges.html
+  services.udev.extraRules = ''
+    # Thinkpad T540P
+    evdev:name:SynPS/2 Synaptics TouchPad:dmi:*svnLENOVO*:pv*ThinkPad*T540**
+      EVDEV_ABS_00=1266:5675:44
+      EVDEV_ABS_01=1171:4686:46
+      EVDEV_ABS_35=1266:5675:44
+      EVDEV_ABS_36=1171:4686:46
+  '';
+
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
