@@ -85,7 +85,6 @@ in
 
   networking.hostId = "f125f099";
   networking.hostName = "fangorn"; # Define your hostname.
-  networking.networkmanager.enable = true;
   networking.firewall.allowedTCPPorts = [ 3000 24800 111 2049 ];
   networking.firewall.allowedUDPPorts = [ 111 2049 ];
   networking.firewall.allowedTCPPortRanges = [ { from = 9000; to = 9100; } ];   #  to monkey around with

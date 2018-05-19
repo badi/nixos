@@ -19,7 +19,6 @@
 
     firewall.enable = lib.mkForce false;
 
-    networkmanager.enable = false;
     tcpcrypt.enable = true;
   };
 

@@ -84,6 +84,7 @@
 
   ################################################################################
   # services
+  networking.networkmanager.enable = true;
   services.ntp.enable = lib.mkDefault true;
   services.smartd.enable = lib.mkDefault true;
 
