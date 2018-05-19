@@ -5,11 +5,14 @@
 
 let
 
-  inherit (pkgs) writeText;
+  inherit (pkgs) writeText writeShellScriptBin;
   inherit (lib) attrNames concatStringsSep catAttrs mapAttrs mapAttrsToList optionalString;
   inherit (builtins) toString;
 
   secrets = import ../secrets {};
+
+  runShellScript = name: text: let drv = (writeShellScriptBin name text); in
+    "${drv}/bin/${name}";
 
   wan-iface-name = "wan0";
   wan-iface = { "${wan-iface-name}" = { mac = "00:0e:c4:d2:36:1d"; }; };
@@ -283,6 +286,11 @@ in
     forwarders = dhcp-dns-servers;
     configFile = writeText "named.conf" ''
       include "/etc/bind/rndc.key";
+      controls {
+        // allow rndc commands
+        // added to allow flushing of jnl files
+        inet 127.0.0.1 allow {localhost;} keys { rndc-key; };
+      };
       acl internals {  ${mk-named-entry-list cfg.cacheNetworks} };
       options {
         directory "/var/run/named";
@@ -330,6 +338,12 @@ in
       let cfg = config.services.bind; bindUser = "named"; in
       "${pkgs.bind.out}/sbin/named -u ${bindUser} ${optionalString cfg.ipv4Only "-4"} -c /var/lib/named/named.conf -f"
     );
+    # systemd.services.bind.serviceConfig.ExecStartPost = runShellScript "bind-start-post" ''
+    #   ${pkgs.bind.out}/sbin/rndc -c /etc/bind/rndc.key sync -clean
+    # '';
+    # systemd.services.bind.serviceConfig.ExecStopPre = runShellScript "bind-stop-pre" ''
+    #   ${pkgs.bind.out}/sbin/rndc -c /etc/bind/rndc.key sync -clean
+    # '';
 
   services.fail2ban.enable = true;
 
