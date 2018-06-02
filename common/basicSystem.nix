@@ -93,6 +93,6 @@
   powerManagement.enable = lib.mkDefault true;
   hardware.enableAllFirmware = lib.mkDefault true;
 
-  time.timeZone = lib.mkDefault "US/Eastern";
+  time.timeZone = lib.mkDefault "US/Central";
 
 }

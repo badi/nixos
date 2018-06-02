@@ -38,6 +38,6 @@ in
 
   sound.enable = false;
 
-  time.timeZone = "US/Eastern";
+  time.timeZone = "US/Central";
 
 }
