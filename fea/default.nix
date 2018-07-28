@@ -274,7 +274,7 @@ in
                  IN    NS     fea
         ;
         fea      IN    A      ${ip4ToString lan-ifaces.lan0.ip4}
-        unifi    IN    CNAME  fangorn
+        unifi    IN    CNAME  fea
         cloud    IN    CNAME  fangorn
       '';
       rev-domain = mk-bind-file "10.0.rev" ''
