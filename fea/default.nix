@@ -44,6 +44,14 @@ let
                                                 mac = "4c:cc:6a:28:33:18";
                                                 ip = self.subnet // { d=11; };
                                               };
+                                              namo = {
+                                                mac = "0c:c4:7a:a8:71:16";
+                                                ip = self.subnet // { d=12; };
+                                              };
+                                              glaurung = {
+                                                mac = "1c:1b:0d:1a:fd:07";
+                                                ip = self.subnet // { d=13; };
+                                              };
                                             };
                            }));
       };
