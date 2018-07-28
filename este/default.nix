@@ -10,6 +10,7 @@
       ../common/nix-config.nix
       ../common/junk-blocker.nix
       ../common/users.nix
+      ../common/vpn.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -69,6 +70,9 @@
     powerDownCommands = "modprobe -r psmouse";
     powerUpCommands = "modprobe psmouse";
   };
+
+
+  services.openvpn.servers.streisand.autoStart = false;
 
   services.syncthing = {
     enable = true;
