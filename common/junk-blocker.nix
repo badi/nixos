@@ -4,7 +4,7 @@
 
   networking.extraHosts = builtins.readFile (pkgs.fetchurl {
     url = https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts;
-    sha256 = "0lynqycqhycz8ly9bcjv9j8apv77w5dx504fyav990h8xsq18z28";
+    sha256 = "17k6wc95v03pzsv6jf0lv1yld4cnihqmc6v2nkyycmxam32a7ydk";
   });
 
 }
