@@ -134,6 +134,7 @@ in
     spotify
     terraform-full
     thunderbird
+    tlaplusToolbox
     weechat qweechat
     wpsoffice
     xclip
