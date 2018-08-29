@@ -207,7 +207,7 @@ in
       job_name = "node";
       scrape_interval = "5s";
       static_configs = [
-        { targets = [ "localhost:9100" ];
+        { targets = [ "fangorn:9100" ];
           labels  = { alias = "fangorn"; };
         }
         { targets = [ "namo:9100" ];
