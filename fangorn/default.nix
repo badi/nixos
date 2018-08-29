@@ -104,6 +104,7 @@ in
 
     aws
     alacritty
+    bat
     digikam gwenview okular
     emacs25
     evince
