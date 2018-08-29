@@ -35,7 +35,6 @@ in
     ../common/devenv-haskell.nix
     ../common/nvidia.nix
     ../common/users.nix
-    ../common/virthost.nix
     ../common/vpn.nix
     ../common/syncthing.nix
     ../common/junk-blocker.nix
