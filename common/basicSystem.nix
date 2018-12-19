@@ -42,7 +42,6 @@
     mkpasswd
     nethogs
     nix-prefetch-scripts
-    nix-repl
     nix-serve
     nmap
     p7zip
