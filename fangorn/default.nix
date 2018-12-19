@@ -33,7 +33,7 @@ in
     ../common/oh-my-zsh.nix
     ../common/desktopManager.nix
     ../common/devenv-haskell.nix
-    ../common/nvidia.nix
+    # ../common/nvidia.nix
     ../common/users.nix
     ../common/vpn.nix
     ../common/syncthing.nix
@@ -43,12 +43,23 @@ in
     ../modules/popfile
   ];
 
+
+  services.xserver.videoDrivers = [
+    "amdgpu"
+  ];
+
+  # services.xserver.deviceSection = ''
+  #   Driver "amdgpu"
+  # '';
+
+
   hardware.opengl.extraPackages = with pkgs; [
     vaapiIntel vaapiVdpau libvdpau-va-gl intel-ocl
   ];
 
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelModules = [ "wireguard" ];
-  boot.extraModulePackages = with pkgs.linuxPackages; [
+  boot.extraModulePackages = with config.boot.kernelPackages; [
     wireguard
   ];
 
