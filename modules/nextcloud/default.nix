@@ -208,7 +208,7 @@ in
               location ~ ^/(?:\.(?!well-known)|autotest|occ|issue|indie|db_|console) {
                   deny all;
               }
-          
+
               location ~ ^/(?:index|remote|public|cron|core/ajax/update|status|ocs/v[12]|updater/.+|ocs-provider/.+)\.php(?:$|/) {
                   fastcgi_split_path_info ^(.+\.php)(/.*)$;
                   include ${pkgs.nginx}/conf/fastcgi_params;
@@ -222,12 +222,12 @@ in
                   fastcgi_intercept_errors on;
                   fastcgi_request_buffering off;
               }
-          
+
               location ~ ^/(?:updater|ocs-provider)(?:$|/) {
                   try_files $uri/ =404;
                   index index.php;
               }
-          
+
               # Adding the cache control header for js and css files
               # Make sure it is BELOW the PHP block
               location ~ \.(?:css|js|woff|svg|gif)$ {
@@ -252,7 +252,7 @@ in
                   # Optional: Don't log access to assets
                   access_log off;
               }
-          
+
               location ~ \.(?:png|html|ttf|ico|jpg|jpeg)$ {
                   try_files $uri /index.php$uri$is_args$args;
                   # Optional: Don't log access to other assets
