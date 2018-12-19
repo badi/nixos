@@ -5,10 +5,10 @@
 with lib;
 
 let
-  cfg = config.services.nextcloud;
+  cfg = config.services.nextcloud-badi;
 in
 {
-  options.services.nextcloud = {
+  options.services.nextcloud-badi = {
     enable = mkEnableOption "Nextcloud server";
 
     package = mkOption {

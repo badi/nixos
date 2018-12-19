@@ -12,14 +12,6 @@ let
     name = "net0";
     mac = "4c:cc:6a:28:33:18";
   };
-
-  pkgsUnstable = import (pkgs.fetchFromGitHub {
-    owner = "NixOS";
-    repo = "nixpkgs-channels";
-    rev = "nixpkgs-unstable";
-    sha256 = "0whwjrggjq3mfdgnli16v7scq532xh67f7j71224xp9mq4ayiz98";
-  }) {};
-
 in
 {
 
@@ -170,9 +162,9 @@ in
     recommendedOptimisation = true;
     recommendedProxySettings = true;
   };
-  services.nextcloud = {
+  services.nextcloud-badi = {
     enable = true;
-    package = pkgsUnstable.nextcloud;
+    package = pkgs.nextcloud;
     vhosts = [ "cloud.badi.sh" "${config.networking.hostName}.badi.sh" ];
     listenAddr = "0.0.0.0";
     openFirewall = true;
