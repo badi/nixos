@@ -66,6 +66,7 @@ in
   ServerArguments=-dpi 144
   '';
   services.xserver.desktopManager.plasma5.enable = true;
+  services.openssh.forwardX11 = true;
 
   users.extraUsers.badi = {
     isNormalUser = true;
