@@ -232,7 +232,7 @@ in
           authoritative;
           allow unknown-clients;
           use-host-decl-names on;
-          max-lease-time 120;   # in seconds
+          max-lease-time 600;   # in seconds
 
           zone ${domain-name}. {
             primary 127.0.0.1;
