@@ -341,6 +341,8 @@ in
 
   services.fail2ban.enable = true;
 
+  services.ntopng.enable = true;
+
   services.unifi = {
     enable = true;
     unifiPackage = pkgs.unifiStable;
