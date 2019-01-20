@@ -63,8 +63,8 @@ let
                              subnet = ip4 10 0 2 0;
                            };
       };
-    lan2 = mk-lan-iface 
-      { ip4 = ip4 10 0 3 1; 
+    lan2 = mk-lan-iface
+      { ip4 = ip4 10 0 3 1;
         mac = "00:0e:c4:d2:36:20";
         subnet = mk-subnet (lib.fix (self:
                            { min = ip4 10 0 3 100;
