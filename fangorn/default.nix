@@ -67,8 +67,6 @@ in
       i3status
       nextcloud-client
       notify-osd
-      pasystray
-      rofi
       volnoti
     ];
   };

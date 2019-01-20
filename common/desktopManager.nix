@@ -18,13 +18,32 @@
   services.xserver.windowManager.xmonad = {
     enable = true;
     enableContribAndExtras = true;
+    extraPackages = haskellPackages: with haskellPackages; [
+      xmonad-screenshot
+      xmonad-spotify
+      xmonad-utils
+      xmonad-volume
+      # xmonad-wallpaper
+      # xmonad-windownames
+    ];
   };
 
   environment.systemPackages = with pkgs; [
     xscreensaver
     gnome-breeze
     gnome_themes_standard
-    trayer
+
+    blueman
+    compton-git
+    fbpanel
+    feh
+    networkmanagerapplet
+    parcellite
+    pasystray
+    pavucontrol
+    rofi
+    taffybar
+
   ];
 
   fonts = {
