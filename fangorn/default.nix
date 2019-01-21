@@ -103,6 +103,8 @@ in
 
   environment.systemPackages = with pkgs; [
 
+    nilfs-utils
+
     aws
     alacritty
     bat
