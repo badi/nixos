@@ -155,6 +155,28 @@ in
 
 
 
+  # security.acme.certs = {
+  #   "cloud.badi.sh" = {
+  #     postRun = "systemctl reload nginx.service";
+  #     user = "nginx";
+  #     group = "nginx";
+  #   };
+  # };
+
+  # services.nextcloud = {
+  #   enable = true;
+  #   hostName = "cloud.badi.sh";
+  #   https = false;
+  #   nginx.enable = true;
+  #   config.dbtype = "sqlite";
+  #   config.adminuser = "root";
+  #   config.adminpass = "root";
+  #   config.extraTrustedDomains = [ "localhost" ];
+  #   home = "/var/lib/nextcloud";
+  #   webfinger = true;
+  #   php.imagick.enable = true;
+  # };
+
 
   services.nginx = {
     enable = true;
