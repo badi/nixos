@@ -341,6 +341,7 @@ in
 
   services.fail2ban.enable = true;
 
+  services.geoip-updater.enable = true;
   services.ntopng.enable = true;
 
   services.unifi = {
