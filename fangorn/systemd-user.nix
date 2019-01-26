@@ -16,4 +16,16 @@
       '';
     }
   ];
+
+  services.compton = {
+    enable = true;
+    backend = "glx";
+    shadow = true;
+    vSync = "opengl-mswc";
+    fade = true;
+    fadeDelta = 3;
+    extraOptions = ''
+      xrender-sync = true
+    '';
+  };
 }
