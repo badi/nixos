@@ -43,6 +43,8 @@
     pavucontrol
     rofi
     taffybar
+    haskellPackages.gtk-sni-tray
+    haskellPackages.status-notifier-item
 
   ];
 

@@ -146,6 +146,8 @@ in
 
   ];
 
+  services.emacs.enable = true;
+
 
   services.postgresql = {
     enable = true;
