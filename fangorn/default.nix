@@ -17,6 +17,7 @@ in
 
   imports = [
     ./hardware-configuration.nix
+    ./systemd-user.nix
     ../common/nix-config.nix
     # ./packages.nix
 
@@ -109,7 +110,7 @@ in
     alacritty
     bat
     digikam gwenview okular
-    emacs25
+    emacs
     evince
     firefox-bin
     # gimp-with-plugins
@@ -146,7 +147,7 @@ in
 
   ];
 
-  services.emacs.enable = true;
+
 
 
   services.postgresql = {
