@@ -28,4 +28,16 @@
       xrender-sync = true
     '';
   };
+
+  systemd.user.services = {
+    parcellite = {
+      enable = true;
+      description = "Parcellite: ${pkgs.parcellite.meta.description}";
+      serviceConfig = {
+        ExecStart = "${pkgs.parcellite}/bin/parcellite";
+      };
+    };
+  };
+
+
 }
