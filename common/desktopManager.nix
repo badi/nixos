@@ -40,10 +40,12 @@
     networkmanagerapplet
     parcellite
     pasystray
+    pa_applet
     pavucontrol
     rofi
     taffybar
-    haskellPackages.gtk-sni-tray
+    # haskellPackages.dyre
+    # haskellPackages.gtk-sni-tray
     haskellPackages.status-notifier-item
 
   ];
