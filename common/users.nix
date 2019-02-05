@@ -16,7 +16,7 @@ in
     isNormalUser = true;
     initialHashedPassword = "$6$.YFrPdd1$/nViiUzPHuKOUYwDd3hZdG6HVm9zUOp49cv4bJkZ/InUop97mQ8HT3l7TlCWJpbN0rL0x7weVHZlSTNl0rBA11";
     createHome = true;
-    extraGroups = [ "wheel" "yubikey" "networkmanager" "docker" "libvirtd" "vboxusers" "lp" ];
+    extraGroups = [ "wheel" "yubikey" "networkmanager" "docker" "libvirtd" "vboxusers" "lp" "systemd-journal" ];
     uid = 1000;
     shell = "/run/current-system/sw/bin/zsh";
     openssh.authorizedKeys.keys =
