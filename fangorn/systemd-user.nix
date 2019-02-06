@@ -73,9 +73,9 @@
       after = [ "status-notifier-watcher.service" ];
       partOf = [ "wm.target" ];
       wantedBy = [ "wm.target" ];
-      # environment = {
-      #   GDK_PIXBUF_MODULE_FILE = "${pkgs.librsvg}/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache";
-      # };
+      environment = {
+        XDG_DATA_DIRS = "${config.system.path}/share";
+      };
     };
 
     status-notifier-watcher =
