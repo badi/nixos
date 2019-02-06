@@ -111,6 +111,16 @@
         QT_DEBUG_PLUGINS = "1";
       };
     };
+    flameshot = {
+      enable = true;
+      description = "flameshot: ${pkgs.flameshot.meta.description}";
+      serviceConfig.ExecStart = "${pkgs.flameshot}/bin/flameshot";
+      path = [ pkgs.qt5Full ]; # needed to get qt plugins; fails without this
+      requires = [ "taffybar.service" ];
+      after = [ "taffybar.service" ];
+      partOf = [ "wm.target" ];
+      wantedBy = [ "wm.target" ];
+    };
     nm-applet = {
       enable = true;
       description = "nm-applet: ${pkgs.networkmanagerapplet.meta.description}";
