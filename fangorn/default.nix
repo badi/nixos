@@ -134,14 +134,15 @@ in
     pgadmin
     pgcli
     pinentry
-    pingus
+    # pingus 19.03
     popfile
     spotify
     terraform-full
     thunderbird
     tlaplusToolbox
-    weechat qweechat
-    wpsoffice
+    weechat
+    # qweechat 19.03
+    # wpsoffice 19.03 (really wps updated and the previous is not available)
     xclip
     (aspellWithDicts (dicts: with dicts; [en]))
 
@@ -152,7 +153,7 @@ in
 
   services.postgresql = {
     enable = true;
-    package = pkgs.postgresql100;
+    package = pkgs.postgresql_10; # 19.03
     dataDir = "/var/lib/postgresql/10.0";
   };
 
