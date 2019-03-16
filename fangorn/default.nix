@@ -50,7 +50,7 @@ in
     vaapiIntel vaapiVdpau libvdpau-va-gl intel-ocl
   ];
 
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelModules = [ "wireguard" ];
   boot.extraModulePackages = with config.boot.kernelPackages; [
     wireguard
