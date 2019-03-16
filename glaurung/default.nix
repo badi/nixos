@@ -52,8 +52,7 @@ in
 
   services.ntp.enable = true;
 
-  services.synergy.client.enable = true;
-  services.synergy.client.serverAddress = "este";
+  services.synergy.client.enable = false;
 
   services.prometheus.exporters.node.enable = true;
   services.prometheus.exporters.node.openFirewall = true;
