@@ -271,7 +271,7 @@ in
       metrics_path = "/probe";
       params = { module = [ "icmp_check" ]; };
       static_configs = [
-        { targets = [ "192.168.100.1" ];
+        { targets = [ "192.168.1.1" ];
           labels = { network = "internal"; what = "modem"; };
         }
         { targets = [ "namo" "glaurung" "fangorn" "fea" ];
