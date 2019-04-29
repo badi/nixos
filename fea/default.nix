@@ -342,7 +342,10 @@ in
   services.fail2ban.enable = true;
 
   services.geoip-updater.enable = true;
-  services.ntopng.enable = true;
+
+  # ntop has been failing to build since 2019-02
+  # https://hydra.nixos.org/job/nixos/openssl-1.1/ntopng.x86_64-linux/all?page=1
+  services.ntopng.enable = false; # 19.03
 
   services.unifi = {
     enable = true;
