@@ -23,6 +23,7 @@ in
       secrets.ssh-keys.badi.fangorn
       ++ secrets.ssh-keys.badi.este
       ++ secrets.ssh-keys.badi.tolu
+      ++ secrets.ssh-keys.badi.OnePlus6
       ;
   };
 }

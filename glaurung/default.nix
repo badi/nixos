@@ -73,7 +73,9 @@ in
     openssh.authorizedKeys.keys = with secrets.ssh-keys.badi;
         fangorn ++
         tolu ++
-        este;
+        este ++
+        OnePlus6
+        ;
   };
 
   users.extraUsers.htpc = {
