@@ -15,24 +15,25 @@
 
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
-  boot.loader.grub.device = "/dev/disk/by-id/ata-Samsung_SSD_840_EVO_250GB_S1DBNSAF757040Z";
+  # boot.loader.grub.device = "/dev/disk/by-id/ata-Samsung_SSD_840_EVO_250GB_S1DBNSAF757040Z";
+  boot.loader.grub.device = "/dev/disk/by-id/ata-SPCC_Solid_State_Disk_BF330788145300060674";
 
   fileSystems."/boot" =
-    { label = "boot";
+    { device = "/dev/disk/by-id/ata-SPCC_Solid_State_Disk_BF330788145300060674-part1";
       fsType = "ext4";
     };
 
   fileSystems."/" =
-    { device = "tank/nixos";
+    { device = "zesspool/ROOT";
       fsType = "zfs";
     };
 
   fileSystems."/home" =
-    { device = "tank/home";
+    { device = "zesspool/ROOT/home";
       fsType = "zfs";
     };
 
-  swapDevices =[ { label = "swap"; } ];
+  # swapDevices =[ { label = "swap"; } ];
 
   nix.maxJobs = lib.mkDefault 8;
 }
