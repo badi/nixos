@@ -32,7 +32,10 @@
     { device = "zesspool/ROOT/home";
       fsType = "zfs";
     };
-
+  fileSystems."/var/www/nextcloud" =
+    { device = "zesspool/DATA/nextcloud";
+      fsType = "zfs";
+    };
   # swapDevices =[ { label = "swap"; } ];
 
   nix.maxJobs = lib.mkDefault 8;
