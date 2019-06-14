@@ -36,6 +36,12 @@
     { device = "zesspool/DATA/nextcloud";
       fsType = "zfs";
     };
+
+  fileSystems."/var/db/postgresql" =
+    { device = "zesspool/DATA/postgres";
+      fsType = "zfs";
+    };
+
   # swapDevices =[ { label = "swap"; } ];
 
   nix.maxJobs = lib.mkDefault 8;
