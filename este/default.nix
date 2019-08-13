@@ -21,6 +21,7 @@
   services.xserver.desktopManager.plasma5.enable = lib.mkForce true;
   # services.xserver.desktopManager.gnome3.enable = true;
   # services.xserver.desktopManager.xfce.enable = true;
+  services.xserver.windowManager.xmonad.enable = lib.mkForce false;
 
   services.xserver.desktopManager.gnome3.sessionPath = with pkgs; [
     chrome-gnome-shell
