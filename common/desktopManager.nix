@@ -28,23 +28,33 @@
     ];
   };
 
-  environment.systemPackages = with pkgs; [
+  programs.dconf.enable = true;
+  services.dbus.packages = [ pkgs.gnome3.dconf ];
+  environment.systemPackages = with pkgs;
+  # (with gnome3; [
+  #   adwaita-icon-theme
+  #   defaultIconTheme
+  #   gnome-bluetooth
+  #   eog
+  # ]) ++
+
+  [
     xscreensaver
     gnome-breeze
-    gnome_themes_standard
-
+    hicolor-icon-theme
+    gnome3.eog
+    pcmanfm
     blueman
     compton-git
     fbpanel
     feh
+    flameshot
     networkmanagerapplet
-    parcellite
     pasystray
     pa_applet
     pavucontrol
     rofi
     taffybar
-    # haskellPackages.dyre
     # haskellPackages.gtk-sni-tray
     haskellPackages.status-notifier-item
 
