@@ -31,7 +31,7 @@
 
   environment.systemPackages = with pkgs; [
 
-    emacs25
+    emacs
     firefox-bin
     google-chrome
     keepassx-community
@@ -39,7 +39,10 @@
     nextcloud-client
     okular
     syncthing-tray
-    wpsoffice
+    kolourpaint
+    remmina
+    shutter
+    # wpsoffice
 
   ];
 
