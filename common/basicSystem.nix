@@ -52,6 +52,7 @@
     sdparm
     silver-searcher
     smartmontools
+    speedtest-cli
     tmux
     tree
     unison
