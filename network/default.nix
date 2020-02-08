@@ -1,4 +1,7 @@
-let secrets = import ../secrets {};
+
+let
+  pkgs = import <nixpkgs> {};
+  secrets = pkgs.callPackage ../secrets {};
 in
 {
   network = {

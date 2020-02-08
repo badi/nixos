@@ -1,13 +1,17 @@
-{ pkgs, config, ...}:
+{ pkgs, config, lib, ...}:
 
 let
-  secrets = import ../secrets {};
+  secrets = pkgs.callPackage ../secrets {};
 in
 
 {
 
-  services.openvpn.servers.streisand = {
-    config = secrets.vpn.streisand."${config.networking.hostName}".config;
+  # services.openvpn.servers.streisand = {
+  #   config = secrets.vpn.streisand."${config.networking.hostName}".config;
+  # };
+
+  services.openvpn.servers.expressvpn = {
+    config = secrets.vpn.expressvpn."${config.networking.hostName}".config;
   };
 
 }

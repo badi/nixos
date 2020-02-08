@@ -5,7 +5,7 @@
 # in
 
 let
-  secrets = import ../secrets {};
+  secrets = import ../secrets {inherit lib;};
 
   pkgs-unstable = import (import ../nixpkgs/unstable) {};
 
@@ -78,7 +78,7 @@ in
     SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="${ethernet.mac}", NAME="${ethernet.name}"
   '';
 
-  services.openvpn.servers.streisand.autoStart = false;
+  services.openvpn.servers.expressvpn.autoStart = false;
 
   networking.hostId = "f125f099";
   networking.hostName = "fangorn"; # Define your hostname.

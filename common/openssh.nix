@@ -1,7 +1,7 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 let
-  secrets = import ../secrets {};
+  secrets = pkgs.callPackage ../secrets {};
 in
 
 {
