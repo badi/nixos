@@ -6,10 +6,10 @@ in
     enableRollback = true;
   };
 
-  este = {...}: {
-    deployment.targetHost = "este";
-    imports = [ ../este ];
-  };
+  # este = {...}: {
+  #   deployment.targetHost = "este";
+  #   imports = [ ../este ];
+  # };
 
   fangorn = {...}: {
     deployment.targetHost = "localhost";
