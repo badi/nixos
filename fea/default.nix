@@ -164,14 +164,18 @@ in
         proto = "tcp";
         sourcePort = 443;
       }
+      { destination = "${ip4ToString lan-ifaces.lan0.subnet.static-hosts.glaurung.ip}:32400";
+        proto = "tcp";
+        sourcePort = 32400;
+      }
     ];
   };
 
   services.miniupnpd = {
-    enable = false;
+    enable = true;
     externalInterface = wan-iface-name;
     internalIPs = attrNames lan-ifaces;
-    natpmp = false;             # commonly used for Apple devices
+    natpmp = true;             # commonly used for Apple devices
   };
 
   # for IPv6

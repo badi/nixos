@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   secrets = import ../secrets {};
@@ -45,10 +45,25 @@ in
     kate
     vlc_qt5
     kmplayer
+    kdeconnect
+    plex-media-player
   ];
+
+  networking.firewall.allowedTCPPortRanges = [
+    { from = 1714; to = 1764; } # kdeconnect
+  ];
+
+  networking.firewall.allowedUDPPortRanges = [
+    { from = 1714; to = 1764; } # kdeconnect
+  ];
+
+  hardware.bluetooth.enable = lib.mkForce false;
 
   services.unified-remote.enable = true;
   services.unified-remote.openFirewall = true;
+
+  services.plex.enable = true;
+  services.plex.openFirewall = true;
 
   services.ntp.enable = true;
 
