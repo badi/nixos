@@ -25,7 +25,7 @@
     direnv
     dmidecode
     dos2unix
-    emacs25-nox
+    emacs26-nox
     file
     gitAndTools.git-crypt
     gitAndTools.git-extras
