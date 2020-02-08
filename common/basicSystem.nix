@@ -48,6 +48,7 @@
     pciutils
     psmisc
     pv
+    ripgrep
     rsync
     sdparm
     silver-searcher
