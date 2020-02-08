@@ -24,9 +24,9 @@
     vSync = "opengl-mswc";
     fade = true;
     fadeDelta = 3;
-    extraOptions = ''
-      xrender-sync = true
-    '';
+    # extraOptions = ''
+    #   xrender-sync = true
+    # '';
   };
 
   systemd.user.targets = {

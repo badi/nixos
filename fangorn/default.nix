@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }@args:
 
 # let
 #   packageChoices.withChrome = true;
@@ -6,6 +6,8 @@
 
 let
   secrets = import ../secrets {};
+
+  pkgs-unstable = import (import ../nixpkgs/unstable) {};
 
   # https://wiki.archlinux.org/index.php/Network_configuration#Change_device_name
   ethernet = {
@@ -30,9 +32,9 @@ in
     ../common/users.nix
     ../common/vpn.nix
     ../common/syncthing.nix
-    ../common/junk-blocker.nix
+    # ../common/junk-blocker.nix
 
-    ../modules/nextcloud
+    # ../modules/nextcloud
     ../modules/popfile
   ];
 
@@ -41,9 +43,7 @@ in
     "amdgpu"
   ];
 
-  # services.xserver.deviceSection = ''
-  #   Driver "amdgpu"
-  # '';
+  # services.xserver.synaptics.enable = true;
 
 
   hardware.opengl.extraPackages = with pkgs; [
@@ -82,7 +82,7 @@ in
 
   networking.hostId = "f125f099";
   networking.hostName = "fangorn"; # Define your hostname.
-  networking.firewall.allowedTCPPorts = [ 3000 24800 111 2049 ];
+  networking.firewall.allowedTCPPorts = [ 139 445 3000 24800 111 2049 ];
   networking.firewall.allowedUDPPorts = [ 111 2049 ];
   networking.firewall.allowedTCPPortRanges = [ { from = 9000; to = 9100; } ];   #  to monkey around with
 
@@ -184,14 +184,15 @@ in
     recommendedOptimisation = true;
     recommendedProxySettings = true;
   };
-  services.nextcloud-badi = {
-    enable = true;
-    package = pkgs.nextcloud;
-    vhosts = [ "cloud.badi.sh" "${config.networking.hostName}.badi.sh" ];
-    listenAddr = "0.0.0.0";
-    openFirewall = true;
-    clientMaxBodySize = "1G";
-  };
+
+  # services.nextcloud-badi = {
+  #   enable = true;
+  #   package = pkgs.nextcloud;
+  #   vhosts = [ "cloud.badi.sh" "${config.networking.hostName}.badi.sh" ];
+  #   listenAddr = "0.0.0.0";
+  #   openFirewall = true;
+  #   clientMaxBodySize = "1G";
+  # };
 
   virtualisation.docker.enable = true;
   virtualisation.libvirtd.enable = true;
