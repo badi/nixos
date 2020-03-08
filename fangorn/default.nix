@@ -24,6 +24,7 @@ in
     # ./packages.nix
 
     ../common/basicSystem.nix
+    ../common/can-sendmail.nix
     ../common/dumb-login-shell-prompt.nix
     ../common/oh-my-zsh.nix
     ../common/desktopManager.nix
@@ -211,6 +212,8 @@ in
 
   services.prometheus.enable = true;
   services.prometheus.exporters.node.enable = true;
+
+  services.smartd.notifications.mail.enable = true;
 
   services.prometheus.exporters.blackbox.enable = true;
   services.prometheus.exporters.blackbox.openFirewall = true;

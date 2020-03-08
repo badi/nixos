@@ -73,11 +73,14 @@
     HOSTNAME = config.networking.hostName;
   };
 
+  networking.domain = "badi.sh";
+
   ################################################################################
   # security
   networking.tcpcrypt.enable = lib.mkDefault false;
   networking.firewall.enable = lib.mkDefault true;
   networking.firewall.allowPing = lib.mkDefault true;
+
 
   # TODO security.hideProcessInformation = lib.mkDefault true;
   security.pam.enableSSHAgentAuth = lib.mkDefault true;
@@ -88,6 +91,7 @@
   networking.networkmanager.enable = true;
   services.ntp.enable = lib.mkDefault true;
   services.smartd.enable = lib.mkDefault true;
+  services.smartd.notifications.mail.recipient = "admin@badi.sh";
 
   ################################################################################
   # system

@@ -7,6 +7,7 @@ in
 {
   imports = [
     ../common/basicSystem.nix
+    ../common/can-sendmail.nix
 
     ./boot.nix
     ./samba.nix
@@ -35,7 +36,7 @@ in
     youtube-dl
   ];
 
-  services.smartd.enable = true;
+  services.smartd.notifications.mail.enable = true;
 
   services.prometheus.exporters.node.enable = true;
   services.prometheus.exporters.node.openFirewall = true;

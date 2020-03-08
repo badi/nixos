@@ -14,6 +14,7 @@ in
       ./hardware-configuration.nix
 
       ../common/basicSystem.nix
+      ../common/can-sendmail.nix
       ../common/desktopManager.nix
       ../common/kodi.nix
       ../common/nvidia.nix
@@ -71,6 +72,7 @@ in
 
   services.prometheus.exporters.node.enable = true;
   services.prometheus.exporters.node.openFirewall = true;
+  services.smartd.notifications.mail.enable = true;
 
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.displayManager.sddm.autoLogin.enable = true;
