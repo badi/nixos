@@ -92,6 +92,44 @@
   services.ntp.enable = lib.mkDefault true;
   services.smartd.enable = lib.mkDefault true;
   services.smartd.notifications.mail.recipient = "admin@badi.sh";
+  services.smartd.extraOptions = lib.mkDefault
+    [
+      "-A" "/var/log/smartd/"    # save some CSVs here
+      "-s" "/var/log/smartd/"    # persist state here for devices that dont save data (eg WD)
+    ];
+  services.smartd.defaults.autodetected = lib.mkDefault (lib.concatStringsSep " "
+    [
+      # scheduled test. format is T/MM/DD/d/HH
+      #
+      # L: long selftest
+      # S: short selftest
+      # C: conveyance self test
+      # O: offline immediate test
+      # n: selective test: next span
+      # r: selective test: redo last span
+      # c: selective test: continue or redo based on last test
+      #
+      # here i want at 1 am:
+      # L on 1st and 15th of the month
+      # S weekly on Tuesday
+      # c daily
+      "-s" "(L/../(01|15)/./01|S/../../2/01|c/../.././01)"
+
+      "-a"                      # turns on:
+                                # -H -- check health
+                                # -f -- report usage failures
+                                # -t -- track PreFail and Usage attribute changes
+                                # -l error -- report increases in ATA errors
+                                # -l selftest -- report increases in SelfTest errors
+                                # -l selftests -- report changes to SelfTest execute status
+                                # -C 197 -- report nonzero values of current pending sector count
+                                # -U 197 -- report nonzero values of offline pending sector count
+
+      "-o" "on"                 # monitor offline testing
+      "-S" "on"                 # enable attribute autosave
+      "-n" "standby,q"          # avoid spinning up disks in low power mode
+      "-W" "2,40,45"            # track temp changes >= 2deg, log changes of 40deg, alert on 45deg changes
+    ]);
 
   ################################################################################
   # system
