@@ -1,6 +1,9 @@
 {config, lib, pkgs, options, modulesPath}:
 
 {
+
+  gtk.iconCache.enable = true;
+
   services.emacs.enable = true;
   services.xserver.xrandrHeads =
     let
@@ -73,8 +76,10 @@
       after = [ "status-notifier-watcher.service" ];
       partOf = [ "wm.target" ];
       wantedBy = [ "wm.target" ];
+      wants = [ "display-manager.service" ];
       environment = {
         XDG_DATA_DIRS = "${config.system.path}/share";
+        NO_AT_BRIDGE = "1";
       };
     };
 
@@ -92,6 +97,7 @@
       description = "keepassxc: ${pkgs.keepassxc.meta.description}";
       serviceConfig.ExecStart = "${pkgs.keepassxc}/bin/keepassxc";
       path = [ config.system.path ];
+      requires = [ "taffybar.service" ];
       partOf = [ "wm.target" ];
       wantedBy = [ "wm.target" ];
       environment = {
