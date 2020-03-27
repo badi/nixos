@@ -10,7 +10,7 @@
   };
 
   programs.zsh.ohMyZsh = {
-    enable = true;
+    enable = false;
     theme = "junkfood";
     plugins = [
 
