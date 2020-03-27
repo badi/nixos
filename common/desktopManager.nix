@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 
 {
 
@@ -13,8 +13,6 @@
   services.xserver.enable = true;
   services.xserver.layout = "us";
 
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
   services.xserver.windowManager.xmonad = {
     enable = true;
     enableContribAndExtras = true;
@@ -58,7 +56,13 @@
     # haskellPackages.gtk-sni-tray
     haskellPackages.status-notifier-item
 
-  ];
+  ]
+  ++ lib.optionals config.services.xserver.desktopManager.gnome3.enable (with gnome3; [
+    gnome-screensaver
+    gnome-tweaks
+  ])
+
+  ;
 
   fonts = {
     enableDefaultFonts = true;

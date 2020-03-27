@@ -16,6 +16,7 @@ in
       ../common/basicSystem.nix
       ../common/can-sendmail.nix
       ../common/desktopManager.nix
+    ../common/desktopManagerKDE.nix
       ../common/kodi.nix
       ../common/nvidia.nix
       ../common/syncthing.nix

@@ -5,7 +5,7 @@
 # in
 
 let
-  secrets = import ../secrets {inherit lib;};
+  secrets = pkgs.callPackage ../secrets {};
 
   pkgs-unstable = import (import ../nixpkgs/unstable) {};
 
@@ -19,7 +19,7 @@ in
 
   imports = [
     ./hardware-configuration.nix
-    ./systemd-user.nix
+    # ./systemd-user.nix
     ../common/nix-config.nix
     # ./packages.nix
 
@@ -28,6 +28,7 @@ in
     ../common/dumb-login-shell-prompt.nix
     ../common/oh-my-zsh.nix
     ../common/desktopManager.nix
+    ../common/desktopManagerGnome3.nix
     ../common/devenv-haskell.nix
     # ../common/nvidia.nix
     ../common/users.nix
