@@ -52,7 +52,7 @@
     pa_applet
     pavucontrol
     rofi
-    taffybar
+    # taffybar                    # 20.03
     # haskellPackages.gtk-sni-tray
     haskellPackages.status-notifier-item
 
@@ -67,7 +67,7 @@
   fonts = {
     enableDefaultFonts = true;
     enableFontDir = true;
-    enableCoreFonts = true;
+    # enableCoreFonts = true;     # 20.03
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
       bakoma_ttf
