@@ -5,7 +5,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  secrets = import ../secrets {};
+  secrets = pkgs.callPackage ../secrets {};
 in
 
 {
