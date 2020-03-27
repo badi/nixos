@@ -40,6 +40,19 @@ in
     ../modules/popfile
   ];
 
+  nixpkgs.pkgs =
+    let src = builtins.fetchTarball https://github.com/NixOS/nixpkgs/archive/3be8b459e0be.tar.gz; # 19.09 2020-03-27
+    in import src {
+      config.allowUnfree = true;
+    };
+
+  nixpkgs.overlays = [
+
+    # for nixos 20.03
+    # # openssl-1.0.2u is insecure (support ended in 2019)
+    # (self: super: { openssl_1_0_2 = super.openssl; })
+
+  ];
 
   services.xserver.videoDrivers = [
     "amdgpu"
