@@ -15,13 +15,6 @@ in
     ../common/vpn.nix
   ];
 
-
-  nixpkgs.pkgs =
-    let src = builtins.fetchTarball https://github.com/NixOS/nixpkgs/archive/cae7840.tar.gz; # 19.09 2019-10-12
-    in import src {
-      config.allowUnfree = true;
-    };
-
   hardware.cpu.intel.updateMicrocode = true;
 
   networking = {
