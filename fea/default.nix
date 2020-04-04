@@ -9,7 +9,7 @@ let
   inherit (lib) attrNames concatStringsSep catAttrs mapAttrs mapAttrsToList optionalString;
   inherit (builtins) toString;
 
-  secrets = import ../secrets {};
+  secrets = pkgs.callPackage ../secrets {};
 
   wan-iface-name = "wan0";
   wan-iface = { "${wan-iface-name}" = { mac = "00:0e:c4:d2:36:1d"; }; };
