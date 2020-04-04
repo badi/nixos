@@ -31,10 +31,13 @@ in
   environment.systemPackages = with pkgs; [
     gptfdisk
     mediainfo
+    tailscale
     smbclient
     xfsprogs
     youtube-dl
   ];
+
+  services.tailscale.enable = true;
 
   services.smartd.notifications.mail.enable = true;
 
