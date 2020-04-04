@@ -20,7 +20,6 @@ in
       ../common/kodi.nix
       ../common/nvidia.nix
       ../common/syncthing.nix
-      ../common/junk-blocker.nix
 
       ../modules/mediacenter
     ];
