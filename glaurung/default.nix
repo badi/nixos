@@ -26,7 +26,7 @@ in
     ];
 
   nixpkgs.pkgs =
-    let src = builtins.fetchTarball https://github.com/NixOS/nixpkgs/archive/34c7eb754.tar.gz; # 19.03 2020-02-18
+    let src = builtins.fetchTarball https://github.com/NixOS/nixpkgs/archive/c7f0659e03.tar.gz; # 19.03 2020-01-25
     in import src {
       config.allowUnfree = true;
     };
