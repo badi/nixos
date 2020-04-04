@@ -47,7 +47,6 @@ in
 
   # services.xserver.synaptics.enable = true;
 
-
   hardware.opengl.extraPackages = with pkgs; [
     vaapiIntel vaapiVdpau libvdpau-va-gl intel-ocl
   ];
@@ -135,6 +134,7 @@ in
     # pingus 19.03
     popfile
     spotify
+    tailscale
     terraform-full
     thunderbird
     tlaplusToolbox
@@ -204,6 +204,8 @@ in
 
 
   services.popfile.enable = true;
+
+  services.tailscale.enable = true;
 
   services.synergy.server.enable = false;
   services.synergy.server.configFile = "/home/badi/.synergy.conf";
