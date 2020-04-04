@@ -8,7 +8,6 @@ in
 
   imports = [
     ../common/nix-config.nix
-    ../common/junk-blocker.nix
   ];
 
   boot.loader.grub.enable = true;
