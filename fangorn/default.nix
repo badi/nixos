@@ -119,7 +119,7 @@ in
     alacritty
     bat
     digikam gwenview okular
-    emacs
+    my-emacs-with-packages
     evince
     firefox-bin
     # gimp-with-plugins
