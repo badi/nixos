@@ -24,6 +24,7 @@ in
   environment.systemPackages = with pkgs; [
     emacs
     pv
+    tailscale
     tmux
   ];
 
@@ -31,6 +32,8 @@ in
     openssh.authorizedKeys.keys =
       secrets.ssh-keys.badi.fangorn;
   };
+
+  services.tailscale.enable = true;
 
   services.prometheus.exporters.node.enable = true;
   services.prometheus.exporters.node.openFirewall = true;
