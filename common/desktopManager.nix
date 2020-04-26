@@ -6,7 +6,6 @@
   hardware.pulseaudio.package = pkgs.pulseaudioFull;
   hardware.pulseaudio.daemon.config.flat-volumes = "no";
   hardware.u2f.enable = true;
-  hardware.bluetooth.enable = true;
 
   services.upower.enable = true;
 
@@ -32,7 +31,6 @@
   # (with gnome3; [
   #   adwaita-icon-theme
   #   defaultIconTheme
-  #   gnome-bluetooth
   #   eog
   # ]) ++
 
@@ -42,7 +40,6 @@
     hicolor-icon-theme
     gnome3.eog
     pcmanfm
-    blueman
     compton-git
     fbpanel
     feh
