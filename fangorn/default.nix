@@ -41,6 +41,18 @@ in
   ];
 
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "openssl-1.0.2u"            # https://github.com/NixOS/nixpkgs/pull/80746
+  ];
+
+  # nixpkgs.overlays = [
+
+  #   # for nixos 20.03
+  #   # openssl-1.0.2u is insecure (support ended in 2019)
+  #   (self: super: { openssl_1_0_2 = super.openssl; })
+
+  # ];
+
   services.xserver.videoDrivers = [
     "amdgpu"
   ];
@@ -198,7 +210,7 @@ in
 
   virtualisation.docker.enable = true;
   virtualisation.libvirtd.enable = true;
-  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enable = false; # nixos 20.03
   virtualisation.virtualbox.host.enableHardening = true;
   nixpkgs.config.virtualbox.enableExtensionPack = false;
 
