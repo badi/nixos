@@ -16,7 +16,9 @@ in
       ../common/basicSystem.nix
       ../common/can-sendmail.nix
       ../common/desktopManager.nix
-    ../common/desktopManagerKDE.nix
+      ../common/desktopManagerKDE.nix
+      # ../common/desktopManagerGnome3.nix
+      # FIXME: gnome+kdeconnect is no bueno
       ../common/kodi.nix
       ../common/nvidia.nix
       ../common/syncthing.nix
@@ -58,8 +60,6 @@ in
     { from = 1714; to = 1764; } # kdeconnect
   ];
 
-  hardware.bluetooth.enable = lib.mkForce false;
-
   services.unified-remote.enable = true;
   services.unified-remote.openFirewall = true;
 
@@ -74,14 +74,19 @@ in
   services.prometheus.exporters.node.openFirewall = true;
   services.smartd.notifications.mail.enable = true;
 
+  # services.xserver.displayManager.gdm.autoLogin.enable = true;
+  # services.xserver.displayManager.gdm.autoLogin.user = "htpc";
+
   services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sddm.enableHidpi = true;
   services.xserver.displayManager.sddm.autoLogin.enable = true;
   services.xserver.displayManager.sddm.autoLogin.user = "htpc";
-  services.xserver.displayManager.sddm.extraConfig = ''
-  [X11]
-  ServerArguments=-dpi 144
-  '';
+  # services.xserver.displayManager.sddm.extraConfig = ''
+  # [X11]
+  # ServerArguments=-dpi 144
+  # '';
   services.xserver.desktopManager.plasma5.enable = true;
+
   services.openssh.forwardX11 = true;
 
   users.extraUsers.badi = {
