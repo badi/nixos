@@ -28,6 +28,7 @@ in
     ../common/dumb-login-shell-prompt.nix
     ../common/oh-my-zsh.nix
     ../common/desktopManager.nix
+    ../common/desktopManagerXmonad.nix
     ../common/desktopManagerGnome3.nix
     ../common/devenv-haskell.nix
     # ../common/nvidia.nix
@@ -64,10 +65,7 @@ in
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelModules = [ "wireguard" ];
-  boot.extraModulePackages = with config.boot.kernelPackages; [
-    wireguard
-  ];
+
 
   services.xserver.windowManager.i3 = {
     enable = true;

@@ -12,19 +12,6 @@
   services.xserver.enable = true;
   services.xserver.layout = "us";
 
-  services.xserver.windowManager.xmonad = {
-    enable = true;
-    enableContribAndExtras = true;
-    extraPackages = haskellPackages: with haskellPackages; [
-      xmonad-screenshot
-      xmonad-spotify
-      xmonad-utils
-      xmonad-volume
-      # xmonad-wallpaper
-      # xmonad-windownames
-    ];
-  };
-
   programs.dconf.enable = true;
   services.dbus.packages = [ pkgs.gnome3.dconf ];
   environment.systemPackages = with pkgs;
