@@ -50,6 +50,7 @@ in
     kmplayer
     kdeconnect
     plex-media-player
+    tailscale
   ];
 
   networking.firewall.allowedTCPPortRanges = [
@@ -62,6 +63,8 @@ in
 
   services.unified-remote.enable = true;
   services.unified-remote.openFirewall = true;
+
+  services.tailscale.enable = true;
 
   services.plex.enable = true;
   services.plex.openFirewall = true;

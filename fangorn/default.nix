@@ -64,8 +64,11 @@ in
     vaapiIntel vaapiVdpau libvdpau-va-gl intel-ocl
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages;
 
+
+  programs.gnupg.agent.enable = true;
+  # programs.gnupg.agent.pinentryFlavor = "emacs";
 
   services.xserver.windowManager.i3 = {
     enable = true;
@@ -119,7 +122,7 @@ in
     digikam gwenview okular
     my-emacs-with-packages
     evince
-    firefox-bin
+    firefox-beta-bin
     # gimp-with-plugins
     gnutls
     google-chrome
@@ -213,7 +216,7 @@ in
   nixpkgs.config.virtualbox.enableExtensionPack = false;
 
 
-  services.popfile.enable = true;
+  services.popfile.enable = false;
 
   services.tailscale.enable = true;
 
