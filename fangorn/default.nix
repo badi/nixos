@@ -120,7 +120,7 @@ in
     alacritty
     bat
     digikam gwenview okular
-    my-emacs-with-packages
+    emacsGcc
     evince
     firefox-beta-bin
     # gimp-with-plugins

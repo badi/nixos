@@ -2,8 +2,9 @@
 
 {
   nixpkgs.overlays = [
-    (final: previous: with final.callPackage ./emacs.nix {};
-      { inherit my-emacs-with-packages; }
+    (import (builtins.fetchTarball {
+      url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+    })
     )
   ];
 
