@@ -5,7 +5,6 @@
   hardware.pulseaudio.enable = true;
   hardware.pulseaudio.package = pkgs.pulseaudioFull;
   hardware.pulseaudio.daemon.config.flat-volumes = "no";
-  hardware.u2f.enable = true;
 
   services.upower.enable = true;
 
@@ -28,7 +27,7 @@
     gnome3.eog
     pcmanfm
     compton-git
-    fbpanel
+    # fbpanel  # 2020-08-29 nixpkgs-unstable broken
     feh
     flameshot
     networkmanagerapplet
@@ -42,7 +41,6 @@
 
   ]
   ++ lib.optionals config.services.xserver.desktopManager.gnome3.enable (with gnome3; [
-    gnome-screensaver
     gnome-tweaks
   ])
 
@@ -67,8 +65,8 @@
     ];
   };
 
-  i18n.consoleFont = "Lat2-Terminus16";
-  i18n.consoleKeyMap = "us";
+  console.font = "Lat2-Terminus16";
+  console.keyMap = "us";
   i18n.defaultLocale = "en_US.UTF-8";
 
 }

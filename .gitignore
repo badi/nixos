@@ -5,3 +5,4 @@ result
 tf.plan
 terraform.tfstate.backup
 streisand
+/*/nixpkgs

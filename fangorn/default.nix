@@ -58,7 +58,9 @@ in
     "amdgpu"
   ];
 
-  # services.xserver.synaptics.enable = true;
+  hardware.opengl.driSupport32Bit = true;
+
+  services.xserver.displayManager.gdm.wayland = false;
 
   hardware.opengl.extraPackages = with pkgs; [
     vaapiIntel vaapiVdpau libvdpau-va-gl intel-ocl
@@ -69,22 +71,6 @@ in
 
   programs.gnupg.agent.enable = true;
   # programs.gnupg.agent.pinentryFlavor = "emacs";
-
-  services.xserver.windowManager.i3 = {
-    enable = true;
-    extraPackages = with pkgs; [
-      arandr
-      dmenu
-      dunst
-      # enlightenment.terminology
-      i3lock
-      i3lock-fancy
-      i3status
-      nextcloud-client
-      notify-osd
-      volnoti
-    ];
-  };
 
   users.users.root.openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPDbgpcaBErGwC4jgyREUF9DMEEdxYo3/H0Zx0naZqTz NixOps client key for fangorn" ];
 
@@ -118,6 +104,7 @@ in
 
     aws
     alacritty
+    appimage-run
     bat
     digikam gwenview okular
     emacsGcc
@@ -132,29 +119,32 @@ in
     inkscape
     inotify-tools
     jq
-    keepassx-community
+    # keepassx-community
     keychain
     konversation
     masterpdfeditor
     mediainfo
-    mendeley
+    # mendeley  # 2020-08-29 nixpkgs-unstable broken
     nixops
     okular
     pandoc
-    pgadmin
+    # pgadmin
     pgcli
     pinentry
     # pingus 19.03
     popfile
+    slack
+    spaceship-prompt
     spotify
     tailscale
-    terraform-full
-    thunderbird
+    # terraform-full
     tlaplusToolbox
     weechat
     # qweechat 19.03
     # wpsoffice 19.03 (really wps updated and the previous is not available)
+    (vivaldi.override{proprietaryCodecs=true; enableWidevine=true;})
     xclip
+    zoom-us
     (aspellWithDicts (dicts: with dicts; [en]))
 
   ];
@@ -163,7 +153,7 @@ in
 
 
   services.postgresql = {
-    enable = true;
+    enable = false;               # 2020-08-29 nixpkgs-unstable broken
     package = pkgs.postgresql_10; # 19.03
     dataDir = "/var/lib/postgresql/10.0";
   };
