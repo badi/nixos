@@ -19,8 +19,8 @@ in
     imports = [ ../fangorn ];
   };
 
-  fea = {...}: {
-    deployment.targetHost = "fea";
+  unifi = {...}: {
+    deployment.targetHost = "unifi";
     imports = [ ../fea ];
   };
 

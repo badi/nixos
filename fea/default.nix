@@ -113,7 +113,7 @@ in
   };
 
   networking.firewall = {
-    enable = true;
+    enable = false;
     trustedInterfaces = attrNames lan-ifaces;
   };
   # networking.firewall.extraCommands = let
@@ -147,7 +147,7 @@ in
     in mapAttrs mk-iface lan-ifaces;
 
   networking.nat = {
-    enable = true;
+    enable = false;
     externalInterface  = wan-iface-name;
     internalInterfaces = attrNames lan-ifaces;
     internalIPs = mapAttrsToList (_: iface: iface.subnet.cidr) lan-ifaces;
@@ -172,7 +172,7 @@ in
   };
 
   services.miniupnpd = {
-    enable = true;
+    enable = false;
     externalInterface = wan-iface-name;
     internalIPs = attrNames lan-ifaces;
     natpmp = true;             # commonly used for Apple devices
@@ -197,7 +197,7 @@ in
   };
 
   services.dhcpd4 = {
-    enable = true;
+    enable = false;
     interfaces = attrNames  lan-ifaces;
     extraConfig =
       let
@@ -289,7 +289,7 @@ in
       '';
       mk-named-entry-list = xs: lib.concatMapStrings (entry: " ${entry}; ") xs;
     in {
-    enable = true;
+    enable = false;
     listenOn = [ "127.0.0.1" ] ++ mapAttrsToList (_: iface: ip4ToString iface.ip4) lan-ifaces;
     cacheNetworks = [ "127.0.0.0/24" ] ++ mapAttrsToList (name: iface: iface.subnet.cidr) lan-ifaces;
     forwarders = dhcp-dns-servers;
@@ -343,9 +343,9 @@ in
       "${pkgs.bind.out}/sbin/named -u ${bindUser} ${optionalString cfg.ipv4Only "-4"} -c /var/lib/named/named.conf -f"
     );
 
-  services.fail2ban.enable = true;
+  services.fail2ban.enable = false;
 
-  services.geoip-updater.enable = true;
+  services.geoip-updater.enable = false;
 
   # ntop has been failing to build since 2019-02
   # https://hydra.nixos.org/job/nixos/openssl-1.1/ntopng.x86_64-linux/all?page=1
@@ -353,7 +353,7 @@ in
 
   services.unifi = {
     enable = true;
-    unifiPackage = pkgs.unifiStable;
+    unifiPackage = pkgs.unifi;
   };
 
   services.nginx = {
@@ -372,7 +372,7 @@ in
   };
 
   services.ddclient = {
-    enable = true;
+    enable = false;
     protocol = "namecheap";
     username = secrets.namecheap.username;
     password = "'${secrets.namecheap.password}'";
@@ -380,7 +380,7 @@ in
   };
 
   services.prometheus.exporters.unifi = {
-    enable = true;
+    enable = false;
     port = 9101;
     unifiTimeout = "5m";
     unifiAddress = "https://fea.${domain-name}:8443";

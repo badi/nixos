@@ -35,7 +35,7 @@ in
 
   services.tailscale.enable = true;
 
-  services.prometheus.exporters.node.enable = true;
+  services.prometheus.exporters.node.enable = false;
   services.prometheus.exporters.node.openFirewall = true;
 
   sound.enable = false;
