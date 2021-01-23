@@ -41,7 +41,12 @@ in
 
   services.udev.extraRules = udev-rewrite-iface-name;
 
-  networking.firewall.enable = false;
+  networking.firewall =
+    let unifi-controller = [ 8443 ];
+    in  {
+      enable = true;
+      allowedTCPPorts = unifi-controller;
+    };
 
   services.unifi = {
     enable = true;
