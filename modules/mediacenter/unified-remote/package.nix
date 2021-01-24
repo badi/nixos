@@ -12,8 +12,8 @@
 #
 #  Pass in the version and sha256 to allow easy overriding on updates
 #  without waiting for nixpkgs to propagate the changes.
-, pkgVersion ? "3.8.0.2451"
-, pkgSha256 ? "1qisdra8q85p6ian2663nn8l3lc7fwfrzd8ag75allc5kzwg9332"
+, pkgVersion ? "3.8.0.2465"
+, pkgSha256 ? "1hyzn3sn3w1zh814f26j27118pv5yl91kjbz8ypbb40flgwplk58"
 
 , ... }:
 
