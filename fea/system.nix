@@ -17,8 +17,8 @@ in
   services.openssh.enable = true;
   services.openssh.permitRootLogin = "yes";
 
-  i18n.consoleFont = "Lat2-Terminus16";
-  i18n.consoleKeyMap = "us";
+  console.font = "Lat2-Terminus16";
+  console.keyMap = "us";
   i18n.defaultLocale = "en_US.UTF-8";
 
   environment.systemPackages = with pkgs; [

@@ -62,8 +62,8 @@ in
 
 
 
-  i18n.consoleFont = "lat2-Terminus16";
-  i18n.consoleKeyMap = "us";
+  console.font = "lat2-Terminus16";
+  console.keyMap = "us";
   i18n.defaultLocale = "en_US.UTF-8";
 
 

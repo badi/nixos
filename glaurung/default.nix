@@ -49,7 +49,7 @@ in
     vlc_qt5
     kmplayer
     kdeconnect
-    plex-media-player
+    # plex-media-player
     tailscale
   ];
 
@@ -82,8 +82,8 @@ in
 
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.displayManager.sddm.enableHidpi = true;
-  services.xserver.displayManager.sddm.autoLogin.enable = true;
-  services.xserver.displayManager.sddm.autoLogin.user = "htpc";
+  services.xserver.displayManager.autoLogin.enable = true;
+  services.xserver.displayManager.autoLogin.user = "htpc";
   # services.xserver.displayManager.sddm.extraConfig = ''
   # [X11]
   # ServerArguments=-dpi 144

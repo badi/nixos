@@ -48,10 +48,10 @@
 
   fonts = {
     enableDefaultFonts = true;
-    enableFontDir = true;
     # enableCoreFonts = true;     # 20.03
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
+      (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
       bakoma_ttf
       corefonts
       dejavu_fonts
