@@ -107,7 +107,7 @@ in
     appimage-run
     bat
     digikam gwenview okular
-    emacsGcc
+    emacsGit
     evince
     firefox-beta-bin
     # gimp-with-plugins
