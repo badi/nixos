@@ -30,8 +30,6 @@ in
     ../common/desktopManager.nix
     ../common/desktopManagerXmonad.nix
     ../common/desktopManagerGnome3.nix
-    ../common/devenv-haskell.nix
-    # ../common/nvidia.nix
     ../common/users.nix
     ../common/vpn.nix
     ../common/syncthing.nix
@@ -122,7 +120,6 @@ in
     # keepassx-community
     keychain
     konversation
-    masterpdfeditor
     mediainfo
     # mendeley  # 2020-08-29 nixpkgs-unstable broken
     nixops
@@ -198,13 +195,6 @@ in
   #   openFirewall = true;
   #   clientMaxBodySize = "1G";
   # };
-
-  virtualisation.docker.enable = true;
-  virtualisation.libvirtd.enable = true;
-  virtualisation.virtualbox.host.enable = false; # nixos 20.03
-  virtualisation.virtualbox.host.enableHardening = true;
-  nixpkgs.config.virtualbox.enableExtensionPack = false;
-
 
   services.popfile.enable = false;
 
