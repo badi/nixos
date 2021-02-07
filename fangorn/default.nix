@@ -249,13 +249,7 @@ in
         { targets = [ "glaurung:9100" ];
           labels  = { alias = "glaurung"; };
         }
-        { targets = [ "este:9100" ];
-          labels  = { alias = "este"; };
-        }
-        { targets = [ "fea:9100" ];
-          labels  = { alias = "fea"; };
-        }
-        { targets = [ "fea:9101" ];
+        { targets = [ "unifi:9101" ];
           labels  = { alias = "unifi"; };
         }
       ];
@@ -270,7 +264,7 @@ in
         { targets = [ "192.168.1.1" ];
           labels = { network = "internal"; what = "modem"; };
         }
-        { targets = [ "namo" "glaurung" "fangorn" "fea" ];
+        { targets = [ "namo" "glaurung" "fangorn" "unifi" ];
           labels  = { network = "internal"; };
         }
         { targets = [ "google.com" "amazon.com" "spotify.com" "comcast.com" ];
