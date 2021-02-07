@@ -21,7 +21,7 @@ in
 
   unifi = {...}: {
     deployment.targetHost = "unifi";
-    imports = [ ../fea ];
+    imports = [ ../unifi ];
   };
 
   glaurung = {...}: {
