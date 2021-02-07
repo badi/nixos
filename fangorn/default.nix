@@ -249,8 +249,11 @@ in
         { targets = [ "glaurung:9100" ];
           labels  = { alias = "glaurung"; };
         }
-        { targets = [ "unifi:9101" ];
+        { targets = [ "unifi:9100" ];
           labels  = { alias = "unifi"; };
+        }
+        { targets = [ "unifi:9101" ];
+          labels  = { alias = "unifi-controller"; };
         }
       ];
     }
@@ -261,9 +264,6 @@ in
       metrics_path = "/probe";
       params = { module = [ "icmp_check" ]; };
       static_configs = [
-        { targets = [ "192.168.1.1" ];
-          labels = { network = "internal"; what = "modem"; };
-        }
         { targets = [ "namo" "glaurung" "fangorn" "unifi" ];
           labels  = { network = "internal"; };
         }

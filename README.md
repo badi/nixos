@@ -5,10 +5,9 @@ This repository contains my NixOS configuration files.
 There are several machines, each defined within a subdirectory:
 
 - `fangorn`: main development node
-- `fea`: router
 - `glaurung`: media center
-- `este`: laptop
 - `namo`: fileserver
+- `unifi`: unifi controller
 
 These are deployed by NixOps (see [network](./network)).
 

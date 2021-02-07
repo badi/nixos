@@ -34,18 +34,52 @@ in
 
   imports = [
     ./hardware.nix
-
-    # non-router-specific configuration go here
-    ./system.nix
+    ../common/nix-config.nix
   ];
+
+
+  boot.loader.grub.enable = true;
+  boot.loader.grub.version = 2;
+  boot.loader.grub.device = "/dev/disk/by-id/ata-MT-64_087081950063";
 
   services.udev.extraRules = udev-rewrite-iface-name;
 
+
+  services.openssh.enable = true;
+  services.openssh.permitRootLogin = "yes";
+
+  console.font = "Lat2-Terminus16";
+  console.keyMap = "us";
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  environment.systemPackages = with pkgs; [
+    emacs
+    pv
+    tailscale
+    tmux
+  ];
+
+  users.users.root = {
+    openssh.authorizedKeys.keys =
+      secrets.ssh-keys.badi.fangorn;
+  };
+
+  services.tailscale.enable = true;
+
+  services.prometheus.exporters.node.enable = true;
+  services.prometheus.exporters.node.openFirewall = true;
+
+  sound.enable = false;
+
+  time.timeZone = "US/Central";
+
   networking.firewall =
-    let unifi-controller = [ 8443 ];
+    let
+      unifi-controller = [ 8443 ];
+      prometheus-unifi = [ 9101 ];
     in  {
       enable = true;
-      allowedTCPPorts = unifi-controller;
+      allowedTCPPorts = unifi-controller ++ prometheus-unifi;
     };
 
   services.unifi = {
@@ -62,10 +96,10 @@ in
   };
 
   services.prometheus.exporters.unifi = {
-    enable = false;
+    enable = true;
     port = 9101;
     unifiTimeout = "5m";
-    unifiAddress = "https://fea.${domain-name}:8443";
+    unifiAddress = "https://localhost:8443";
     unifiInsecure = true;
     unifiUsername = secrets.unifiExporter.username;
     unifiPassword = secrets.unifiExporter.password;
