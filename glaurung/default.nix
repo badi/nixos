@@ -75,6 +75,9 @@ in
 
   services.prometheus.exporters.node.enable = true;
   services.prometheus.exporters.node.openFirewall = true;
+  services.prometheus.exporters.node.disabledCollectors = [
+    "rapl"
+  ];
   services.smartd.notifications.mail.enable = true;
 
   # services.xserver.displayManager.gdm.autoLogin.enable = true;

@@ -68,6 +68,9 @@ in
 
   services.prometheus.exporters.node.enable = true;
   services.prometheus.exporters.node.openFirewall = true;
+  services.prometheus.exporters.node.disabledCollectors = [
+    "rapl"
+  ];
 
   sound.enable = false;
 
